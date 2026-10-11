@@ -22,6 +22,23 @@
     <p class="hint" style="margin:6px 0 14px">Fang bei ★ an. Bei einem Fehler darfst du es nochmal versuchen.</p>
     <div class="levels" id="levels"></div>
 
+    <h2>🎬 Video der Woche</h2>
+    <div class="card">
+      <b>„What do you like about New York?“</b>
+      <p class="hint" style="margin:4px 0 0">Echte New Yorker und Touristen erzählen, was sie an New York lieben (3 Minuten, Easy Languages). Setz deine Kopfhörer auf! Du darfst das Video mehrmals anschauen.</p>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/AmlF6xq2SaQ?rel=0" title="Easy English: What do you like about New York?" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+      <div class="actions" style="margin-top:0">
+        <button class="btn" onclick="QUIZ_START('Video-Quiz 🎬')">▶ Video-Quiz starten (10 Fragen)</button>
+        <a class="btn secondary" href="#xw-sec">✏️ Kreuzworträtsel</a>
+      </div>
+    </div>
+
+    <h2 id="xw-sec">✏️ Kreuzworträtsel zum Video</h2>
+    <div class="card">
+      <p class="hint" style="margin:0">Alle Wörter kommen im Video vor. Tippe ein Kästchen an und schreib los.</p>
+      <div id="xw"></div>
+    </div>
+
     <h2>Noch mehr üben</h2>
     <div class="links">
       <a class="ext" href="https://www.ego4u.de/de/read-on/countries/uk/tour/stonehenge" target="_blank" rel="noopener">
@@ -113,8 +130,22 @@ window.QUIZ = { id: "2026-10-12", choiceTip: "Ist es eine Person (→ who) oder 
     { type: "choice", q: "How much does a ticket for the Staten Island Ferry cost?", options: ["nothing – it's free", "$2.90", "$15"], answer: "nothing – it's free", why: "Die Fähre ist kostenlos – und man hat einen tollen Blick auf die Freiheitsstatue." },
     { type: "choice", q: "What is New York's famous nickname?", options: ["the Big Apple", "the Windy City", "the Golden City"], answer: "the Big Apple", why: "„The Big Apple“ – „The Windy City“ ist Chicago." },
   ]},
+  { name: "Video-Quiz 🎬", stars: 2, hidden: true, desc: "Zum Video „What do you like about New York?“", tasks: [
+    { type: "choice", q: "Where do Virginia and the students ask people about New York?", hint: "Schau dir zuerst das Video an.", options: ["in Manhattan", "in Brooklyn", "on Staten Island"], answer: "in Manhattan", why: "„… to ask New Yorkers here in Manhattan …“" },
+    { type: "choice", q: "Where are the students from?", options: ["from Virginia", "from England", "from Germany"], answer: "from Virginia", why: "„… a group of students from Virginia …“ – Virginia ist ein US-Bundesstaat." },
+    { type: "choice", q: "Why does the first family love New York?", options: ["because of the lifestyle", "because of the weather", "because of the cheap food"], answer: "because of the lifestyle", why: "„We love New York because of the lifestyle it offers …“" },
+    { type: "choice", q: "Why did the young tourist come to New York?", options: ["He was curious how such a big city works.", "He wanted to see a basketball game.", "He visits his family there."], answer: "He was curious how such a big city works.", why: "„I was curious how the city works, how it's such a big city …“" },
+    { type: "choice", q: "One visitor loves the lights and the people. What else does she like?", options: ["the huge billboards", "the old bridges", "the yellow taxis"], answer: "the huge billboards", why: "„… the lights, the huge billboards, the people …“" },
+    { type: "choice", q: "A man who lives in New York says what he loves most. What is it?", options: ["biking around the city", "eating pizza", "going to the theater"], answer: "biking around the city", why: "„I'm going to have to say biking around here …“" },
+    { type: "choice", q: "What surprised one visitor a lot?", options: ["The people are friendly and have time to talk.", "The subway is very fast.", "Everything is very cheap."], answer: "The people are friendly and have time to talk.", why: "„They are so friendly here, they have time to talk.“" },
+    { type: "choice", q: "The family from England likes the weather in New York. Why?", options: ["There is more sunshine than in England.", "It is colder than in England.", "It never rains in New York."], answer: "There is more sunshine than in England.", why: "„… we don't get three months' worth of sunshine like you do over here.“" },
+    { type: "type", q: "A woman came to New York for her husband's work. How many months has she been here? Tippe die Zahl.", answers: ["4", "four", "4 months", "four months"], why: "„… we've only been over here for four months …“" },
+    { type: "choice", q: "What did the last woman do with her son today?", options: ["She enjoyed the nature and the ducks in a park.", "She went shopping with him.", "She took him to school."], answer: "She enjoyed the nature and the ducks in a park.", why: "„… sat with my son today enjoying the nature and the ducks …“" },
+  ]},
 ]};
+window.XWORD = {"h": 14, "w": 14, "cells": {"5,4": "B", "5,5": "I", "5,6": "L", "5,7": "L", "5,8": "B", "5,9": "O", "5,10": "A", "5,11": "R", "5,12": "D", "5,13": "S", "6,7": "I", "7,7": "F", "8,7": "E", "9,7": "S", "10,7": "T", "11,7": "Y", "12,7": "L", "13,7": "E", "1,9": "C", "2,9": "U", "3,9": "R", "4,9": "I", "6,9": "U", "7,9": "S", "3,13": "H", "4,13": "U", "6,13": "B", "7,13": "A", "8,13": "N", "9,13": "D", "0,5": "S", "1,5": "U", "2,5": "N", "3,5": "S", "4,5": "H", "6,5": "N", "7,5": "E", "7,0": "N", "7,1": "A", "7,2": "T", "7,3": "U", "7,4": "R", "3,2": "L", "4,2": "I", "5,2": "G", "6,2": "H", "8,2": "S", "3,0": "B", "4,0": "I", "5,0": "K", "6,0": "I", "8,0": "G", "0,0": "T", "0,1": "O", "0,2": "U", "0,3": "R", "0,4": "I", "0,6": "T", "0,7": "S", "13,3": "C", "13,4": "O", "13,5": "L", "13,6": "L", "13,8": "G", "13,9": "E", "4,11": "F", "6,11": "I", "7,11": "E", "8,11": "N", "9,11": "D", "10,11": "L", "11,11": "Y", "2,8": "D", "2,10": "C", "2,11": "K", "2,12": "S"}, "nums": {"0,0": 1, "0,5": 2, "1,9": 3, "2,8": 4, "3,0": 5, "3,2": 6, "3,13": 7, "4,11": 8, "5,4": 9, "5,7": 10, "7,0": 11, "13,3": 12}, "across": [[1, "Touristen", "TOURISTS"], [4, "Enten", "DUCKS"], [9, "große Werbetafeln", "BILLBOARDS"], [11, "Natur", "NATURE"], [12, "Hochschule, College", "COLLEGE"]], "down": [[2, "Sonnenschein", "SUNSHINE"], [3, "neugierig", "CURIOUS"], [5, "Radfahren", "BIKING"], [6, "Lichter", "LIGHTS"], [7, "Ehemann", "HUSBAND"], [8, "freundlich", "FRIENDLY"], [10, "Lebensstil, Lebensweise", "LIFESTYLE"]]};
 </script>
 <script src="../assets/quiz.js"></script>
+<script src="../assets/crossword.js"></script>
 </body>
 </html>

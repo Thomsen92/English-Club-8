@@ -14,6 +14,7 @@
     const done = load();
     const box = $("#levels"); box.innerHTML = "";
     Q.levels.forEach((lv, n) => {
+      if (lv.hidden) return;
       const b = document.createElement("button");
       b.className = "level-btn";
       b.innerHTML = `<span class="stars">${"★".repeat(lv.stars)}${"☆".repeat(3 - lv.stars)}</span>
@@ -187,5 +188,6 @@
   }
 
   $("#stop").onclick = renderMenu;
+  window.QUIZ_START = (name) => { const n = Q.levels.findIndex((l) => l.name === name); if (n >= 0) start(n); };
   renderMenu();
 })();
