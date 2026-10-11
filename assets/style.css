@@ -1,0 +1,120 @@
+/* English Club 8 – gemeinsames Design (ohne externe Schriften, datenschutzfreundlich) */
+:root {
+  --bg: #f4f1e8; --card: #ffffff; --ink: #1b2a41; --muted: #5d6878; --line: #d9d3c3;
+  --accent: #f7c531; --accent-ink: #1b2a41; --brick: #b5523b; --navy: #1b2a41;
+  --ok: #2e7d4f; --ok-bg: #e3f4ea; --bad: #b5523b; --bad-bg: #fbe7e1;
+  --chip: #eef1f6; --chip-ink: #1b2a41; --link: #1f5fa8;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121a27; --card: #1b2a41; --ink: #f3efe4; --muted: #a9b3c2; --line: #33445f;
+    --accent: #f7c531; --accent-ink: #1b2a41; --brick: #ff8f75; --navy: #0d1420;
+    --ok: #5fd08f; --ok-bg: #163a2a; --bad: #ff8f75; --bad-bg: #3e1f19;
+    --chip: #26385a; --chip-ink: #f3efe4; --link: #8cc4ff;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 18px; line-height: 1.45;
+}
+a { color: var(--link); }
+.top {
+  background: var(--navy); color: #f3efe4; padding: 18px 16px 22px;
+}
+.top-inner, .wrap { max-width: 760px; margin: 0 auto; }
+.wrap { padding: 20px 16px 48px; }
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 44px; height: 44px; border-radius: 12px; background: var(--accent); color: #1b2a41;
+  display: grid; place-items: center; font-weight: 900; font-size: 20px; flex: none;
+}
+.top h1 { margin: 0; font-size: 1.45rem; line-height: 1.2; }
+.top p { margin: 2px 0 0; color: #c9d1dc; font-size: .95rem; }
+.crumb { display: inline-block; color: #f7c531; text-decoration: none; font-weight: 700; margin-bottom: 10px; font-size: .95rem; }
+
+h2 { font-size: 1.15rem; margin: 28px 0 12px; }
+.label { font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+.week-now { border: 3px solid var(--accent); }
+.week-now h3 { margin: 4px 0 6px; font-size: 1.3rem; }
+.week-now p { margin: 0 0 14px; color: var(--muted); }
+.pill { display: inline-block; background: var(--accent); color: var(--accent-ink); font-weight: 800; border-radius: 99px; padding: 3px 10px; font-size: .8rem; }
+
+.list { display: grid; gap: 10px; }
+.row {
+  display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--ink);
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+}
+.row .kw { font-weight: 900; color: var(--brick); min-width: 56px; }
+.row .t { flex: 1; min-width: 0; }
+.row .t b { display: block; }
+.row .t small { color: var(--muted); }
+.row .go { font-weight: 800; color: var(--muted); }
+
+.btn {
+  display: inline-block; font: inherit; font-weight: 800; border: none; cursor: pointer; text-decoration: none;
+  background: var(--accent); color: var(--accent-ink); border-radius: 14px; padding: 14px 22px; font-size: 1.05rem;
+}
+.btn.secondary { background: var(--chip); color: var(--chip-ink); border: 2px solid var(--line); }
+.levels { display: grid; gap: 12px; }
+.level-btn {
+  display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; font: inherit; cursor: pointer;
+  background: var(--card); color: var(--ink); border: 2px solid var(--line); border-radius: 16px; padding: 16px;
+}
+.level-btn .stars { font-size: 1.3rem; color: #d9a400; min-width: 64px; }
+.level-btn b { display: block; font-size: 1.05rem; }
+.level-btn small { color: var(--muted); }
+.level-btn .done { margin-left: auto; font-weight: 800; color: var(--ok); }
+
+.links { display: grid; gap: 10px; }
+.ext {
+  display: flex; gap: 12px; align-items: flex-start; text-decoration: none; color: var(--ink);
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px;
+}
+.ext .ico { font-size: 1.4rem; line-height: 1; }
+.ext b { display: block; }
+.ext small { color: var(--muted); }
+.tag { display: inline-block; font-size: .72rem; font-weight: 800; border-radius: 6px; padding: 1px 6px; margin-left: 6px; vertical-align: 2px; }
+.tag.pro { background: var(--brick); color: #fff; }
+.tag.mid { background: var(--chip); color: var(--chip-ink); border: 1px solid var(--line); }
+
+/* Quiz */
+.progress { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; margin: 0 0 16px; }
+.progress span { display: block; height: 100%; background: var(--accent); width: 0; transition: width .3s; }
+.qmeta { font-size: .82rem; font-weight: 800; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; margin-bottom: 6px; }
+.q { font-size: 1.25rem; font-weight: 700; margin: 0 0 14px; }
+.hint { color: var(--muted); font-size: .92rem; margin: -6px 0 14px; }
+.opts { display: flex; flex-wrap: wrap; gap: 12px; }
+.opt {
+  font: inherit; cursor: pointer; background: var(--chip); color: var(--chip-ink); border: 2px solid var(--line);
+  border-radius: 14px; padding: 14px 22px; font-weight: 800; font-size: 1.1rem; min-width: 100px;
+}
+.opts.wide { flex-direction: column; }
+.opts.wide .opt { text-align: left; font-weight: 700; font-size: 1.02rem; }
+.opt.right { background: var(--ok-bg); border-color: var(--ok); }
+.opt.wrong { background: var(--bad-bg); border-color: var(--bad); }
+input[type=text] {
+  font: inherit; font-size: 1.2rem; width: 100%; padding: 14px 16px; border-radius: 14px;
+  border: 2px solid var(--line); background: var(--bg); color: var(--ink);
+}
+.line, .tiles { display: flex; flex-wrap: wrap; gap: 10px; min-height: 58px; }
+.line { border: 2px dashed var(--line); border-radius: 14px; padding: 10px; margin-bottom: 12px; }
+.tile {
+  font: inherit; cursor: pointer; background: var(--chip); color: var(--chip-ink); border: 2px solid var(--line);
+  border-radius: 12px; padding: 10px 14px; font-weight: 700;
+}
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.fb { margin-top: 16px; border-radius: 14px; padding: 14px 16px; font-weight: 800; }
+.fb.ok { background: var(--ok-bg); color: var(--ok); }
+.fb.no { background: var(--bad-bg); color: var(--bad); }
+.fb small { display: block; font-weight: 600; color: var(--ink); margin-top: 4px; }
+.end { text-align: center; }
+.big-stars { font-size: 2.8rem; letter-spacing: .15em; color: #d9a400; margin: 6px 0; }
+.foot { color: var(--muted); font-size: .8rem; text-align: center; margin-top: 30px; }
+[hidden] { display: none !important; }

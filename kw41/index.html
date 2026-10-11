@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KW 41 · A story of friendship · English Club 8</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Alle Wochen</a>
+    <div class="brand">
+      <div class="logo">41</div>
+      <div><h1>A story of friendship</h1><p>Unit 1 · Simple past · Vokabelblatt 3</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="menu">
+    <div class="label">Selbsttest – wähle deine Stufe</div>
+    <p class="hint" style="margin:6px 0 14px">Fang bei ★ an. Bei einem Fehler darfst du es nochmal versuchen.</p>
+    <div class="levels" id="levels"></div>
+
+    <h2>Noch mehr üben</h2>
+    <div class="links">
+      <a class="ext" href="https://www.englisch-hilfen.de/uebungen/zeiten/simple_past_aussage2.htm" target="_blank" rel="noopener">
+        <span class="ico">✏️</span><span><b>Bejahte Sätze im simple past <span class="tag mid">★</span></b><small>Setze die Verben im simple past ein.</small></span></a>
+      <a class="ext" href="https://www.englisch-hilfen.de/uebungen/zeiten/simple_past_verneinung_saetze.htm" target="_blank" rel="noopener">
+        <span class="ico">✏️</span><span><b>Verneinung mit didn't <span class="tag mid">★★</span></b><small>Bilde verneinte Sätze im simple past.</small></span></a>
+      <a class="ext" href="https://www.englisch-hilfen.de/uebungen/zeiten/fragen_kurzantworten_simple_past.htm" target="_blank" rel="noopener">
+        <span class="ico">✏️</span><span><b>Fragen und Kurzantworten mit did <span class="tag pro">★★★ Profi</span></b><small>Did you …? – Yes, I did. / No, I didn't.</small></span></a>
+    </div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
+  <p class="foot">English Club 8 · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+</main>
+<script>
+window.QUIZ = { id: "kw41", levels: [
+  { name: "Basis", stars: 1, desc: "Die richtige simple past-Form", tasks: [
+    { type: "choice", q: "Yesterday Ricky ___ basketball in his neighborhood.", options: ["practised", "practises", "practise"], answer: "practised", why: "Yesterday → simple past: practise + d." },
+    { type: "choice", q: "Lance ___ twenty points in the first game.", options: ["scored", "scores", "score"], answer: "scored", why: "Regelmäßig: score + d → scored." },
+    { type: "choice", q: "I was so tired that I ___ asleep on the sofa.", options: ["fell", "falled", "fall"], answer: "fell", why: "Unregelmäßig: fall – fell – fallen." },
+    { type: "choice", q: "We ___ our first school game!", options: ["won", "winned", "win"], answer: "won", why: "Unregelmäßig: win – won – won." },
+    { type: "choice", q: "After the game the boys ___ to the beaches.", options: ["drove", "drived", "drive"], answer: "drove", why: "Unregelmäßig: drive – drove – driven." },
+    { type: "choice", q: "Then Lance ___ Ricky and Ricky fell on the floor.", options: ["hit", "hitted", "hits"], answer: "hit", why: "Unregelmäßig: hit – hit – hit." },
+    { type: "choice", q: "After the game I ___ my bike at school.", options: ["left", "leaved", "leave"], answer: "left", why: "Unregelmäßig: leave – left – left." },
+  ]},
+  { name: "Aufbau", stars: 2, desc: "Formen und Vokabeln tippen, Sätze bauen", tasks: [
+    { type: "type", q: "Tippe die simple past-Form: go →", answers: ["went"], why: "go – went – gone", tip: "Schau in die Liste im Buch, S. 236." },
+    { type: "type", q: "Tippe die simple past-Form: see →", answers: ["saw"], why: "see – saw – seen", tip: "Schau in die Liste im Buch, S. 236." },
+    { type: "type", q: "Tippe die simple past-Form: buy →", answers: ["bought"], why: "buy – bought – bought", tip: "Schau in die Liste im Buch, S. 236." },
+    { type: "type", q: "Wie heißt das auf Englisch? Freundschaft", answers: ["friendship"], why: "friendship = Freundschaft", tip: "Vokabelblatt 3" },
+    { type: "type", q: "Wie heißt das auf Englisch? Chance, Gelegenheit", answers: ["chance", "a chance"], why: "chance = Chance, Gelegenheit", tip: "Vokabelblatt 3" },
+    { type: "type", q: "Wie heißt das auf Englisch? nirgendwohin", answers: ["nowhere"], why: "nowhere = nirgendwohin", tip: "Vokabelblatt 3" },
+    { type: "build", q: "Bau den Satz: Tippe die Wörter in der richtigen Reihenfolge an.", sentence: "Lance didn't say sorry.", why: "didn't + Grundform: Lance didn't say sorry." },
+    { type: "build", q: "Bau die Frage: Tippe die Wörter in der richtigen Reihenfolge an.", sentence: "Did you watch the game?", why: "Did + Subjekt + Grundform: Did you watch the game?" },
+  ]},
+  { name: "Profi", stars: 3, desc: "Verneinung, Fragen, Signalwörter", tasks: [
+    { type: "choice", q: "Ricky ___ answer.", options: ["didn't", "doesn't", "not"], answer: "didn't", why: "Verneinung im simple past: didn't + Grundform." },
+    { type: "choice", q: "Lance didn't ___ sorry.", options: ["say", "said", "says"], answer: "say", why: "Nach didn't steht immer die Grundform." },
+    { type: "choice", q: "___ the boys talk about the game?", options: ["Did", "Do", "Were"], answer: "Did", why: "Frage im simple past: Did + Subjekt + Grundform." },
+    { type: "type", q: "Mach den Satz negativ: „Ricky scored twenty.“ → Ricky ___ twenty.", hint: "Tippe nur die zwei fehlenden Wörter.", answers: ["didn't score", "did not score"], why: "Ricky didn't score twenty.", tip: "didn't + Grundform" },
+    { type: "type", q: "Mach eine Frage: „Lance drove to the beaches.“ → ___ Lance drive to the beaches?", hint: "Tippe das fehlende Wort.", answers: ["did"], why: "Did Lance drive to the beaches?" },
+    { type: "build", q: "Bau die Frage: Tippe die Wörter in der richtigen Reihenfolge an.", sentence: "Where did they go after the game?", why: "Fragewort + did + Subjekt + Grundform." },
+    { type: "choice", q: "Last week the Nets ___ the game.", hint: "Achte auf das Signalwort.", options: ["won", "win", "wins"], answer: "won", why: "Last week → simple past: won." },
+  ]},
+]};
+</script>
+<script src="../assets/quiz.js"></script>
+</body>
+</html>

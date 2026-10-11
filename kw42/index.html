@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KW 42 · What do you call it? · English Club 8</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Alle Wochen</a>
+    <div class="brand">
+      <div class="logo">42</div>
+      <div><h1>What do you call it?</h1><p>Unit 1 · Relativsätze who / which / that · Vokabelblatt 4</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="menu">
+    <div class="label">Selbsttest – wähle deine Stufe</div>
+    <p class="hint" style="margin:6px 0 14px">Fang bei ★ an. Bei einem Fehler darfst du es nochmal versuchen.</p>
+    <div class="levels" id="levels"></div>
+
+    <h2>Noch mehr üben</h2>
+    <div class="links">
+      <a class="ext" href="https://www.ego4u.de/de/read-on/countries/uk/tour/stonehenge" target="_blank" rel="noopener">
+        <span class="ico">📖</span><span><b>Stonehenge: lesen und who/which einsetzen <span class="tag mid">★★</span></b><small>Kurzer Text über Stonehenge, danach 5 Lücken mit who oder which. Mit „Prüfen“-Knopf.</small></span></a>
+      <a class="ext" href="https://artsandculture.google.com/story/hgWBLOYeOkTxmQ" target="_blank" rel="noopener">
+        <span class="ico">🗽</span><span><b>5 Fakten zur Freiheitsstatue <span class="tag mid">★★</span></b><small>Lies die Fakten und schreibe 3 Sätze mit who oder which ins Heft, z. B. „Eiffel was the man who …“</small></span></a>
+      <a class="ext" href="https://www.englisch-hilfen.de/uebungen/pronomen/who_which_where.htm" target="_blank" rel="noopener">
+        <span class="ico">✏️</span><span><b>who, which oder where? – Übung 1 <span class="tag pro">★★★ Profi</span></b><small>Neu: where = wo, für Orte (The hostel where Bella works).</small></span></a>
+      <a class="ext" href="https://www.englisch-hilfen.de/uebungen/pronomen/who_which_where2.htm" target="_blank" rel="noopener">
+        <span class="ico">✏️</span><span><b>who, which oder where? – Übung 2 <span class="tag pro">★★★ Profi</span></b><small>Noch mehr Sätze mit who, which und where.</small></span></a>
+      <a class="ext" href="https://www.englisch-hilfen.de/uebungen/pronomen/relativpronomen.htm" target="_blank" rel="noopener">
+        <span class="ico">✏️</span><span><b>who, which, whose <span class="tag pro">★★★ Profi</span></b><small>Neu: whose = dessen/deren (the boy whose bike is old).</small></span></a>
+    </div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
+  <p class="foot">English Club 8 · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+</main>
+<script>
+window.QUIZ = { id: "kw42", levels: [
+  { name: "Basis", stars: 1, desc: "who oder which?", tasks: [
+    { type: "choice", q: "A mechanic is a person ___ repairs cars.", options: ["who", "which"], answer: "who", why: "A mechanic ist eine Person → who." },
+    { type: "choice", q: "A fork is a thing ___ you use to eat meat.", options: ["who", "which"], answer: "which", why: "A fork ist ein Ding → which." },
+    { type: "choice", q: "A gym is a room ___ you use for sport.", options: ["who", "which"], answer: "which", why: "A gym ist ein Raum, also ein Ding → which." },
+    { type: "choice", q: "A receptionist is a person ___ works in a hotel.", options: ["who", "which"], answer: "who", why: "A receptionist ist eine Person → who." },
+    { type: "choice", q: "A remote control is a thing ___ you use to watch TV.", options: ["who", "which"], answer: "which", why: "A remote control ist ein Ding → which." },
+    { type: "choice", q: "Lance is the boy ___ hit Ricky.", options: ["who", "which"], answer: "who", why: "Lance ist eine Person → who." },
+    { type: "choice", q: "The subway is a train ___ goes under the city.", options: ["who", "which"], answer: "which", why: "The subway ist ein Ding → which." },
+    { type: "choice", q: "A cook is a person ___ cooks food in a restaurant.", options: ["who", "which"], answer: "who", why: "A cook ist eine Person → who." },
+  ]},
+  { name: "Aufbau", stars: 2, desc: "Rätsel lösen und Sätze bauen", tasks: [
+    { type: "type", q: "I'm a person who trains a sports team. Who am I?", hint: "Tippe das Wort von Vokabelblatt 4 ein.", answers: ["coach", "a coach", "the coach"], why: "a coach = Trainer/in", tip: "Es fängt mit c an." },
+    { type: "type", q: "I'm the part of a room which you walk on. What am I?", hint: "Tippe das Wort ein.", answers: ["floor", "the floor", "a floor"], why: "the floor = der (Fuß-)Boden", tip: "Es fängt mit f an." },
+    { type: "type", q: "I'm a part of your body which has eyes, a nose and a mouth. What am I?", hint: "Tippe das Wort ein.", answers: ["face", "a face", "your face", "the face"], why: "face = Gesicht", tip: "Es hat 4 Buchstaben." },
+    { type: "type", q: "I'm a metal thing which you use to eat meat, together with a knife. What am I?", hint: "Tippe das Wort ein.", answers: ["fork", "a fork", "the fork"], why: "a fork = Gabel", tip: "Es fängt mit f an." },
+    { type: "build", q: "Bau den Satz: Tippe die Wörter in der richtigen Reihenfolge an.", sentence: "A gym is a room which you use for sport.", why: "A gym is a room which you use for sport." },
+    { type: "build", q: "Bau den Satz: Tippe die Wörter in der richtigen Reihenfolge an.", sentence: "Bella has a friend who lives in Brooklyn.", why: "Bella has a friend who lives in Brooklyn.", tip: "Nach who kommt gleich das Verb." },
+    { type: "build", q: "Bau die Frage: Tippe die Wörter in der richtigen Reihenfolge an.", sentence: "What do you call a person who repairs cars?", why: "What do you call a person who repairs cars? – A mechanic!" },
+    { type: "choice", q: "Welcher Satz ist richtig?", options: ["A coach is a person who trains a team.", "A coach is a person which trains a team.", "A coach is a person who a team trains."], answer: "A coach is a person who trains a team.", why: "Person → who, und das Verb steht nicht am Ende." },
+  ]},
+  { name: "Profi", stars: 3, desc: "Fehler finden, neu: where und whose", tasks: [
+    { type: "type", q: "Finde den Fehler und tippe das richtige Wort: „Lance is the boy which hit Ricky.“", answers: ["who", "that"], why: "Lance ist eine Person → who (oder that).", tip: "Ist Lance eine Person oder ein Ding?" },
+    { type: "type", q: "Finde den Fehler und tippe das richtige Wort: „A summary is a text who tells the most important things.“", answers: ["which", "that"], why: "A summary ist ein Ding → which (oder that).", tip: "Ist a summary eine Person oder ein Ding?" },
+    { type: "build", q: "Bau den Satz: Tippe die Wörter in der richtigen Reihenfolge an.", sentence: "The Staten Island Ferry is a boat which is free.", why: "The Staten Island Ferry is a boat which is free." },
+    { type: "choice", q: "NEU: This is the hostel ___ Bella works.", hint: "where = wo (für Orte)", options: ["who", "which", "where"], answer: "where", why: "Das Hostel ist ein Ort, an dem Bella arbeitet → where." },
+    { type: "choice", q: "NEU: Brooklyn is the place ___ Bella lives.", hint: "where = wo (für Orte)", options: ["who", "which", "where"], answer: "where", why: "Brooklyn ist der Ort, wo Bella wohnt → where." },
+    { type: "choice", q: "NEU: Ricky is the boy ___ bike is old.", hint: "whose = dessen / deren", options: ["who", "whose", "which"], answer: "whose", why: "Rickys Fahrrad = der Junge, dessen Fahrrad … → whose." },
+    { type: "choice", q: "NEU: Lance is the boy ___ car is blue.", hint: "whose = dessen / deren", options: ["who", "whose", "where"], answer: "whose", why: "Lances Auto = der Junge, dessen Auto … → whose." },
+  ]},
+]};
+</script>
+<script src="../assets/quiz.js"></script>
+</body>
+</html>
