@@ -45,27 +45,75 @@
   function alert0() { const d = document.createElement("p"); d.className = "hint"; d.textContent = "Dein Gerät kann leider nicht vorlesen."; card.appendChild(d); }
   if ("speechSynthesis" in window) { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices(); }
 
-  function feedback(ok, task) {
-    const old = card.querySelector(".fb"); if (old) old.remove();
-    const d = document.createElement("div");
-    d.className = "fb " + (ok ? "ok" : "no");
-    d.innerHTML = ok ? `✓ Richtig!<small>${esc(task.why || "")}</small>` : `✗ Noch nicht – versuch es nochmal.${task.tip ? `<small>Tipp: ${esc(task.tip)}</small>` : ""}`;
-    card.appendChild(d);
-    if (!ok && firstTry) { firstTry = false; retry.push(task); }
-    if (ok) {
-      if (firstTry) score++;
-      const n = document.createElement("button"); n.className = "btn";
-      n.textContent = pos < list.length - 1 ? "Weiter →" : "Ergebnis";
-      n.onclick = () => { pos++; render(); };
-      const a = document.createElement("div"); a.className = "actions"; a.appendChild(n); card.appendChild(a);
-    }
+  const MAX_TRIES = 3;
+  let wrong = 0, tipUsed = false;
+  const answerText = (t) => t.type === "choice" ? t.answer : t.type === "type" ? t.answers[0] : t.sentence;
+
+  function nextButton() {
+    const n = document.createElement("button"); n.className = "btn";
+    n.textContent = pos < list.length - 1 ? "Weiter →" : "Ergebnis";
+    n.onclick = () => { pos++; render(); };
+    const a = document.createElement("div"); a.className = "actions"; a.appendChild(n); card.appendChild(a);
+    n.focus();
   }
-  const solved = () => !!card.querySelector(".fb.ok");
+
+  function feedback(ok, task) {
+    const old = card.querySelector(".fb:not(.tipbox)"); if (old) old.remove();
+    const d = document.createElement("div");
+    if (ok) {
+      d.className = "fb ok";
+      d.innerHTML = `✓ Richtig!<small>${esc(task.why || "")}</small>`;
+      card.appendChild(d);
+      if (firstTry && !tipUsed) score++;
+      nextButton();
+      return;
+    }
+    wrong++;
+    if (firstTry) { firstTry = false; retry.push(task); }
+    if (wrong >= MAX_TRIES) {
+      d.className = "fb reveal";
+      d.innerHTML = `Die richtige Antwort ist: <b>${esc(answerText(task))}</b><small>${esc(task.why || "")}</small>`;
+      card.appendChild(d);
+      card.querySelectorAll(".opt").forEach((b) => { if (b.textContent === task.answer) b.classList.add("right"); });
+      card.querySelectorAll(".tipbtn").forEach((b) => b.disabled = true);
+      nextButton();
+      return;
+    }
+    d.className = "fb no";
+    d.innerHTML = `✗ Noch nicht – Versuch ${wrong} von ${MAX_TRIES}.<small>${wrong === MAX_TRIES - 1 ? "Noch ein Versuch, dann siehst du die Lösung." : "Tipp gefällig? Tippe auf 💡."}</small>`;
+    card.appendChild(d);
+  }
+  const solved = () => !!card.querySelector(".fb.ok, .fb.reveal");
+
+  // Tipp: eigener Hinweis aus der Aufgabe, sonst automatisch erzeugt
+  function giveTip(t, btn) {
+    if (solved() || tipUsed) return;
+    tipUsed = true; btn.disabled = true;
+    let text = t.tip ? t.tip : "";
+    if (t.type === "type") {
+      const a = t.answers[0], letters = a.replace(/[^A-Za-z]/g, "").length;
+      text = (text ? text + " · " : "") + (/\s/.test(a) ? `Die Antwort beginnt mit „${a[0]}“ und hat ${a.split(" ").length} Wörter.` : `Das Wort beginnt mit „${a[0]}“ und hat ${letters} Buchstaben.`);
+    } else if (t.type === "choice") {
+      const wrongBtns = [...card.querySelectorAll(".opt")].filter((b) => b.textContent !== t.answer && !b.classList.contains("wrong") && !b.disabled);
+      if (wrongBtns.length > 1) { const w = wrongBtns[0]; w.disabled = true; w.classList.add("struck"); text = (text ? text + " · " : "") + "Eine falsche Antwort ist durchgestrichen."; }
+      else if (!text) text = Q.choiceTip || "Lies den Satz noch einmal genau.";
+    } else if (t.type === "build") {
+      const w = t.sentence.split(" ");
+      text = (text ? text + " · " : "") + `Der Satz beginnt mit „${w.slice(0, 2).join(" ")} …“.`;
+    }
+    const box = document.createElement("div"); box.className = "fb tipbox"; box.innerHTML = `💡 ${esc(text)}`;
+    const after = card.querySelector(".fb:not(.tipbox)");
+    after ? card.insertBefore(box, after) : card.appendChild(box);
+  }
+  function tipButton(t) {
+    const b = document.createElement("button"); b.className = "btn secondary tipbtn"; b.textContent = "💡 Tipp";
+    b.onclick = () => giveTip(t, b); return b;
+  }
 
   function render() {
     bar.style.width = (pos / list.length * 100) + "%";
     if (pos >= list.length) return end();
-    const t = list[pos]; firstTry = true; window.__task = t;
+    const t = list[pos]; firstTry = true; wrong = 0; tipUsed = false; window.__task = t;
     const lv = Q.levels[lvl];
     card.innerHTML = `<div class="qmeta">${"★".repeat(lv.stars)} ${esc(lv.name)} · ${pos + 1} / ${list.length}</div><p class="q">${esc(t.q)}</p>` +
       (t.hint ? `<p class="hint">${esc(t.hint)}</p>` : "");
@@ -84,7 +132,8 @@
         b.onclick = () => { if (solved()) return; const ok = o === t.answer; b.classList.add(ok ? "right" : "wrong"); feedback(ok, t); };
         box.appendChild(b);
       });
-      card.appendChild(box);
+      const a = document.createElement("div"); a.className = "actions"; a.appendChild(tipButton(t));
+      card.append(box, a);
     } else if (t.type === "type") {
       const inp = document.createElement("input");
       Object.assign(inp, { type: "text", autocomplete: "off", spellcheck: false, placeholder: "Deine Antwort …" });
@@ -92,7 +141,7 @@
       const b = document.createElement("button"); b.className = "btn"; b.textContent = "Prüfen";
       const check = () => { if (solved()) return; feedback(t.answers.some((a) => norm(a) === norm(inp.value)), t); };
       b.onclick = check; inp.onkeydown = (e) => { if (e.key === "Enter") check(); };
-      const a = document.createElement("div"); a.className = "actions"; a.appendChild(b);
+      const a = document.createElement("div"); a.className = "actions"; a.append(b, tipButton(t));
       card.append(inp, a);
     } else if (t.type === "build") {
       const words = t.sentence.split(" ");
@@ -105,7 +154,7 @@
       });
       const b = document.createElement("button"); b.className = "btn"; b.textContent = "Prüfen";
       b.onclick = () => { if (solved()) return; feedback([...line.children].map((x) => x.textContent).join(" ") === t.sentence, t); };
-      const a = document.createElement("div"); a.className = "actions"; a.appendChild(b);
+      const a = document.createElement("div"); a.className = "actions"; a.append(b, tipButton(t));
       card.append(line, pool, a);
     }
   }
@@ -118,7 +167,7 @@
     card.innerHTML = `<div class="end"><div class="qmeta">${esc(Q.levels[lvl].name)} geschafft!</div>
       <div class="big-stars">${stars}</div>
       <p class="q">${score} von ${n} beim ersten Versuch richtig</p>
-      ${retry.length ? `<p class="hint">Diese Aufgaben solltest du dir nochmal anschauen: ${retry.map((t) => esc(t.say ? "🎧 " + t.say : t.q)).join(" · ")}</p>` : ""}
+      ${retry.length ? `<p class="hint">Diese Aufgaben solltest du dir nochmal anschauen: ${retry.map((t) => esc(t.say ? "🎧 " + t.say : t.type === "build" ? t.sentence : t.q)).join(" · ")}</p>` : ""}
       <div class="actions" style="justify-content:center">
         <button class="btn" id="again">Nochmal</button>
         <button class="btn secondary" id="back">Zur Auswahl</button>

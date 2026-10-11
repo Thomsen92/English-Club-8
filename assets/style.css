@@ -123,3 +123,9 @@ input[type=text] {
 
 .btn.listen { background: var(--navy); color: #f7c531; }
 @media (prefers-color-scheme: dark) { .btn.listen { background: #f7c531; color: #1b2a41; } }
+
+.fb.tipbox { background: var(--chip); color: var(--ink); font-weight: 700; }
+.fb.reveal { background: var(--chip); color: var(--ink); border: 2px solid var(--accent); font-weight: 700; }
+.fb.reveal b { color: var(--brick); }
+.opt.struck { text-decoration: line-through; opacity: .45; }
+.btn:disabled { opacity: .45; cursor: default; }
