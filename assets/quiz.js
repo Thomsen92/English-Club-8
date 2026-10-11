@@ -32,15 +32,25 @@
   }
 
   // Vorlesen mit der eingebauten Stimme des Geräts (läuft offline auf dem iPad, nichts wird verschickt)
+  function enVoices() {
+    const vs = window.speechSynthesis.getVoices().filter((x) => /^en/i.test(x.lang));
+    const pref = (x) => (/en[-_]US/i.test(x.lang) ? 0 : 1) + (/Samantha|Google US|Aria|Jenny/i.test(x.name) ? -1 : 0);
+    return vs.sort((a, b) => pref(a) - pref(b));
+  }
+  // text = "Satz" oder [["A","Satz"],["B","Satz"], …] für Dialoge mit zwei Stimmen
   function speak(text, rate) {
     if (!("speechSynthesis" in window)) { alert0(); return; }
     const synth = window.speechSynthesis; synth.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    const voices = synth.getVoices();
-    const v = voices.find((x) => /en[-_]US/i.test(x.lang) && /Samantha|Google US|Aria|Jenny/i.test(x.name)) || voices.find((x) => /en[-_]US/i.test(x.lang)) || voices.find((x) => /^en/i.test(x.lang));
-    if (v) u.voice = v;
-    u.lang = v ? v.lang : "en-US"; u.rate = rate || 0.9;
-    synth.speak(u);
+    const vs = enVoices();
+    const parts = Array.isArray(text) ? text : [["A", text]];
+    parts.forEach(([who, line]) => {
+      const u = new SpeechSynthesisUtterance(line);
+      const v = who === "B" ? (vs.find((x) => vs[0] && x.name !== vs[0].name && /en[-_]US/i.test(x.lang)) || vs[1] || vs[0]) : vs[0];
+      if (v) { u.voice = v; u.lang = v.lang; } else u.lang = "en-US";
+      u.rate = rate || 0.9;
+      u.pitch = who === "B" && (!v || !vs[0] || v.name === vs[0].name) ? 1.35 : 1;
+      synth.speak(u);
+    });
   }
   function alert0() { const d = document.createElement("p"); d.className = "hint"; d.textContent = "Dein Gerät kann leider nicht vorlesen."; card.appendChild(d); }
   if ("speechSynthesis" in window) { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices(); }
@@ -167,7 +177,7 @@
     card.innerHTML = `<div class="end"><div class="qmeta">${esc(Q.levels[lvl].name)} geschafft!</div>
       <div class="big-stars">${stars}</div>
       <p class="q">${score} von ${n} beim ersten Versuch richtig</p>
-      ${retry.length ? `<p class="hint">Diese Aufgaben solltest du dir nochmal anschauen: ${retry.map((t) => esc(t.say ? "🎧 " + t.say : t.type === "build" ? t.sentence : t.q)).join(" · ")}</p>` : ""}
+      ${retry.length ? `<p class="hint">Diese Aufgaben solltest du dir nochmal anschauen: ${retry.map((t) => esc(t.say && !Array.isArray(t.say) ? "🎧 " + t.say : t.type === "build" ? t.sentence : t.q)).join(" · ")}</p>` : ""}
       <div class="actions" style="justify-content:center">
         <button class="btn" id="again">Nochmal</button>
         <button class="btn secondary" id="back">Zur Auswahl</button>
