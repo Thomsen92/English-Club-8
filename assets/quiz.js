@@ -31,6 +31,20 @@
     menu.hidden = true; quiz.hidden = false; window.scrollTo(0, 0); render();
   }
 
+  // Vorlesen mit der eingebauten Stimme des Geräts (läuft offline auf dem iPad, nichts wird verschickt)
+  function speak(text, rate) {
+    if (!("speechSynthesis" in window)) { alert0(); return; }
+    const synth = window.speechSynthesis; synth.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    const voices = synth.getVoices();
+    const v = voices.find((x) => /en[-_]US/i.test(x.lang) && /Samantha|Google US|Aria|Jenny/i.test(x.name)) || voices.find((x) => /en[-_]US/i.test(x.lang)) || voices.find((x) => /^en/i.test(x.lang));
+    if (v) u.voice = v;
+    u.lang = v ? v.lang : "en-US"; u.rate = rate || 0.9;
+    synth.speak(u);
+  }
+  function alert0() { const d = document.createElement("p"); d.className = "hint"; d.textContent = "Dein Gerät kann leider nicht vorlesen."; card.appendChild(d); }
+  if ("speechSynthesis" in window) { window.speechSynthesis.getVoices(); window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices(); }
+
   function feedback(ok, task) {
     const old = card.querySelector(".fb"); if (old) old.remove();
     const d = document.createElement("div");
@@ -51,10 +65,17 @@
   function render() {
     bar.style.width = (pos / list.length * 100) + "%";
     if (pos >= list.length) return end();
-    const t = list[pos]; firstTry = true;
+    const t = list[pos]; firstTry = true; window.__task = t;
     const lv = Q.levels[lvl];
     card.innerHTML = `<div class="qmeta">${"★".repeat(lv.stars)} ${esc(lv.name)} · ${pos + 1} / ${list.length}</div><p class="q">${esc(t.q)}</p>` +
       (t.hint ? `<p class="hint">${esc(t.hint)}</p>` : "");
+    if (t.say) {
+      const bx = document.createElement("div"); bx.className = "actions"; bx.style.margin = "0 0 14px";
+      const b1 = document.createElement("button"); b1.className = "btn listen"; b1.textContent = "🔊 Anhören"; b1.onclick = () => speak(t.say, 0.9);
+      const b2 = document.createElement("button"); b2.className = "btn secondary"; b2.textContent = "🐢 Langsam"; b2.onclick = () => speak(t.say, 0.6);
+      bx.append(b1, b2); card.appendChild(bx);
+      speak(t.say, 0.9);
+    }
     if (t.type === "choice") {
       const box = document.createElement("div");
       box.className = "opts" + (t.options.some((o) => o.length > 14) ? " wide" : "");
@@ -97,7 +118,7 @@
     card.innerHTML = `<div class="end"><div class="qmeta">${esc(Q.levels[lvl].name)} geschafft!</div>
       <div class="big-stars">${stars}</div>
       <p class="q">${score} von ${n} beim ersten Versuch richtig</p>
-      ${retry.length ? `<p class="hint">Diese Aufgaben solltest du dir nochmal anschauen: ${retry.map((t) => esc(t.q)).join(" · ")}</p>` : ""}
+      ${retry.length ? `<p class="hint">Diese Aufgaben solltest du dir nochmal anschauen: ${retry.map((t) => esc(t.say ? "🎧 " + t.say : t.q)).join(" · ")}</p>` : ""}
       <div class="actions" style="justify-content:center">
         <button class="btn" id="again">Nochmal</button>
         <button class="btn secondary" id="back">Zur Auswahl</button>

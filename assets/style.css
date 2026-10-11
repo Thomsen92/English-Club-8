@@ -120,3 +120,6 @@ input[type=text] {
 .big-stars { font-size: 2.8rem; letter-spacing: .15em; color: #d9a400; margin: 6px 0; }
 .foot { color: var(--muted); font-size: .8rem; text-align: center; margin-top: 30px; }
 [hidden] { display: none !important; }
+
+.btn.listen { background: var(--navy); color: #f7c531; }
+@media (prefers-color-scheme: dark) { .btn.listen { background: #f7c531; color: #1b2a41; } }
