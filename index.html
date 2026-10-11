@@ -32,14 +32,14 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   document.getElementById("now").innerHTML = now ? `
     <div class="card week-now" style="margin-top:8px">
-      <span class="pill">${esc(now.kw)}</span>
+      <span class="pill">Woche ab Montag, ${esc(now.monday)}</span>
       <h3>${esc(now.title)}</h3>
       <p>${esc(now.unit)} · ${esc(now.topic)}</p>
       <a class="btn" href="${now.id}/">Los geht's →</a>
     </div>` : `<div class="card">Bald geht's los!</div>`;
   document.getElementById("past").innerHTML = past.length ? past.map(w => `
     <a class="row" href="${w.id}/">
-      <span class="kw">${esc(w.kw)}</span>
+      <span class="kw">${esc(w.monday)}</span>
       <span class="t"><b>${esc(w.title)}</b><small>${esc(w.topic)}</small></span>
       <span class="go">→</span>
     </a>`).join("") : `<p class="label">Noch keine.</p>`;
