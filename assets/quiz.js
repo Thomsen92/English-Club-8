@@ -28,7 +28,7 @@
 
   let lvl, list, pos, score, firstTry, retry;
   function start(n) {
-    lvl = n; list = shuffle(Q.levels[n].tasks); pos = 0; score = 0; retry = [];
+    lvl = n; list = Q.levels[n].ordered ? Q.levels[n].tasks.slice() : shuffle(Q.levels[n].tasks); pos = 0; score = 0; retry = [];
     menu.hidden = true; quiz.hidden = false; window.scrollTo(0, 0); render();
   }
 
@@ -138,7 +138,7 @@
     if (t.type === "choice") {
       const box = document.createElement("div");
       box.className = "opts" + (t.options.some((o) => o.length > 14) ? " wide" : "");
-      shuffle(t.options).forEach((o) => {
+      (lv.keepOptions ? t.options : shuffle(t.options)).forEach((o) => {
         const b = document.createElement("button"); b.className = "opt"; b.textContent = o;
         b.onclick = () => { if (solved()) return; const ok = o === t.answer; b.classList.add(ok ? "right" : "wrong"); feedback(ok, t); };
         box.appendChild(b);

@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonus · Schools in the USA · English Club 8</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Bonus</a>
+    <div class="brand">
+      <div class="logo">🏫</div>
+      <div><p class="when">Bonus-Video</p><h1>Schools in the USA</h1><p>Wie funktioniert Schule in Amerika? · ca. 4 Minuten</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="menu">
+    <div class="label">So geht's</div>
+    <p class="hint" style="margin:6px 0 0">1. Lies zuerst die schwierigen Wörter. &nbsp;2. Schau das Video (Kopfhörer!). Du darfst so oft zurückspulen und anhalten, wie du willst. &nbsp;3. Mach die Aufgaben in beliebiger Reihenfolge.</p>
+
+    <h2>📖 Vor dem Video: schwierige Wörter</h2>
+    <div class="card">
+      <p class="hint" style="margin:0">Tippe auf 🔊, dann hörst du, wie man das Wort ausspricht.</p>
+      <div class="gloss" id="gloss"></div>
+    </div>
+
+    <h2>🎬 Das Video</h2>
+    <div class="card">
+      <b>„The American School System“</b>
+      <p class="hint" style="margin:4px 0 0">Chelsea erklärt, wie Schule und Studium in den USA funktionieren. Tipp: Über ⚙️ im Video kannst du es langsamer abspielen, über „CC“ Untertitel einschalten.</p>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/IPdAwnH1rsg?rel=0&cc_load_policy=1&cc_lang_pref=en" title="The American School System" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+    </div>
+
+    <h2>✏️ Aufgaben zum Video</h2>
+    <div class="levels" id="levels"></div>
+
+    <h2 id="mem-sec">🃏 Memory</h2>
+    <div class="card"><div id="memory"></div></div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
+  <p class="foot">English Club 8 · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+</main>
+<script>
+window.GLOSS = [
+  ["to take a deep dive into", "sich etwas genau anschauen"],
+  ["higher education", "Studium (Hochschulbildung)"],
+  ["public school", "staatliche Schule"],
+  ["private school", "Privatschule"],
+  ["federally funded", "vom Staat bezahlt"],
+  ["tuition", "Schulgeld / Studiengebühr"],
+  ["fee", "Gebühr"],
+  ["state", "Bundesstaat (wie bei uns Bayern)"],
+  ["standards / requirements", "Vorgaben / Anforderungen"],
+  ["values", "Werte (z. B. Religion)"],
+  ["core subjects", "Hauptfächer"],
+  ["to graduate / graduation", "die Schule abschließen / Abschluss"],
+  ["diploma", "Abschlusszeugnis"],
+  ["SAT / ACT", "Aufnahmetests für das College"],
+  ["eligibility", "Berechtigung (ob du darfst)"],
+  ["coastal", "an der Küste"],
+  ["Midwest", "der Mittlere Westen der USA"],
+  ["college / university", "Hochschule / Universität"],
+  ["campus", "Uni-Gelände"],
+  ["degree", "(Studien-)Abschluss"],
+  ["journalism", "Journalismus"],
+  ["to obtain", "bekommen, erreichen"],
+  ["doctorate", "Doktortitel"],
+  ["compensation", "Bezahlung, Gehalt"],
+];
+window.MEMORY = [
+  ["tuition", "Studiengebühr"],
+  ["diploma", "Abschlusszeugnis"],
+  ["degree", "Studienabschluss"],
+  ["public school", "staatliche Schule"],
+  ["private school", "Privatschule"],
+  ["core subjects", "Hauptfächer"],
+  ["fee", "Gebühr"],
+  ["doctorate", "Doktortitel"],
+];
+window.QUIZ = { id: "bonus-american-schools", choiceTip: "Schau dir die Stelle im Video noch einmal an.", levels: [
+  { name: "🇺🇸 oder 🇩🇪?", stars: 1, keepOptions: true, desc: "Gibt es das in den USA, in Deutschland oder in beiden Ländern?", tasks: [
+    { type: "choice", q: "Students take the SAT or ACT test to get into college.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "🇺🇸 USA", why: "SAT und ACT gibt es nur in den USA. Bei uns zählen die Noten im Abschlusszeugnis." },
+    { type: "choice", q: "You don't pay tuition at a public school.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "beide", why: "Staatliche Schulen kosten in beiden Ländern kein Schulgeld." },
+    { type: "choice", q: "Students often pay for their lunch at school.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "beide", why: "Auch bei uns kostet das Essen in der Mensa meistens Geld." },
+    { type: "choice", q: "You have to pay a fee to go to a private school.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "beide", why: "Privatschulen kosten in beiden Ländern meistens Schulgeld." },
+    { type: "choice", q: "Some private schools are focused on religion.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "beide", why: "Auch bei uns gibt es z. B. katholische oder evangelische Schulen." },
+    { type: "choice", q: "Each state decides which classes students must take.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "beide", why: "Überraschung! Auch bei uns entscheidet jedes Bundesland, z. B. Bayern, über die Schule." },
+    { type: "choice", q: "Students pay tuition at public universities.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "🇺🇸 USA", why: "In den USA kostet auch eine staatliche Uni viel Geld. Bei uns gibt es an staatlichen Unis keine Studiengebühren." },
+    { type: "choice", q: "You can get a two-year degree (an associate degree) at a college.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "🇺🇸 USA", why: "Den zweijährigen „associate degree“ gibt es nur in den USA." },
+    { type: "choice", q: "A bachelor's degree usually takes four years.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "🇺🇸 USA", why: "In den USA dauert der Bachelor meist 4 Jahre, bei uns meist nur 3 Jahre." },
+    { type: "choice", q: "The highest degree you can get is a doctorate.", options: ["🇺🇸 USA", "🇩🇪 Deutschland", "beide"], answer: "beide", why: "Der Doktortitel ist in beiden Ländern der höchste Abschluss." },
+  ]},
+  { name: "Hast du's verstanden?", stars: 2, desc: "Multiple Choice – hör genau hin, die falschen Antworten klingen auch gut!", tasks: [
+    { type: "choice", q: "Why are most US schools called “public schools”?", hint: "Video ab 0:14", options: ["because they get their money from the government", "because everybody in the town can visit them", "because they are bigger than private schools", "because students don't wear a uniform there"], answer: "because they get their money from the government", why: "„federally funded“ = vom Staat bezahlt. Deshalb heißen sie public schools." },
+    { type: "choice", q: "What may students at a public school still have to pay for?", hint: "Video ab 0:28", options: ["lunch", "tuition", "their books", "the school bus"], answer: "lunch", why: "„other fees may apply such as paying for lunch“" },
+    { type: "choice", q: "What is true about private schools?", hint: "Video ab 0:46", options: ["They must follow the same state standards as public schools.", "They can make their own standards for graduation.", "They all have to teach religion.", "They are free if you live near the school."], answer: "They must follow the same state standards as public schools.", why: "Privatschulen kosten Geld, müssen aber die gleichen Vorgaben erfüllen. Religion ist nur bei manchen ein Schwerpunkt." },
+    { type: "choice", q: "Who usually decides which classes students must take for graduation?", hint: "Video ab 1:07", options: ["the states", "the federal government in Washington", "every teacher", "the students"], answer: "the states", why: "„states are typically able to make decisions about … certain classes students must take“" },
+    { type: "choice", q: "Which list shows the four core subjects from the video?", hint: "Video ab 1:19", options: ["history, science, math and English", "math, English, art and science", "English, history, sports and math", "science, math, English and music"], answer: "history, science, math and English", why: "Kunst, Sport und Musik sind keine core subjects im Video." },
+    { type: "choice", q: "Why is the SAT or ACT score important?", hint: "Video ab 1:36", options: ["Colleges use it to decide if you can go there.", "You need it to get your high school diploma.", "It shows how much tuition you have to pay.", "It decides which state you can live in."], answer: "Colleges use it to decide if you can go there.", why: "„to determine your eligibility for attending the university“ – ob du dort studieren darfst." },
+    { type: "choice", q: "Which test do students in the Midwest usually take?", hint: "Video ab 2:08", options: ["the ACT", "the SAT", "both tests", "no test"], answer: "the ACT", why: "Schulen an der Küste machen eher den SAT, im Mittleren Westen den ACT." },
+    { type: "choice", q: "Does it matter which test you take?", hint: "Video ab 2:19", options: ["No, if you get the minimum score your college wants.", "Yes, the SAT is better for good universities.", "Yes, the ACT is easier, so colleges don't like it.", "No, because colleges don't look at the tests."], answer: "No, if you get the minimum score your college wants.", why: "„it doesn't really matter which test you take as long as you meet the minimum requirements“" },
+    { type: "choice", q: "What is different at public colleges compared to public high schools?", hint: "Video ab 2:33", options: ["Students have to pay tuition.", "There are no classes about technology.", "Students can only study for two years.", "Lunch is free for all students."], answer: "Students have to pay tuition.", why: "„unlike public secondary schools, public colleges will still require students to pay tuition“" },
+    { type: "choice", q: "Chelsea compares a degree to …", hint: "Video ab 3:05", options: ["a key for a locked door", "a ticket for a train", "a ladder to the top", "a map of a new city"], answer: "a key for a locked door", why: "Ein Abschluss „schließt“ Türen zu neuen Jobs auf." },
+  ]},
+  { name: "Hör-Detektiv 🎧", stars: 3, ordered: true, desc: "Welches Wort fehlt? Such die Stelle im Video und hör genau hin.", tasks: [
+    { type: "type", q: "Today I want to take a deep ___ into the American higher education system.", hint: "Video ab 0:07", answers: ["dive"], why: "take a deep dive = sich etwas genau anschauen" },
+    { type: "type", q: "Other fees may apply, such as paying for ___.", hint: "Video ab 0:28", answers: ["lunch"] },
+    { type: "type", q: "They are often more focused on certain educational values … such as ___.", hint: "Video ab 0:59", answers: ["religion"] },
+    { type: "type", q: "There are usually ___ core subjects seen in every school.", hint: "Video ab 1:19 · Zahl als Wort oder Ziffer", answers: ["four", "4"] },
+    { type: "type", q: "Upon graduating from high school, students are awarded a ___.", hint: "Video ab 1:32", answers: ["diploma"] },
+    { type: "type", q: "Many students find themselves taking specific classes or watching study tip ___.", hint: "Video ab 1:51", answers: ["videos"] },
+    { type: "type", q: "Many ___ schools participate in SAT tests, while Midwest students take the ACT.", hint: "Video ab 2:13", answers: ["coastal"], why: "coastal = an der Küste" },
+    { type: "type", q: "… such as a TV reporter needing a ___ degree.", hint: "Video ab 3:08", answers: ["journalism"] },
+    { type: "type", q: "Think of it like ___ to enter through a locked door.", hint: "Video ab 3:15", answers: ["keys"] },
+    { type: "type", q: "In the U.S., the highest level of degree you can obtain is a ___.", hint: "Video ab 3:27", answers: ["doctorate"] },
+  ]},
+]};
+(function () {
+  const box = document.getElementById("gloss");
+  const say = (w) => { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(w.replace(/\//g, ",")); const v = speechSynthesis.getVoices().find((x) => /en[-_]US/i.test(x.lang));
+    if (v) u.voice = v; u.lang = "en-US"; u.rate = 0.85; speechSynthesis.speak(u); };
+  GLOSS.forEach(([en, de]) => {
+    const r = document.createElement("div"); r.className = "gloss-row";
+    const b = document.createElement("button"); b.className = "say"; b.textContent = "🔊"; b.setAttribute("aria-label", "Vorlesen: " + en); b.onclick = () => say(en);
+    const e = document.createElement("b"); e.textContent = en; const d = document.createElement("span"); d.textContent = de;
+    r.append(b, e, d); box.appendChild(r);
+  });
+})();
+</script>
+<script src="../../assets/quiz.js"></script>
+<script src="../../assets/memory.js"></script>
+</body>
+</html>

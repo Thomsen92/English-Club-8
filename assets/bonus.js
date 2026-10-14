@@ -2,4 +2,5 @@
 // "start" = ab diesem Tag sichtbar. "href" relativ zum Ordner bonus/.
 window.BONUS = [
   { start: "2026-10-10", ico: "🎬", stars: 1, title: "What do you like about New York?", desc: "Video (3 Min.) mit Video-Quiz und Kreuzworträtsel", href: "../2026-10-12/#video" },
+  { start: "2026-10-14", ico: "🏫", stars: 2, title: "Schools in the USA", desc: "Video (4 Min.) · Wörter · USA oder Deutschland? · Quiz · Hör-Detektiv · Memory", href: "american-schools/" },
 ];

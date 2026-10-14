@@ -146,3 +146,21 @@ input[type=text] {
 .xw-clues b { display: block; margin-bottom: 4px; }
 .xw-clue { padding: 2px 0; }
 @media (max-width: 560px) { .xw-clues { grid-template-columns: 1fr; } }
+
+/* Memory */
+.mem-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 12px; }
+.mem-card { font: inherit; cursor: pointer; aspect-ratio: 4 / 3; border-radius: 12px; border: 2px solid var(--line); background: var(--navy); color: var(--accent); padding: 4px; display: grid; place-items: center; min-width: 0; }
+.mem-card .face { display: none; font-weight: 800; font-size: clamp(.68rem, 2.6vw, .98rem); line-height: 1.15; overflow-wrap: anywhere; }
+.mem-card .back { font-size: 1.6rem; font-weight: 900; }
+.mem-card.up { background: var(--card); color: var(--ink); }
+.mem-card.up.de { background: var(--chip); }
+.mem-card.up .face { display: block; } .mem-card.up .back { display: none; }
+.mem-card.match { background: var(--ok-bg) !important; border-color: var(--ok); color: var(--ink); cursor: default; }
+@media (max-width: 520px) { .mem-grid { gap: 6px; } .mem-card { aspect-ratio: 1; } }
+/* Wörterliste */
+.gloss { display: grid; gap: 6px; margin-top: 10px; }
+.gloss-row { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--line); padding: 6px 0; }
+.gloss-row b { flex: 1 1 45%; min-width: 0; }
+.gloss-row span { flex: 1 1 45%; min-width: 0; color: var(--muted); hyphens: auto; overflow-wrap: anywhere; }
+.gloss-row b { overflow-wrap: anywhere; }
+.say { font: inherit; border: 0; background: var(--chip); color: var(--chip-ink); border-radius: 10px; padding: 6px 10px; cursor: pointer; flex: none; }
