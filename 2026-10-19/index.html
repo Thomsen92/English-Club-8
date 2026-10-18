@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Woche ab 19.10. · As big as New York? · English Club 8</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz2.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Alle Wochen</a>
+    <div class="brand">
+      <div class="logo date">19.10</div>
+      <div><p class="when">Woche ab Montag, 19.10.</p><h1>As big as New York?</h1><p>Unit 1 · Comparisons · British &amp; American English · Vokabelblatt 5</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="menu">
+    <div class="label">Selbsttest – wähle deine Stufe</div>
+    <p class="hint" style="margin:6px 0 14px">Fang bei ★ an. Viele Aufgaben haben mehrere Teile: Fülle alles aus und tippe dann auf „Prüfen“. Bei einem Fehler darfst du es nochmal versuchen. Für die Sprech-Aufgabe brauchst du Kopfhörer.</p>
+    <div class="levels" id="levels"></div>
+
+    <h2>Merke dir</h2>
+    <div class="card">
+      <p style="margin:0 0 8px"><b>Kurze Adjektive → -er / -est:</b> cheap – cheaper – the cheapest · big – bigger – the biggest · nice – nicer – the nicest</p>
+      <p style="margin:0 0 8px"><b>Lange Adjektive → more / most:</b> expensive – more expensive – the most expensive · famous – more famous – the most famous</p>
+      <p style="margin:0 0 8px"><b>Unregelmäßig:</b> good – better – the best</p>
+      <p style="margin:0"><b>-er / more … than</b> (als) · <b>as … as</b> (genauso … wie) · <b>not as … as</b> (nicht so … wie)</p>
+    </div>
+
+    <h2>Noch mehr üben</h2>
+    <div class="links">
+      <a class="ext" href="https://www.englisch-hilfen.de/en/exercises/languages/be_ae.htm" target="_blank" rel="noopener">
+        <span class="ico">🇬🇧</span><span><b>British or American English? <span class="tag mid">★★</span></b><small>10 Sätze: Ist das britisches oder amerikanisches Englisch? Ein paar Wörter sind neu, z. B. truck (AE) = lorry (BE).</small></span></a>
+      <a class="ext" href="https://www.englisch-hilfen.de/uebungen/adjektive_adverbien/adjektive_steigerung_saetze.htm" target="_blank" rel="noopener">
+        <span class="ico">✏️</span><span><b>Steigerung in Sätzen – Übung 1 <span class="tag mid">★★</span></b><small>10 Sätze: Setze die richtige Form ein (faster, the fastest …).</small></span></a>
+      <a class="ext" href="https://www.englisch-hilfen.de/uebungen/adjektive_adverbien/adjektive_steigerung_saetze2.htm" target="_blank" rel="noopener">
+        <span class="ico">✏️</span><span><b>Steigerung in Sätzen – Übung 2 <span class="tag pro">★★★ Profi</span></b><small>Noch 10 Sätze, etwas schwerer.</small></span></a>
+      <a class="ext" href="https://learnenglishteens.britishcouncil.org/grammar/a1-a2-grammar/comparative-superlative-adjectives" target="_blank" rel="noopener">
+        <span class="ico">🎬</span><span><b>Video: Pizza or fish and chips? (British Council) <span class="tag pro">★★★ Profi</span></b><small>Kurzes Video mit Vergleichen (Kopfhörer!), danach 3 Übungen. Neu dabei: less / least.</small></span></a>
+    </div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
+  <p class="foot">English Club 8 · Kein Login · keine Werbung · es werden keine Daten verschickt. Aufnahmen bleiben nur kurz auf dem Tablet und werden nicht gespeichert.</p>
+</main>
+<script>
+// Angebote aus dem Role-play „At the tourist information“ (Buch S. 25 / S. 102)
+const OFFERS = `<table>
+  <tr><th>Offer</th><th>Price</th></tr>
+  <tr><td>🗽 Top of the Rock</td><td class="price">$34 (children: $30)</td></tr>
+  <tr><td>🚲 Bike &amp; Roll</td><td class="price">from $35 a day</td></tr>
+  <tr><td>🎬 Movie Tour (3.5 hours)</td><td class="price">$40</td></tr>
+  <tr><td>⛴ Staten Island Ferry</td><td class="price">free</td></tr>
+  <tr><td>🌳 High Line Park</td><td class="price">free</td></tr>
+  <tr><td>🛹 Pier 62</td><td class="price">free</td></tr>
+</table>`;
+
+window.QUIZ = { id: "2026-10-19", levels: [
+
+  // ================= ★ BASIS =================
+  { name: "Basis", stars: 1, desc: "AE/BE, Vokabeln, -er oder more, höflich antworten", tasks: [
+    { type: "multi", tag: "AE / BE", title: "AE oder BE?", keep: true,
+      q: "AE 🇺🇸 or BE 🇬🇧? Sag bei jedem Wort, ob es amerikanisch oder britisch ist.",
+      hint: "AE = American English (USA) · BE = British English (Großbritannien)",
+      why: "Kekse: cookies (AE) = biscuits (BE) · Süßigkeiten: candy (AE) = sweets (BE) · Zentrum: center (AE) = centre (BE).",
+      items: [
+        { kind: "choice", keep: true, label: "cookies", options: ["AE 🇺🇸", "BE 🇬🇧"], answer: "AE 🇺🇸", why: "cookies = Kekse in den USA. In Großbritannien sagt man biscuits.", tip: "In New York kauft man cookies." },
+        { kind: "choice", keep: true, label: "biscuits", options: ["AE 🇺🇸", "BE 🇬🇧"], answer: "BE 🇬🇧", why: "biscuits = Kekse in Großbritannien. In den USA sagt man cookies." },
+        { kind: "choice", keep: true, label: "candy", options: ["AE 🇺🇸", "BE 🇬🇧"], answer: "AE 🇺🇸", why: "candy = Süßigkeiten in den USA (BE: sweets)." },
+        { kind: "choice", keep: true, label: "sweets", options: ["AE 🇺🇸", "BE 🇬🇧"], answer: "BE 🇬🇧", why: "sweets = Süßigkeiten in Großbritannien (AE: candy)." },
+        { kind: "choice", keep: true, label: "center", options: ["AE 🇺🇸", "BE 🇬🇧"], answer: "AE 🇺🇸", why: "center endet auf -er: amerikanische Schreibweise.", tip: "Amerikaner schreiben -er, Briten -re." },
+        { kind: "choice", keep: true, label: "centre", options: ["AE 🇺🇸", "BE 🇬🇧"], answer: "BE 🇬🇧", why: "centre endet auf -re: britische Schreibweise." },
+      ] },
+
+    { type: "multi", tag: "AE / BE", title: "Was sagt man in New York?",
+      q: "Was sagt man in New York? Wähle das amerikanische Wort (AE).",
+      why: "Achtung, Falle: chips heißt in den USA Kartoffelchips, in Großbritannien Pommes!",
+      items: [
+        { kind: "choice", label: "In London I bought crisps. In New York I bought ___.", options: ["chips", "French fries", "candy"], answer: "chips", why: "Kartoffelchips: crisps (BE) = chips (AE). bought = buy in der Vergangenheit.", hint: "Gesucht: Kartoffelchips auf Amerikanisch.", tip: "Kartoffelchips heißen in den USA wie die britischen Pommes." },
+        { kind: "choice", label: "In London I ate fish and chips. In New York I ate a burger and ___.", options: ["French fries", "chips", "crisps"], answer: "French fries", why: "Pommes: chips (BE) = French fries (AE). ate = eat in der Vergangenheit.", hint: "Gesucht: Pommes frites auf Amerikanisch." },
+        { kind: "choice", label: "In London I like sweets. In New York I like ___.", options: ["candy", "cookies", "crisps"], answer: "candy", why: "Süßigkeiten: sweets (BE) = candy (AE)." },
+        { kind: "choice", label: "In London we went to the city centre. In New York we went to the city ___.", options: ["center", "centre", "harbor"], answer: "center", why: "AE schreibt -er: center. BE schreibt -re: centre.", hint: "Hier geht es um die Schreibweise." },
+      ] },
+
+    { type: "multi", tag: "Vokabeln", title: "Vokabel-Check Blatt 5",
+      q: "Vokabel-Check (Vokabelblatt 5): Schreib das englische Wort.",
+      hint: "Bei Hafen und Zentrum zählen AE und BE.",
+      why: "sight = Sehenswürdigkeit · sightseeing = Besichtigung(en) · harbor (AE) / harbour (BE) = Hafen · center (AE) / centre (BE) = Zentrum · candy (AE) / sweets (BE) = Süßigkeiten",
+      items: [
+        { kind: "type", label: "die Sehenswürdigkeit", answers: ["sight", "a sight", "the sight"], show: "sight", why: "a sight = eine Sehenswürdigkeit", tip: "Das Wort steckt auch in „sightseeing“." },
+        { kind: "type", label: "die Besichtigung(en)", answers: ["sightseeing"], why: "sightseeing = Besichtigung(en), z. B. go sightseeing = Sehenswürdigkeiten anschauen", tip: "sight + seeing" },
+        { kind: "type", label: "der Hafen", answers: ["harbor", "harbour", "a harbor", "a harbour", "the harbor", "the harbour"], show: "harbor / harbour", why: "harbor (AE) = harbour (BE)", tip: "Fängt mit h an, hat 6 (AE) oder 7 (BE) Buchstaben." },
+        { kind: "type", label: "das Zentrum", answers: ["center", "centre", "the center", "the centre"], show: "center / centre", why: "center (AE) = centre (BE)" },
+        { kind: "type", label: "die Süßigkeiten", answers: ["candy", "sweets"], show: "candy / sweets", why: "candy (AE) = sweets (BE)" },
+      ] },
+
+    { type: "multi", tag: "Comparisons", title: "-er oder more?", keep: true,
+      q: "-er oder more? Wie steigert man diese Adjektive?",
+      hint: "Kurze Wörter bekommen -er. Lange Wörter bekommen more.",
+      why: "Kurze Adjektive (1 Silbe): -er → cheaper, bigger, nicer. Lange Adjektive (ab 2 Silben, z. B. famous): more → more expensive, more famous.",
+      items: [
+        { kind: "choice", keep: true, label: "cheap (billig)", options: ["cheaper", "more cheap"], answer: "cheaper", why: "cheap hat eine Silbe → cheaper.", hint: "cheap ist kurz." },
+        { kind: "choice", keep: true, label: "big (groß)", options: ["biger", "bigger", "more big"], answer: "bigger", why: "big → bigger: Nach kurzem Vokal wird der letzte Buchstabe verdoppelt.", hint: "Achte auf die Schreibweise." },
+        { kind: "choice", keep: true, label: "expensive (teuer)", options: ["expensiver", "more expensive"], answer: "more expensive", why: "ex-pen-sive hat drei Silben → more expensive.", hint: "Zähl die Silben: ex-pen-sive." },
+        { kind: "choice", keep: true, label: "famous (berühmt)", options: ["famouser", "more famous"], answer: "more famous", why: "fa-mous hat zwei Silben → more famous.", hint: "fa-mous hat zwei Silben." },
+        { kind: "choice", keep: true, label: "nice (schön, nett)", options: ["nicer", "niceer", "more nice"], answer: "nicer", why: "nice endet auf -e → nur -r anhängen: nicer." },
+      ] },
+
+    { type: "multi", tag: "Comparisons", title: "good – better – best",
+      q: "good – better – best: Setz die richtige Form ein.",
+      hint: "good ist unregelmäßig: good – better – the best",
+      why: "good – better (besser) – the best (am besten). Niemals „gooder“ oder „most good“!",
+      items: [
+        { kind: "type", label: "The Movie Tour is good, but the Top of the Rock is ___.", answers: ["better"], why: "Vergleich von zwei Dingen → better.", tip: "Vergleich zwischen zwei Dingen." },
+        { kind: "type", label: "For me, the Statue of Liberty is the ___ sight in New York.", answers: ["best"], why: "the … sight = Superlativ → the best.", tip: "Vor der Lücke steht „the“." },
+        { kind: "type", label: "Yesterday I ate a pizza at a diner. It was ___ than my pizza at home!", answers: ["better"], why: "„than“ zeigt einen Vergleich von zwei Dingen → better.", tip: "Nach der Lücke steht „than“." },
+      ] },
+
+    { type: "multi", tag: "Dialog", title: "Höflich antworten",
+      q: "Höflich antworten: Was ist die beste Antwort?",
+      hint: "Alle Wendungen stehen auf Vokabelblatt 5.",
+      why: "Thanks very much. → You're very welcome. · Excuse me. Could you help me, please? → Sure! · Sorry … → No worries!",
+      items: [
+        { kind: "choice", label: "🧳 „Thanks very much.“", options: ["You're very welcome.", "Excuse me.", "Could you help me, please?"], answer: "You're very welcome.", why: "Auf „Danke“ antwortet man „Gern geschehen.“", hint: "Jemand bedankt sich bei dir." },
+        { kind: "choice", label: "🧳 „Excuse me. Could you help me, please?“", options: ["Sure! What's the problem?", "You're very welcome.", "Thanks very much."], answer: "Sure! What's the problem?", why: "Jemand bittet um Hilfe → „Klar! Was ist das Problem?“", hint: "Jemand möchte Hilfe." },
+        { kind: "choice", label: "ℹ️ „Sorry, we don't have maps of Brooklyn.“", options: ["No worries! Thanks anyway.", "You're very welcome.", "Have a nice day!"], answer: "No worries! Thanks anyway.", why: "No worries! = Kein Problem! Damit zeigst du, dass es okay ist.", hint: "Die Person entschuldigt sich." },
+      ] },
+  ]},
+
+  // ================= ★★ AUFBAU =================
+  { name: "Aufbau", stars: 2, desc: "BE schreiben, Preise vergleichen, as … as, than oder as, Dialog ordnen", tasks: [
+    { type: "multi", tag: "AE / BE", title: "Max schreibt nach London",
+      q: "Max ist in New York und schreibt seiner Freundin Emma in London. Schreib die markierten Wörter in British English (BE).",
+      info: `<p class="msg">„Hi Emma! Yesterday we walked to the <mark>harbor</mark> and ate <mark>French fries</mark>. Then we went to the city <mark>center</mark> and I bought <mark>cookies</mark> for you!“</p>`,
+      why: "harbor → harbour · French fries → chips · center → centre · cookies → biscuits",
+      items: [
+        { kind: "type", label: "harbor →", answers: ["harbour", "the harbour"], show: "harbour", why: "BE schreibt -our: harbour.", hint: "Im BE kommt ein Buchstabe dazu.", tip: "BE: -our statt -or." },
+        { kind: "type", label: "French fries →", answers: ["chips"], why: "Pommes heißen in Großbritannien chips.", hint: "Denk an „fish and …“." },
+        { kind: "type", label: "center →", answers: ["centre", "the centre", "city centre"], show: "centre", why: "BE schreibt -re: centre.", hint: "Die letzten zwei Buchstaben tauschen." },
+        { kind: "type", label: "cookies →", answers: ["biscuits"], why: "Kekse heißen in Großbritannien biscuits.", hint: "Es beginnt mit b.", tip: "b…s, 8 Buchstaben" },
+      ] },
+
+    { type: "multi", tag: "Comparisons", title: "Preise vergleichen",
+      q: "Preise vergleichen: Schau in die Tabelle und setz die richtige Form ein.",
+      hint: "Das Adjektiv in Klammern musst du steigern.",
+      info: OFFERS,
+      why: "cheap → cheaper → the cheapest · expensive → more expensive → the most expensive",
+      items: [
+        { kind: "type", label: "Bike & Roll ($35) is ___ (cheap) than the Movie Tour ($40).", answers: ["cheaper"], why: "$35 ist weniger als $40 → cheaper than.", hint: "cheap ist kurz → -er." },
+        { kind: "type", label: "The Movie Tour is ___ (expensive) than the Top of the Rock.", answers: ["more expensive"], why: "$40 ist mehr als $34 → more expensive than.", hint: "expensive ist lang → more …" },
+        { kind: "type", label: "The Movie Tour is the ___ (expensive) offer.", answers: ["most expensive"], why: "Das teuerste von allen → the most expensive.", hint: "Vor der Lücke steht „the“ → Superlativ." },
+        { kind: "type", label: "The ferry, the High Line and Pier 62 are the ___ (cheap) offers – they are free!", answers: ["cheapest"], why: "Die billigsten von allen → the cheapest.", hint: "Superlativ von cheap: -est." },
+      ] },
+
+    { type: "multi", tag: "Comparisons", title: "as … as / not as … as",
+      q: "as … as oder not as … as? Schreib die fehlenden Wörter.",
+      hint: "Gleich → as … as. Nicht gleich → not as … as. Das Adjektiv steht in Klammern.",
+      info: OFFERS,
+      why: "as cheap as = genauso billig wie · not as expensive as = nicht so teuer wie. Bei as … as bleibt das Adjektiv immer in der Grundform!",
+      items: [
+        { kind: "type", label: "The ferry is free. The High Line is free, too. → The High Line is ___ (cheap) the ferry.", answers: ["as cheap as"], why: "Beide kosten nichts → as cheap as.", hint: "Beide kosten gleich viel.", tip: "as … as" },
+        { kind: "type", label: "Bike & Roll costs $35. The Movie Tour costs $40. → Bike & Roll is ___ (expensive) the Movie Tour.", answers: ["not as expensive as"], why: "$35 ist weniger als $40 → not as expensive as.", hint: "Nicht gleich teuer → not as … as." },
+        { kind: "type", label: "The Top of the Rock: $34 for adults, $30 for children. → For children it is ___ (expensive) for adults.", answers: ["not as expensive as"], why: "$30 ist weniger als $34 → not as expensive as.", hint: "Kinder zahlen weniger." },
+        { kind: "type", label: "Max is 14. His friend Leo is 14, too. → Max is ___ (old) Leo.", answers: ["as old as"], why: "Gleich alt → as old as.", hint: "Beide sind gleich alt." },
+      ] },
+
+    { type: "multi", tag: "Comparisons", title: "than oder as?",
+      q: "than oder as? Wähle das richtige Wort.",
+      why: "Merke: -er / more … than (als) · as … as und not as … as (wie).",
+      items: [
+        { kind: "choice", keep: true, label: "New York is bigger ___ Berlin.", options: ["than", "as"], answer: "than", why: "bigger → than.", hint: "Nach -er kommt …" },
+        { kind: "choice", keep: true, label: "The High Line is as cheap ___ Pier 62.", options: ["than", "as"], answer: "as", why: "as … as gehört zusammen.", hint: "Vorne steht schon „as“." },
+        { kind: "choice", keep: true, label: "Bike & Roll is not as expensive ___ the Movie Tour.", options: ["than", "as"], answer: "as", why: "not as … as gehört zusammen.", hint: "not as … ?" },
+        { kind: "choice", keep: true, label: "The Top of the Rock is more expensive ___ the ferry.", options: ["than", "as"], answer: "than", why: "more expensive → than.", hint: "Nach more … kommt …" },
+        { kind: "choice", keep: true, label: "I paid $35 for the bike. That was more ___ I wanted to pay!", options: ["than", "as"], answer: "than", why: "more … than. (paid = pay in der Vergangenheit)", hint: "more … ?" },
+      ] },
+
+    { type: "multi", tag: "Vokabeln", title: "Vokabeln im Satz",
+      q: "Vokabeln im Satz: Welches Wort von Vokabelblatt 5 passt?",
+      why: "sightseeing · sight · harbor/harbour · center/centre",
+      items: [
+        { kind: "type", label: "On our first day in New York we went ___ in Manhattan.", answers: ["sightseeing"], why: "go sightseeing = Sehenswürdigkeiten anschauen", hint: "Gesucht: Besichtigung(en).", tip: "sight + …" },
+        { kind: "type", label: "The Statue of Liberty is a famous ___ .", answers: ["sight"], why: "a sight = eine Sehenswürdigkeit", hint: "Gesucht: Sehenswürdigkeit." },
+        { kind: "type", label: "Boats and ferries leave from the ___ .", answers: ["harbor", "harbour"], show: "harbor / harbour", why: "harbor (AE) = harbour (BE) = Hafen", hint: "Gesucht: Hafen." },
+        { kind: "type", label: "Times Square is in the ___ of Manhattan.", answers: ["center", "centre"], show: "center / centre", why: "center (AE) = centre (BE) = Zentrum, Mitte", hint: "Gesucht: Zentrum, Mitte." },
+      ] },
+
+    { type: "order", tag: "Dialog", title: "Dialog an der Tourist Information",
+      q: "At the tourist information: Bring den Dialog in die richtige Reihenfolge.",
+      hint: "Tippe auf ▲ und ▼, um eine Zeile zu verschieben. A = Tourist · B = Tourist Office",
+      names: ["Tourist", "Office"],
+      why: "Zuerst höflich ansprechen (Excuse me), dann den Wunsch sagen, nach dem Preis fragen, danken – und zum Schluss: Have a nice day!",
+      lines: [
+        { who: "A", text: "Excuse me. Could you help me, please?" },
+        { who: "B", text: "Sure! What's the problem?" },
+        { who: "A", text: "I'd like to hire a bike." },
+        { who: "B", text: "What about Bike & Roll? You can hire a bike there for a day." },
+        { who: "A", text: "Can you tell me how much it costs, please?" },
+        { who: "B", text: "It costs $35." },
+        { who: "A", text: "Thanks very much." },
+        { who: "B", text: "You're very welcome. Have a nice day!" },
+      ] },
+  ]},
+
+  // ================= ★★★ PROFI =================
+  { name: "Profi", stars: 3, desc: "Fehler finden, BE → AE, Sätze bauen, höflich schreiben, Rollenspiel", tasks: [
+    { type: "multi", tag: "Comparisons", title: "Fehler-Detektiv",
+      q: "Fehler-Detektiv: In jedem Satz ist ein Vergleich falsch. Schreib nur die richtige Form.",
+      hint: "Beispiel: „more cheap“ → du schreibst „cheaper“.",
+      why: "cheaper · better · as big as · the best · more expensive",
+      items: [
+        { kind: "type", label: "The ferry is more cheap than the Movie Tour.", answers: ["cheaper"], why: "cheap ist kurz → cheaper (nicht more cheap).", hint: "Kurzes Adjektiv → -er." },
+        { kind: "type", label: "My mum's pizza is gooder than the pizza at the diner.", answers: ["better"], why: "good – better – best (unregelmäßig).", hint: "good ist unregelmäßig." },
+        { kind: "type", label: "Pier 62 is as big than the High Line.", answers: ["as big as"], why: "as … as gehört zusammen, nicht as … than.", hint: "Schreib die drei Wörter: as … …" },
+        { kind: "type", label: "The Top of the Rock has the most good view in New York.", answers: ["best", "the best"], show: "the best", why: "good → the best (nicht the most good).", hint: "Superlativ von good." },
+        { kind: "type", label: "The Movie Tour is expensiver than Bike & Roll.", answers: ["more expensive"], why: "expensive ist lang → more expensive.", hint: "Langes Adjektiv → more …" },
+      ] },
+
+    { type: "multi", tag: "AE / BE", title: "Lucy schreibt nach New York",
+      q: "Lucy aus London schreibt ihrem Freund Jake in New York. Schreib die markierten Wörter so, wie Jake sie sagt (AE).",
+      info: `<p class="msg">„Hi Jake! Today I bought <mark>sweets</mark> and <mark>crisps</mark> in the city <mark>centre</mark>. In the evening my dad and I ate fish and <mark>chips</mark>. Yum!“</p>`,
+      why: "sweets → candy · crisps → chips · centre → center · chips (Pommes) → French fries",
+      items: [
+        { kind: "type", label: "sweets →", answers: ["candy"], why: "Süßigkeiten: candy (AE).", hint: "Es beginnt mit c." },
+        { kind: "type", label: "crisps →", answers: ["chips"], why: "Kartoffelchips heißen in den USA chips.", hint: "Kartoffelchips auf Amerikanisch." },
+        { kind: "type", label: "centre →", answers: ["center", "city center", "the center"], show: "center", why: "AE schreibt -er: center.", hint: "Die letzten zwei Buchstaben tauschen." },
+        { kind: "type", label: "chips (in „fish and chips“) →", answers: ["french fries", "fries"], show: "French fries", why: "Pommes heißen in den USA French fries. Vorsicht: „chips“ wären in den USA Kartoffelchips!", hint: "Hier sind Pommes gemeint, keine Kartoffelchips.", tip: "Zwei Wörter: F… f…" },
+      ] },
+
+    { type: "multi", tag: "Comparisons", title: "Vergleichssätze bauen",
+      q: "Bau die Vergleichssätze: Tippe die Wörter in der richtigen Reihenfolge an.",
+      hint: "Tippe ein Wort noch einmal an, um es zurückzulegen.",
+      why: "Satzbau: Wer/Was + is + Vergleich + than/as + womit.",
+      items: [
+        { kind: "build", label: "Satz 1", sentence: "The Movie Tour is not as cheap as the ferry.", why: "not as cheap as = nicht so billig wie", tip: "Satz 1 beginnt mit „The Movie Tour …“." },
+        { kind: "build", label: "Satz 2", sentence: "The Top of the Rock is more expensive than Bike & Roll.", why: "more expensive than = teurer als", tip: "Satz 2 beginnt mit „The Top of the Rock …“." },
+        { kind: "build", label: "Satz 3", sentence: "For me, the High Line is the best park in New York.", why: "the best = der/die/das beste", tip: "Satz 3 beginnt mit „For me, …“." },
+      ] },
+
+    { type: "multi", tag: "Dialog", title: "Unhöflich → höflich",
+      q: "Unhöflich → höflich: Schreib die Sätze höflich. Es gibt mehrere richtige Lösungen.",
+      hint: "Benutze Wendungen von Vokabelblatt 5: Excuse me · Could you … / Can you … · please",
+      why: "Höflich fragen: Excuse me. · Could you / Can you …? · please. So klingt es freundlich statt wie ein Befehl.",
+      items: [
+        { kind: "type", label: "😠 „Tell me the price!“", rules: [["can you tell me", "could you tell me"], ["price", "how much"], ["please"]], answers: ["Can you tell me the price, please?"], show: "Can you tell me the price, please?", why: "Can you tell me …, please? ist höflich.", hint: "Beginne mit „Can you …“ oder „Could you …“ und vergiss „please“ nicht." },
+        { kind: "type", label: "😠 „Help me!“", rules: [["could you", "can you"], ["help me"], ["please"]], answers: ["Excuse me. Could you help me, please?"], show: "Excuse me. Could you help me, please?", why: "Excuse me. Could you help me, please? = Entschuldigung, könnten Sie mir bitte helfen?", hint: "Benutze „Could you …“ und „please“." },
+        { kind: "type", label: "😠 „Give me a map!“", rules: [["can i have", "could i have", "can you give me", "could you give me"], ["map"], ["please"]], answers: ["Can I have a map, please?"], show: "Can I have a map, please?", why: "Can I have …, please? = Kann ich bitte … haben?", hint: "Versuch es mit „Can I have …?“ und „please“." },
+      ] },
+
+    { type: "record", tag: "Speaking 🎧", title: "Rollenspiel Tourist Information",
+      q: "Rollenspiel: Du arbeitest in der Tourist Information. Hör dir die Touristin an und antworte ihr.",
+      hint: "Kopfhörer auf! Schau in die Tabelle. Sprich ganze Sätze und sei höflich.",
+      info: OFFERS,
+      steps: [
+        "Tippe auf 🔊 und hör der Touristin zu (so oft du willst).",
+        "Überleg: Welches Angebot passt? Was kostet es?",
+        "Nimm deine Antwort auf (●) und hör sie dir an (▶).",
+        "Vergleiche mit der Musterantwort und schätze dich selbst ein.",
+      ],
+      say: [["A", "Excuse me. Could you help me, please? I'd like to visit a cool sight with a great view of New York. Can you tell me how much it costs, please?"]],
+      model: "Sure! What about the Top of the Rock? It has a great view of New York. It costs $34 for adults and $30 for children. Have a nice day!",
+      modelAlt: "Wichtig: ein Angebot nennen, den Preis sagen und freundlich verabschieden. Deine Antwort darf anders klingen!",
+      modelSay: [["B", "Sure! What about the Top of the Rock? It has a great view of New York. It costs thirty-four dollars for adults and thirty dollars for children. Have a nice day!"]],
+      why: "Gute Antwort: Sure! · What about …? · It costs … · Have a nice day!" },
+  ]},
+]};
+</script>
+<script src="../assets/quiz2.js"></script>
+</body>
+</html>
