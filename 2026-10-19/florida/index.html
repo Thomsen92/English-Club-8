@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Video der Woche · Florida in Real Life · English Club 8</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<style>
+.clip { margin: 0 0 18px; }
+.clip b { display: block; }
+.clip .video { margin-top: 8px; }
+.pq-photo { position: relative; border-radius: 14px; overflow: hidden; background: var(--chip); aspect-ratio: 4 / 3; margin: 6px 0 14px; }
+.pq-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.pq-photo .pq-miss { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 16px; color: var(--muted); font-weight: 700; }
+.pq-credit { font-size: .78rem; color: var(--muted); margin: -8px 0 12px; }
+.pq-credit a { color: inherit; }
+.pq-score { font-weight: 800; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Woche ab 19.10.</a>
+    <div class="brand">
+      <div class="logo">🌴</div>
+      <div><p class="when">Video der Woche</p><h1>Florida in Real Life</h1><p>Zwei YouTuber suchen die Orte aus GTA 6 in Florida · ca. 22 Minuten in 5 Teilen</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="menu">
+    <div class="label">So geht's</div>
+    <p class="hint" style="margin:6px 0 0">1. Lies zuerst die schwierigen Wörter. &nbsp;2. Schau die Video-Teile (Kopfhörer!). Du musst nicht jedes Wort verstehen – halte an und spul zurück, so oft du willst. &nbsp;3. Mach die Aufgaben in beliebiger Reihenfolge. Das Foto-Quiz geht auch ohne Video.</p>
+
+    <h2>📖 Vor dem Video: schwierige Wörter</h2>
+    <div class="card">
+      <p class="hint" style="margin:0">Tippe auf 🔊, dann hörst du, wie man das Wort ausspricht.</p>
+      <div class="gloss" id="gloss"></div>
+    </div>
+
+    <h2>🎬 Das Video in 5 Teilen</h2>
+    <div class="card">
+      <p class="hint" style="margin:0 0 14px">Marshall und Matt fliegen nach Florida. Dort suchen sie die echten Orte, die man in den Bildern und Trailern zu <b>GTA 6</b> sieht, und versuchen, die Bilder genau nachzustellen. Im Spiel heißt Florida <b>Leonida</b> und Miami heißt <b>Vice City</b>. Tipp: Über ⚙️ kannst du langsamer abspielen, über „CC“ Untertitel einschalten.</p>
+      <div class="clip"><b>Teil 1 · Central Florida</b><span class="hint">Mini golf, alligators and a sugar mill · 0:00–4:46</span>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/x85te8i3vYg?start=0&end=286&rel=0&cc_load_policy=1&cc_lang_pref=en" title="Teil 1: Central Florida" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+      <div class="clip"><b>Teil 2 · The Florida Keys</b><span class="hint">A long bridge, Key West and a sunset pier · 4:46–9:23</span>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/x85te8i3vYg?start=286&end=563&rel=0&cc_load_policy=1&cc_lang_pref=en" title="Teil 2: The Florida Keys" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+      <div class="clip"><b>Teil 3 · The Everglades and Wynwood</b><span class="hint">An airboat tour and a street in Miami · 10:57–15:06</span>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/x85te8i3vYg?start=657&end=906&rel=0&cc_load_policy=1&cc_lang_pref=en" title="Teil 3: The Everglades and Wynwood" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+      <div class="clip"><b>Teil 4 · Miami Beach</b><span class="hint">Ocean Drive, Muscle Beach and a big storm · 15:06–21:10</span>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/x85te8i3vYg?start=906&end=1270&rel=0&cc_load_policy=1&cc_lang_pref=en" title="Teil 4: Miami Beach" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+      <div class="clip" style="margin:0"><b>Teil 5 · Miami at night</b><span class="hint">A causeway and the skyline · 21:20–23:31</span>
+        <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/x85te8i3vYg?start=1280&end=1411&rel=0&cc_load_policy=1&cc_lang_pref=en" title="Teil 5: Miami at night" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div></div>
+    </div>
+
+    <h2 id="photo-sec">📸 Foto-Quiz: What's the name of this location?</h2>
+    <div class="card" id="photoquiz"></div>
+
+    <h2>✏️ Aufgaben zum Video</h2>
+    <div class="levels" id="levels"></div>
+
+    <h2 id="mem-sec">🃏 Memory</h2>
+    <div class="card"><div id="memory"></div></div>
+
+    <h2>💭 Und du?</h2>
+    <div class="card">
+      <p style="margin:0 0 6px"><b>Which place in Florida would you like to visit? Why?</b></p>
+      <p class="hint" style="margin:0">Erzähl es auf Englisch deiner Nachbarin oder deinem Nachbarn – oder schreib 3 Sätze in dein Heft. Benutze einen Vergleich!<br><i>Example: “I'd like to visit Key West because the beaches are more beautiful than in Miami. The Everglades are interesting, but alligators are more dangerous than lobsters!”</i></p>
+    </div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
+  <p class="foot">Fotos: Wikimedia Commons (freie Lizenzen, Quelle unter jedem Foto) · English Club 8 · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+</main>
+<script>
+window.GLOSS = [
+  ["to recreate", "nachstellen"],
+  ["shot / screenshot", "Aufnahme / Bildschirmfoto"],
+  ["to line up", "genau ausrichten"],
+  ["location", "Ort, Drehort"],
+  ["landmark", "Wahrzeichen"],
+  ["alligator", "Alligator"],
+  ["racetrack", "Rennstrecke"],
+  ["in the middle of nowhere", "am Ende der Welt"],
+  ["sugar mill", "Zuckerfabrik"],
+  ["crops", "Feldpflanzen, Ernte"],
+  ["drone", "Drohne"],
+  ["Easter egg", "versteckter Gag in einem Spiel"],
+  ["pier", "Steg, Anlegestelle"],
+  ["packed", "total voll"],
+  ["lobster", "Hummer"],
+  ["whale", "Wal"],
+  ["airboat", "Propellerboot"],
+  ["ecosystem", "Ökosystem, Lebensraum"],
+  ["tram line", "Straßenbahnlinie"],
+  ["to be gone", "weg sein, nicht mehr da sein"],
+  ["to demolish", "abreißen"],
+  ["thunderstorm", "Gewitter"],
+  ["soaked", "klatschnass"],
+  ["skyline", "Silhouette der Hochhäuser"],
+  ["Ferris wheel", "Riesenrad"],
+  ["to shrink", "verkleinern"],
+];
+window.MEMORY = [
+  ["lobster", "Hummer"],
+  ["whale", "Wal"],
+  ["pier", "Steg"],
+  ["Ferris wheel", "Riesenrad"],
+  ["soaked", "klatschnass"],
+  ["landmark", "Wahrzeichen"],
+  ["thunderstorm", "Gewitter"],
+  ["to demolish", "abreißen"],
+];
+window.QUIZ = { id: "2026-10-19-florida", choiceTip: "Schau dir die Stelle im Video noch einmal an.", levels: [
+  { name: "Game → real life", stars: 1, desc: "Im Spiel heißt es anders. Wie heißt der Ort in echt?", tasks: [
+    { type: "choice", q: "In GTA 6, the state is called Leonida. What's the real name?", hint: "Video ab 0:09", options: ["Florida", "California", "New York", "Texas"], answer: "Florida", why: "Leonida = Florida. Das Spiel spielt im Süden der USA." },
+    { type: "choice", q: "In GTA 6, the big city is called Vice City. What's the real city?", hint: "Video ab 0:14", options: ["Miami", "Orlando", "New York", "Key West"], answer: "Miami", why: "„down through Vice City or Miami“" },
+    { type: "choice", q: "The Leonida Keys in the game are …", hint: "Video ab 0:16", options: ["the Florida Keys", "the Everglades", "Miami Beach", "Lake Okeechobee"], answer: "the Florida Keys", why: "Die Keys sind kleine Inseln südlich von Florida, verbunden durch Brücken." },
+    { type: "choice", q: "Lake Leonida in the game is based on a real lake. Which one?", hint: "Video ab 1:51", options: ["Lake Okeechobee", "Lake Michigan", "Lake Tahoe", "Lake Constance"], answer: "Lake Okeechobee", why: "Lake Okeechobee ist der größte See in Florida. Lake Constance ist übrigens der Bodensee!" },
+    { type: "choice", q: "The town of Ambrosia in the game is based on …", hint: "Video ab 1:45", options: ["Clewiston", "Key Largo", "Orlando", "Wynwood"], answer: "Clewiston", why: "Clewiston liegt direkt südlich vom Lake Okeechobee – genau wie Ambrosia im Spiel." },
+    { type: "choice", q: "The Rusty Anchor pub in the game is the … in real life.", hint: "Video ab 5:02", options: ["No Name Pub", "Caribbean Club", "Hard Rock Cafe", "Tipsy Octopus"], answer: "No Name Pub", why: "Im No Name Pub hängen innen überall Ein-Dollar-Scheine an der Wand." },
+    { type: "choice", q: "In the game there is a whale on the roof. In real life, it's a …", hint: "Video ab 8:09", options: ["lobster", "shark", "dolphin", "alligator"], answer: "lobster", why: "In echt sitzt ein großer Hummer auf dem Dach – und auf der anderen Seite!" },
+    { type: "choice", q: "Jason's last name in the game is Duval. Why?", hint: "Video ab 5:40", options: ["Duval Street is the main street in Key West.", "Duval is a famous actor.", "Duval is a town in the Everglades.", "Duval means “gangster” in French."], answer: "Duval Street is the main street in Key West.", why: "Ein Easter egg: Jason wohnt im Spiel auf den Keys, und Duval Street ist die Hauptstraße von Key West." },
+  ]},
+  { name: "Hast du's verstanden?", stars: 2, desc: "Multiple Choice – die falschen Antworten klingen auch gut!", tasks: [
+    { type: "choice", q: "What do Marshall and Matt want to do in Florida?", hint: "Video ab 0:00", options: ["recreate GTA 6 pictures in real life", "play GTA 6 on a big screen", "meet the people from Rockstar", "make a new video game"], answer: "recreate GTA 6 pictures in real life", why: "„I flew across the world to Florida to recreate GTA 6 shots in real life.“" },
+    { type: "choice", q: "How do they know the mini golf in Orlando is the right place?", hint: "Video ab 0:32", options: ["because of the buildings", "because of the alligator on the roof", "because of a sign", "because of the plane"], answer: "because of the buildings", why: "Nur dieser Minigolfplatz in Florida hat genau diese Gebäude. Ein Alligator auf dem Dach war in echt nicht da." },
+    { type: "choice", q: "What does Matt think of the Florida heat?", hint: "Video ab 2:30", options: ["He says it's lovely, but he doesn't mean it.", "He really loves it.", "He thinks it's colder than at home.", "He doesn't say anything."], answer: "He says it's lovely, but he doesn't mean it.", why: "„Lovely … never experienced something so wonderful“ – das ist ironisch gemeint. Es ist viel zu heiß!" },
+    { type: "choice", q: "What is different about the sugar mill in GTA 6?", hint: "Video ab 4:11", options: ["It's painted like an American flag.", "It's much bigger.", "It's in the middle of Miami.", "There is no car park."], answer: "It's painted like an American flag.", why: "Im Spiel ist die Zuckerfabrik wie eine USA-Flagge angemalt." },
+    { type: "choice", q: "Why can't two people sit alone on the pier in Key Largo at sunset?", hint: "Video ab 7:21", options: ["It's the best spot for the sunset, so it's packed.", "The pier is closed at night.", "There are too many alligators.", "It's private property."], answer: "It's the best spot for the sunset, so it's packed.", why: "„Everyone in Key Largo knows that this is like the best spot to see the sunset. So it was absolutely packed.“" },
+    { type: "choice", q: "What did they see on the airboat tour in the Everglades?", hint: "Video ab 11:19", options: ["alligators in the wild", "whales", "a lot of tourists on the beach", "a racetrack"], answer: "alligators in the wild", why: "„we even saw some alligators out in the wild“" },
+    { type: "choice", q: "Why does the street in Wynwood look different from the game?", hint: "Video ab 13:03", options: ["There is no tram line – there are trees instead.", "All the buildings are new.", "It's much bigger in real life.", "There are no cars."], answer: "There is no tram line – there are trees instead.", why: "In echt fährt dort keine Straßenbahn. Man erkennt den Ort an den Fenstern und den Vordächern der Häuser." },
+    { type: "choice", q: "How was the weather on the way to the bank?", hint: "Video ab 19:49", options: ["It was pouring with rain – a thunderstorm.", "It was sunny and hot.", "It was windy but dry.", "It was snowing."], answer: "It was pouring with rain – a thunderstorm.", why: "„It has started pouring down rain. Matt is soaked.“" },
+    { type: "choice", q: "Marshall says “car park”. That's British English. What do Americans say?", hint: "Video ab 4:18 · AE oder BE?", options: ["parking lot", "car garden", "car station", "parking house"], answer: "parking lot", why: "car park (BE) = parking lot (AE). Marshall ist kein Amerikaner – das hört man!" },
+    { type: "choice", q: "What does Rockstar usually do to real places in its games?", hint: "Video ab 23:12", options: ["It makes everything smaller.", "It makes everything bigger.", "It copies every street exactly.", "It moves everything to New York."], answer: "It makes everything smaller.", why: "„shrinking everything down to make it into a video game map“ – im Spiel ist alles kleiner als in echt." },
+  ]},
+  { name: "Hör-Detektiv 🎧", stars: 3, ordered: true, desc: "Welches Wort fehlt? Such die Stelle im Video und hör genau hin.", tasks: [
+    { type: "type", q: "I flew across the world to Florida to recreate GTA 6 shots in real ___.", hint: "Video ab 0:00", answers: ["life"] },
+    { type: "type", q: "We've got ___ down here.", hint: "Video ab 0:41", answers: ["alligators"] },
+    { type: "type", q: "Matt, what do you think of the Florida ___?", hint: "Video ab 2:30", answers: ["heat"] },
+    { type: "type", q: "We are at the Hendry Sports Raceway Park. – Which is in the middle of ___.", hint: "Video ab 3:11", answers: ["nowhere"], why: "in the middle of nowhere = am Ende der Welt" },
+    { type: "type", q: "… like the Seven Mile ___, which is this bridge in GTA 6.", hint: "Video ab 4:55", answers: ["bridge"] },
+    { type: "type", q: "The inside of the pub is also covered in $1 ___.", hint: "Video ab 5:22", answers: ["bills"], why: "bill (AE) = Geldschein. Briten sagen: note." },
+    { type: "type", q: "Everyone in Key Largo knows that this is like the best spot to see the ___.", hint: "Video ab 7:23", answers: ["sunset"] },
+    { type: "type", q: "The Everglades has to be one of the coolest ___ I've ever been in.", hint: "Video ab 11:42", answers: ["ecosystems", "ecosystem"] },
+    { type: "type", q: "We just walked half an hour in a ___ to get to this bank.", hint: "Video ab 20:16", answers: ["storm"] },
+    { type: "type", q: "… just shrinking everything down to make it into a video game ___.", hint: "Video ab 23:14", answers: ["map"] },
+  ]},
+]};
+
+// ---------- Foto-Quiz ----------
+window.PHOTOS = [
+  { file: "Everglades_Sawgrass_Prairie_Moni3.JPG", q: "What's the name of this location?", options: ["the Everglades", "Central Park", "Miami Beach", "Lake Okeechobee"], answer: "the Everglades", why: "Die Everglades: ein riesiges Sumpfgebiet mit „Gras-Flüssen“ im Süden Floridas. Hier leben Alligatoren." },
+  { file: "Seven_mile_bridge.jpg", q: "What's the name of this bridge?", options: ["Seven Mile Bridge", "Brooklyn Bridge", "Golden Gate Bridge", "Tower Bridge"], answer: "Seven Mile Bridge", why: "Die Seven Mile Bridge verbindet Inseln der Florida Keys. Sie ist wirklich fast 7 Meilen (11 km) lang." },
+  { file: "Everglades_Holiday_Park_Airboat.jpg", q: "What's this boat called?", options: ["an airboat", "a ferry", "a canoe", "a cruise ship"], answer: "an airboat", why: "Ein airboat hat hinten einen großen Propeller. So kommt man durch das flache Wasser der Everglades." },
+  { file: "Southernmost_point_key_west.jpg", q: "Where can you see this famous sign?", options: ["Key West", "New York City", "Orlando", "Washington, D.C."], answer: "Key West", why: "Der „Southernmost Point“: der südlichste Punkt der USA (ohne Hawaii). Bis Kuba sind es nur 90 Meilen!" },
+  { file: "American_Alligator.jpg", q: "Which animal is this? Marshall says: “We've got ___ down here!”", options: ["an alligator", "a lobster", "a whale", "a turtle"], answer: "an alligator", why: "In Florida leben über eine Million Alligatoren – sogar auf Golfplätzen!" },
+  { file: "Cardozo-hotel-miami-beach.JPG", q: "This colourful hotel is on a famous street. Where is it?", options: ["Ocean Drive, Miami Beach", "Times Square, New York", "Duval Street, Key West", "Hollywood Boulevard, Los Angeles"], answer: "Ocean Drive, Miami Beach", why: "Das Cardozo Hotel steht am Ocean Drive. Die bunten Häuser im Art-Déco-Stil kommen auch in GTA 6 vor." },
+  { file: "Miami_-_Skyline_from_Harbor.jpg", q: "Which city's skyline is this?", options: ["Miami", "New York City", "Chicago", "London"], answer: "Miami", why: "Die Skyline von Miami vom Hafen aus. Im Spiel heißt die Stadt Vice City." },
+];
+(function () {
+  const box = document.getElementById("photoquiz"); if (!box) return;
+  const P = window.PHOTOS, src = (f, w) => `https://en.wikipedia.org/wiki/Special:FilePath/${encodeURIComponent(f)}?width=${w}`;
+  const shuffle = (a) => { const b = a.slice(); for (let k = b.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [b[k], b[j]] = [b[j], b[k]]; } return b; };
+  let order, pos, score, tries;
+  function start() { order = shuffle(P); pos = 0; score = 0; show(); }
+  function show() {
+    box.innerHTML = ""; tries = 0;
+    if (pos >= order.length) {
+      const p = document.createElement("p"); p.className = "q";
+      p.textContent = score === order.length ? `🎉 Super! ${score} von ${order.length} Fotos beim ersten Versuch richtig.` : `Geschafft! ${score} von ${order.length} Fotos beim ersten Versuch richtig.`;
+      const b = document.createElement("button"); b.className = "btn"; b.textContent = "Nochmal spielen"; b.onclick = start;
+      const a = document.createElement("div"); a.className = "actions"; a.appendChild(b); box.append(p, a); return;
+    }
+    const t = order[pos];
+    const meta = document.createElement("div"); meta.className = "qmeta"; meta.innerHTML = `📸 Foto ${pos + 1} / ${order.length} · <span class="pq-score">⭐ ${score}</span>`;
+    const q = document.createElement("p"); q.className = "q"; q.textContent = t.q;
+    const fig = document.createElement("div"); fig.className = "pq-photo";
+    const img = document.createElement("img"); img.alt = "Foto zur Frage"; img.loading = "eager";
+    img.src = src(t.file, 800); img.srcset = `${src(t.file, 480)} 480w, ${src(t.file, 800)} 800w, ${src(t.file, 1200)} 1200w`; img.sizes = "(max-width: 760px) 100vw, 720px";
+    img.onerror = () => { img.remove(); const m = document.createElement("div"); m.className = "pq-miss"; m.textContent = "Das Foto lädt gerade nicht. Rate trotzdem – oder versuch es später nochmal."; fig.appendChild(m); };
+    fig.appendChild(img);
+    const cr = document.createElement("p"); cr.className = "pq-credit";
+    cr.innerHTML = `Foto: <a href="https://en.wikipedia.org/wiki/File:${encodeURIComponent(t.file)}" target="_blank" rel="noopener">Wikimedia Commons</a>`;
+    const opts = document.createElement("div"); opts.className = "opts wide";
+    const fb = document.createElement("div");
+    const next = document.createElement("button"); next.className = "btn"; next.textContent = pos < order.length - 1 ? "Weiter →" : "Ergebnis"; next.hidden = true;
+    next.onclick = () => { pos++; show(); box.scrollIntoView({ behavior: "smooth", block: "start" }); };
+    shuffle(t.options).forEach((o) => {
+      const b = document.createElement("button"); b.className = "opt"; b.textContent = o;
+      b.onclick = () => {
+        if (!next.hidden || b.disabled) return;
+        if (o === t.answer) {
+          if (tries === 0) score++;
+          b.classList.add("right"); opts.querySelectorAll(".opt").forEach((x) => (x.disabled = true));
+          fb.className = "fb ok"; fb.innerHTML = "✓ Richtig!<small></small>"; fb.querySelector("small").textContent = t.why; next.hidden = false;
+          meta.querySelector(".pq-score").textContent = "⭐ " + score;
+        } else {
+          tries++; b.classList.add("wrong"); b.disabled = true;
+          if (tries >= 2) {
+            opts.querySelectorAll(".opt").forEach((x) => { x.disabled = true; if (x.textContent === t.answer) x.classList.add("right"); });
+            fb.className = "fb no"; fb.innerHTML = "Die richtige Antwort ist: <b></b><small></small>"; fb.querySelector("b").textContent = t.answer; fb.querySelector("small").textContent = t.why; next.hidden = false;
+          } else { fb.className = "fb no"; fb.innerHTML = "✗ Noch nicht – ein Versuch noch.<small>Schau genau auf das Foto. Kommt der Ort im Video vor?</small>"; }
+        }
+      };
+      opts.appendChild(b);
+    });
+    const act = document.createElement("div"); act.className = "actions"; act.appendChild(next);
+    box.append(meta, q, fig, cr, opts, fb, act);
+  }
+  start();
+})();
+
+(function () {
+  const box = document.getElementById("gloss");
+  const say = (w) => { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(w.replace(/\//g, ",")); const v = speechSynthesis.getVoices().find((x) => /en[-_]US/i.test(x.lang));
+    if (v) u.voice = v; u.lang = "en-US"; u.rate = 0.85; speechSynthesis.speak(u); };
+  GLOSS.forEach(([en, de]) => {
+    const r = document.createElement("div"); r.className = "gloss-row";
+    const b = document.createElement("button"); b.className = "say"; b.textContent = "🔊"; b.setAttribute("aria-label", "Vorlesen: " + en); b.onclick = () => say(en);
+    const e = document.createElement("b"); e.textContent = en; const d = document.createElement("span"); d.textContent = de;
+    r.append(b, e, d); box.appendChild(r);
+  });
+})();
+</script>
+<script src="../../assets/quiz.js"></script>
+<script src="../../assets/memory.js"></script>
+</body>
+</html>
