@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonus · Game Worlds Tell Stories · English Club 8</title>
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Bonus</a>
+    <div class="brand">
+      <div class="logo">🎮</div>
+      <div><p class="when">Bonus-Video · Profi</p><h1>Game Worlds Tell Stories</h1><p>Wie Spielwelten Geschichten erzählen · ca. 17 Minuten</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="menu">
+    <div class="label">So geht's</div>
+    <p class="hint" style="margin:6px 0 0">1. Lies zuerst die schwierigen Wörter. &nbsp;2. Schau das Video (Kopfhörer!). Es ist lang und schnell gesprochen – du musst nicht jedes Wort verstehen. Halte an und spul zurück, so oft du willst. &nbsp;3. Mach die Aufgaben in beliebiger Reihenfolge.</p>
+
+    <h2>📖 Vor dem Video: schwierige Wörter</h2>
+    <div class="card">
+      <p class="hint" style="margin:0">Tippe auf 🔊, dann hörst du, wie man das Wort ausspricht.</p>
+      <div class="gloss" id="gloss"></div>
+    </div>
+
+    <h2>🎬 Das Video</h2>
+    <div class="card">
+      <b>„Storytelling Through Level Design“ (Game Maker's Toolkit)</b>
+      <p class="hint" style="margin:4px 0 0">Mark Brown erklärt, wie Spiele ihre Geschichte ohne Worte erzählen – nur durch die Spielwelt: Räume, Farben, Licht und Wege. Tipp: Über ⚙️ kannst du das Video langsamer abspielen (0,75), über „CC“ Untertitel einschalten.</p>
+      <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/RwlnCn2EB9o?start=4&rel=0&cc_load_policy=1&cc_lang_pref=en" title="Storytelling Through Level Design" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+      <p class="hint" style="margin:10px 0 0"><b>Die vier Teile:</b> 0:04 Intro – eine Stadt unter dem Meer &nbsp;·&nbsp; 1:23 <b>Understanding</b> – die Welt verstehen &nbsp;·&nbsp; 7:34 <b>Feeling</b> – Gefühle durch Enge, Weite und Farbe &nbsp;·&nbsp; 14:47 <b>Identity</b> – wer bin ich im Spiel?</p>
+    </div>
+
+    <h2>✏️ Aufgaben zum Video</h2>
+    <div class="levels" id="levels"></div>
+
+    <h2 id="mem-sec">🃏 Memory</h2>
+    <div class="card"><div id="memory"></div></div>
+
+    <h2>💭 Und du?</h2>
+    <div class="card">
+      <p style="margin:0 0 6px"><b>Think about a game you know.</b></p>
+      <p class="hint" style="margin:0">Where is it set? Which colours do you see? How do you feel there – happy, scared, strong, calm? Erzähl es auf Englisch deiner Nachbarin oder deinem Nachbarn – oder schreib 3 Sätze in dein Heft.<br><i>Example: “In Minecraft, the caves are dark and narrow. I feel scared there. Outside, the world is big and green, so I feel free.”</i></p>
+    </div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
+  <p class="foot">English Club 8 · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+</main>
+<script>
+window.GLOSS = [
+  ["storytelling", "Geschichten erzählen"],
+  ["environment", "Umgebung, Spielwelt"],
+  ["surroundings", "Umgebung (was um dich herum ist)"],
+  ["level design", "die Gestaltung der Spiel-Level"],
+  ["cutscene", "Filmszene im Spiel (du spielst nicht)"],
+  ["at the bottom of the ocean", "ganz unten im Meer"],
+  ["ruin", "Ruine, Zerstörung"],
+  ["clue", "Hinweis"],
+  ["sign / signage", "Schild / Beschilderung"],
+  ["to suggest", "andeuten, nahelegen"],
+  ["to navigate", "sich zurechtfinden"],
+  ["active participant", "jemand, der mitmacht"],
+  ["passive viewer", "jemand, der nur zuschaut"],
+  ["ceiling", "Zimmerdecke"],
+  ["narrow", "eng, schmal"],
+  ["dead end", "Sackgasse"],
+  ["fog", "Nebel"],
+  ["tension", "Spannung, Anspannung"],
+  ["a giant vista", "ein riesiger Ausblick"],
+  ["despair", "Verzweiflung"],
+  ["hope", "Hoffnung"],
+  ["mystery", "Geheimnis"],
+  ["awe", "Staunen, Ehrfurcht"],
+  ["identity", "Identität (wer du bist)"],
+  ["public / private space", "öffentlicher / privater Ort"],
+  ["costume", "Verkleidung, Kostüm"],
+];
+window.MEMORY = [
+  ["clue", "Hinweis"],
+  ["fog", "Nebel"],
+  ["narrow", "eng, schmal"],
+  ["dead end", "Sackgasse"],
+  ["ceiling", "Zimmerdecke"],
+  ["despair", "Verzweiflung"],
+  ["surroundings", "Umgebung"],
+  ["costume", "Verkleidung"],
+];
+window.QUIZ = { id: "bonus-game-worlds", choiceTip: "Schau dir die Stelle im Video noch einmal an.", levels: [
+  { name: "True or false?", stars: 1, keepOptions: true, desc: "Stimmt das, was im Video gesagt wird?", tasks: [
+    { type: "choice", q: "Without cutscenes, players would not understand Bioshock at all.", hint: "Video ab 0:17", options: ["true", "false"], answer: "false", why: "„I think they'd actually have a pretty good idea“ – man muss sich nur die Umgebung anschauen." },
+    { type: "choice", q: "Bioshock is set in a big city at the bottom of the ocean.", hint: "Video ab 0:29", options: ["true", "false"], answer: "true", why: "„a massive city at the very bottom of the ocean“" },
+    { type: "choice", q: "The idea of “environmental storytelling” comes from a Disneyland designer.", hint: "Video ab 2:01", options: ["true", "false"], answer: "true", why: "Don Carson hat für Disneyland Freizeitparks gestaltet und darüber geschrieben, was Spiele davon lernen können." },
+    { type: "choice", q: "With environmental storytelling, the player only watches and doesn't think.", hint: "Video ab 2:30", options: ["true", "false"], answer: "false", why: "Du bist ein „active participant, not just a passive viewer“ – du setzt die Hinweise selbst zusammen wie ein Detektiv." },
+    { type: "choice", q: "Maps and signs can help you find your way in a game.", hint: "Video ab 3:54", options: ["true", "false"], answer: "true", why: "„Maps and signage can help us navigate complex spaces.“" },
+    { type: "choice", q: "In God of War, thick fog makes it hard to see, so you feel tension.", hint: "Video ab 8:54", options: ["true", "false"], answer: "true", why: "Enge Wege, Sackgassen und Nebel – du sollst genauso nervös sein wie Kratos." },
+    { type: "choice", q: "In Portal, the test lab is warm, orange and full of details.", hint: "Video ab 9:39", options: ["true", "false"], answer: "false", why: "Das Labor ist „white, sterile, and lacking in detail“. Orange und gemütlich ist erst der Wartungsbereich." },
+    { type: "choice", q: "In a horror game, darkness usually makes you feel safe.", hint: "Video ab 12:35", options: ["true", "false"], answer: "false", why: "Im Horrorspiel macht Dunkelheit Angst. In einem Schleichspiel kann sie dagegen Sicherheit geben." },
+    { type: "choice", q: "In Celeste, the saddest moment of the story is also the lowest point of the mountain.", hint: "Video ab 13:40", options: ["true", "false"], answer: "true", why: "„The story's lowest point is also the environment's lowest point.“" },
+    { type: "choice", q: "In Hitman, you can walk into private spaces without a costume.", hint: "Video ab 16:31", options: ["true", "false"], answer: "false", why: "Öffentliche Orte kannst du in jedem Outfit betreten. Für private Orte brauchst du eine Verkleidung." },
+  ]},
+  { name: "Hast du's verstanden?", stars: 2, desc: "Multiple Choice – die falschen Antworten klingen auch gut!", tasks: [
+    { type: "choice", q: "The video shows three ways the environment can tell a story. Which ones?", hint: "Video ab 1:21", options: ["understanding, feeling and identity", "pictures, music and words", "cutscenes, books and emails", "colours, monsters and maps"], answer: "understanding, feeling and identity", why: "„how level design can drive our understanding, feeling, and identity“ – das sind auch die drei Teile des Videos." },
+    { type: "choice", q: "What does the city in Bioshock tell you, even without words?", hint: "Video ab 0:33", options: ["It was a place for rich people, but something terrible happened.", "It is a happy city where everybody is friendly.", "It was built for poor workers and farmers.", "It is a new city that is not finished yet."], answer: "It was a place for rich people, but something terrible happened.", why: "Teure Bars und Theater zeigen „high society“, die Ruinen zeigen den Absturz („downfall“)." },
+    { type: "choice", q: "Which one is NOT environmental storytelling?", hint: "Video ab 2:58", options: ["a cutscene like a short film", "a note or an email in the game", "a skeleton in a strange position", "a warning written on a wall"], answer: "a cutscene like a short film", why: "Notizen, Skelette und Schriften an der Wand sind Teil der Welt. Eine Filmszene ist „traditional storytelling“." },
+    { type: "choice", q: "In the game Thief, where do you find most of the gold?", hint: "Video ab 5:14", options: ["in the lord's rooms", "in the servants' rooms", "in the kitchen", "outside in the garden"], answer: "in the lord's rooms", why: "Wie im echten Leben: Der reiche Lord hat das Gold, die Diener haben nichts Wertvolles." },
+    { type: "choice", q: "How does the Uncharted designer make you feel scared at the start of a level?", hint: "Video ab 8:02", options: ["a low ceiling and walls that come closer", "loud music and a lot of monsters", "a big open space with a nice view", "bright colours and lots of light"], answer: "a low ceiling and walls that come closer", why: "„make the ceiling very low … walls come in, so you feel tight“. Am Ende kommt dann der riesige Ausblick." },
+    { type: "choice", q: "In God of War, how do you know that Atreus is safe?", hint: "Video ab 9:09", options: ["The world opens up, the fog lifts and the colour comes back.", "Kratos says it in a cutscene.", "A sign on the wall tells you.", "The music stops and it gets dark."], answer: "The world opens up, the fog lifts and the colour comes back.", why: "Die Welt selbst „sagt“ dir, dass alles gut ist – ohne ein Wort." },
+    { type: "choice", q: "In Tomb Raider, what happens to the colours when Lara climbs higher?", hint: "Video ab 9:57", options: ["They change from dark green to warm orange.", "They change from orange to dark blue.", "Everything turns grey.", "They don't change at all."], answer: "They change from dark green to warm orange.", why: "Dunkelgrün unten = Verzweiflung, warmes Sonnenlicht oben = Hoffnung." },
+    { type: "choice", q: "In Mass Effect 3, how should players feel in the catacombs?", hint: "Video ab 11:41", options: ["a sense of mystery", "a sense of chaos", "a sense of hope", "a sense of guilt"], answer: "a sense of mystery", why: "Statuen und alte Wandbilder sorgen für das Gefühl von Geheimnis." },
+    { type: "choice", q: "In Journey, which colour stands for the biting cold?", hint: "Video ab 14:23", options: ["white", "orange", "dark green", "bright blue"], answer: "white", why: "Orange = Wüste, dunkelgrün = Friedhof unter der Erde, weiß = Kälte, hellblau = Neuanfang." },
+    { type: "choice", q: "Why did stealing feel wrong to the speaker in Bioshock Infinite?", hint: "Video ab 15:48", options: ["The city still works and the people there are innocent.", "The game gives you no money for it.", "There are cameras everywhere.", "His friends told him not to do it."], answer: "The city still works and the people there are innocent.", why: "In der zerstörten Stadt Rapture passt es, in der funktionierenden Stadt Columbia nicht. Die Umgebung zeigt dir, wie du dich verhalten sollst." },
+  ]},
+  { name: "Hör-Detektiv 🎧", stars: 3, ordered: true, desc: "Welches Wort fehlt? Such die Stelle im Video und hör genau hin.", tasks: [
+    { type: "type", q: "Because all you have to do is look at your ___.", hint: "Video ab 0:25", answers: ["surroundings"], why: "surroundings = Umgebung" },
+    { type: "type", q: "But it's also a place of ruin and ___.", hint: "Video ab 0:45", answers: ["despair"], why: "despair = Verzweiflung" },
+    { type: "type", q: "This makes us an active participant in the storytelling process, and not just a passive ___.", hint: "Video ab 2:46", answers: ["viewer"] },
+    { type: "type", q: "Maps and signage can help us ___ complex spaces.", hint: "Video ab 3:54", answers: ["navigate"], why: "navigate = sich zurechtfinden" },
+    { type: "type", q: "I might make the ___ very low, might make the walls come in.", hint: "Video ab 8:11", answers: ["ceiling"] },
+    { type: "type", q: "There are dead ends, forcing you to turn around and ___.", hint: "Video ab 8:58", answers: ["backtrack"], why: "backtrack = denselben Weg zurückgehen" },
+    { type: "type", q: "Your visibility is reduced thanks to a thick grey ___.", hint: "Video ab 9:01", answers: ["fog"] },
+    { type: "type", q: "Her journey of survival – from a point of despair to a point of ___.", hint: "Video ab 10:16", answers: ["hope"] },
+    { type: "type", q: "The story's lowest point is also the environment's lowest ___.", hint: "Video ab 13:57", answers: ["point"] },
+    { type: "type", q: "This game doesn't need any ___ to tell you what to feel.", hint: "Video ab 14:39", answers: ["words"] },
+  ]},
+]};
+(function () {
+  const box = document.getElementById("gloss");
+  const say = (w) => { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(w.replace(/\//g, ",")); const v = speechSynthesis.getVoices().find((x) => /en[-_]US/i.test(x.lang));
+    if (v) u.voice = v; u.lang = "en-US"; u.rate = 0.85; speechSynthesis.speak(u); };
+  GLOSS.forEach(([en, de]) => {
+    const r = document.createElement("div"); r.className = "gloss-row";
+    const b = document.createElement("button"); b.className = "say"; b.textContent = "🔊"; b.setAttribute("aria-label", "Vorlesen: " + en); b.onclick = () => say(en);
+    const e = document.createElement("b"); e.textContent = en; const d = document.createElement("span"); d.textContent = de;
+    r.append(b, e, d); box.appendChild(r);
+  });
+})();
+</script>
+<script src="../../assets/quiz.js"></script>
+<script src="../../assets/memory.js"></script>
+</body>
+</html>
