@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonus · Grammar Mega-Challenge · English Club 8</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/quiz2.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Bonus</a>
+    <div class="brand">
+      <div class="logo">🔥</div>
+      <div><p class="when">Bonus · Mega-Challenge für Sprach-Geeks</p><h1>Grammar Mega-Challenge</h1><p>Spelling-Code, Grammatik-Fallen, Monster-Sätze, Übersetzen, Fun Facts</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="menu">
+    <div class="label">Nur für Profis</div>
+    <p class="hint" style="margin:6px 0 14px">Du hast den Selbsttest der Woche bis ★★★ geschafft? Dann ist das hier deine Challenge: alles zu AE/BE, Vergleichen, Relativsätzen und simple past – nur viel fieser. 😈 Kleiner Tipp: Lies jede Aufgabe ganz genau.</p>
+    <div class="levels" id="levels"></div>
+    <h2>Danach?</h2>
+    <div class="links">
+      <a class="ext" href="../idioms/"><span class="ico">🧠</span><span><b>Idiom Lab <span class="tag pro">★★★ Profi</span></b><small>40 englische Redewendungen über Alter und Charakter – lernen, testen, Memory.</small></span></a>
+    </div>
+  </section>
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+  <p class="foot">English Club 8 · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+</main>
+<script>
+window.QUIZ = { id: "bonus-grammar-geeks", levels: [
+  { name: "Mega-Challenge 🧠", stars: 4, ordered: true, desc: "Für Sprach-Geeks: Rechtschreib-Regeln, Grammatik-Fallen, Übersetzen, Fun Facts", tasks: [
+    { type: "multi", tag: "AE / BE", title: "Spelling-Code knacken",
+      q: "Amerikaner schreiben manche Wörter anders – nach festen Regeln. Knack den Code: Schreib die Wörter in amerikanischer Schreibweise (AE).",
+      info: `<p style="margin:0"><b>Der Code:</b> BE <mark>-our</mark> → AE <mark>-or</mark> · BE <mark>-re</mark> → AE <mark>-er</mark> · BE <mark>-ll-</mark> vor -ed/-ing → AE oft nur <mark>-l-</mark></p>`,
+      why: "colour → color · favourite → favorite · theatre → theater · neighbour → neighbor · travelled → traveled. Erfunden hat diese Regeln vor allem ein Mann: Noah Webster (mehr dazu bei den Fun Facts).",
+      items: [
+        { kind: "type", label: "colour →", answers: ["color"], why: "-our → -or", hint: "Regel 1: -our wird zu …" },
+        { kind: "type", label: "favourite →", answers: ["favorite"], why: "-our → -or, auch mitten im Wort.", hint: "Das u verschwindet." },
+        { kind: "type", label: "theatre →", answers: ["theater"], why: "-re → -er, wie centre → center.", hint: "Regel 2: wie centre → center." },
+        { kind: "type", label: "neighbour →", answers: ["neighbor"], why: "-our → -or", hint: "Regel 1!" },
+        { kind: "type", label: "travelled →", answers: ["traveled"], why: "AE verdoppelt das l hier nicht.", hint: "Regel 3: ein l weniger." },
+      ] },
+
+    { type: "multi", tag: "Comparisons", title: "Steigerungs-Fallen",
+      q: "Hier lauern Fallen: doppelte Buchstaben, y → i und unregelmäßige Formen. Schreib die verlangte Form.",
+      hint: "Superlativ immer mit „the“: the biggest. Achtung: Zwei Adjektive sind unregelmäßig wie good – better – best.",
+      why: "hot → the hottest (t verdoppeln) · busy → busier (y → i) · funny → the funniest · bad → worse → the worst · famous → more famous",
+      items: [
+        { kind: "type", label: "hot → Superlativ", answers: ["the hottest"], why: "Kurzer Vokal + ein Konsonant → Konsonant verdoppeln: hot → hottest (wie big → biggest).", hint: "Wie big → the biggest.", tip: "Mit „the“ und doppeltem t." },
+        { kind: "type", label: "busy → Komparativ", answers: ["busier"], why: "y nach Konsonant wird zu i: busy → busier.", hint: "Aus y wird …" },
+        { kind: "type", label: "funny → Superlativ", answers: ["the funniest"], why: "y → i, dazu doppeltes n schon im Wort: the funniest.", hint: "y → i, und „the“ nicht vergessen." },
+        { kind: "type", label: "bad → Komparativ", answers: ["worse"], why: "bad – worse – the worst: unregelmäßig! (nicht badder)", hint: "Unregelmäßig, beginnt mit w." },
+        { kind: "type", label: "bad → Superlativ", answers: ["the worst"], why: "bad – worse – the worst", hint: "the w…" },
+        { kind: "type", label: "famous → Komparativ", answers: ["more famous"], why: "famous hat zwei Silben und endet nicht auf -y → more famous.", hint: "Zwei Silben, kein -y am Ende." },
+      ] },
+
+    { type: "multi", tag: "Grammatik-Profi", title: "100 % korrekt?",
+      q: "Nur EIN Satz ist zu 100 % richtig. Die anderen haben einen versteckten Fehler. Finde den richtigen Satz.",
+      hint: "Lies Wort für Wort. Achte auf than/then, who/which, didn't + Grundform und unregelmäßige Verben.",
+      why: "nicer than · the girl who works · bought (nicht buyed) · Did you pay (Grundform nach did) · as old as",
+      items: [
+        { kind: "choice", label: "Satz 1", options: ["The High Line is more nicer than Pier 62.", "The High Line is nicer then Pier 62.", "The High Line is nicer than Pier 62.", "The High Line is as nicer as Pier 62."], answer: "The High Line is nicer than Pier 62.", why: "than = als (Vergleich), then = dann. Und nie „more“ + „-er“ zusammen.", hint: "than oder then? more + -er?" },
+        { kind: "choice", label: "Satz 2", options: ["Bella is the girl which works at the hostel.", "Bella is the girl who works at the hostel.", "Bella is the girl who work at the hostel.", "Bella is the girl who is work at the hostel."], answer: "Bella is the girl who works at the hostel.", why: "Person → who. Und she works mit -s.", hint: "Person → who oder which? Und he/she/it → -s!" },
+        { kind: "choice", label: "Satz 3", options: ["Yesterday we buyed candy which was cheaper than in London.", "Yesterday we have bought candy which was cheaper than in London.", "Yesterday we bought candy who was cheaper than in London.", "Yesterday we bought candy which was cheaper than in London."], answer: "Yesterday we bought candy which was cheaper than in London.", why: "buy – bought – bought · yesterday → simple past · Ding → which.", hint: "Drei Fallen: buy ist unregelmäßig, yesterday braucht simple past, candy ist ein Ding." },
+        { kind: "choice", label: "Satz 4", options: ["Did you paid $34 for the Top of the Rock?", "Did you pay $34 for the Top of the Rock?", "Did you payed $34 for the Top of the Rock?", "Do you paid $34 for the Top of the Rock?"], answer: "Did you pay $34 for the Top of the Rock?", why: "Nach did steht immer die Grundform: Did you pay …?", hint: "Was steht nach did?" },
+        { kind: "choice", label: "Satz 5", options: ["Our school isn't as old than the Bronx Zoo.", "Our school isn't so old as the Bronx Zoo.", "Our school isn't as old as the Bronx Zoo.", "Our school isn't as older as the Bronx Zoo."], answer: "Our school isn't as old as the Bronx Zoo.", why: "not as + Grundform + as. Nie as … than, nie as older as.", hint: "as … as – und dazwischen die Grundform." },
+      ] },
+
+    { type: "multi", tag: "Satzbau", title: "Monster-Sätze",
+      q: "Drei Grammatik-Themen in einem Satz: Relativsatz + Vergleich + simple past. Tippe die Wörter in der richtigen Reihenfolge an.",
+      hint: "Tipp: Der Relativsatz (who/which …) steht direkt hinter der Person oder Sache, die er beschreibt.",
+      why: "Der Relativsatz kommt direkt hinter das Nomen: The pizza which we ate … / The man who sold …",
+      items: [
+        { kind: "build", label: "Satz 1", sentence: "The pizza which we ate last night was better than the pizza in Berlin.", why: "The pizza [which we ate last night] was better than …", tip: "Satz 1 beginnt mit „The pizza which …“." },
+        { kind: "build", label: "Satz 2", sentence: "The man who sold us the tickets was not as friendly as Bella.", why: "The man [who sold us the tickets] was not as friendly as …", tip: "Satz 2 beginnt mit „The man who …“." },
+        { kind: "build", label: "Satz 3", sentence: "I paid more for the cookies than my sister did.", why: "… than my sister did = als meine Schwester (bezahlt hat). did ersetzt hier „paid“.", tip: "Satz 3 beginnt mit „I paid …“ und endet mit „did.“" },
+      ] },
+
+    { type: "multi", tag: "Übersetzen", title: "Übersetzungs-Profi",
+      q: "Übersetze ins Englische. Es gibt mehrere richtige Lösungen – der Computer achtet auf die wichtigen Teile.",
+      hint: "Denk an: than / as … as · who / which · unregelmäßige Verben (sell – sold, pay – paid, tell – told)",
+      why: "Wichtig waren: der Vergleich, der Relativsatz und die richtige Vergangenheitsform.",
+      items: [
+        { kind: "type", label: "🇩🇪 Die Fähre war billiger als die Tour.", rules: [["ferry"], ["was cheaper than"], ["tour"]], answers: ["The ferry was cheaper than the tour."], show: "The ferry was cheaper than the tour.", why: "billiger als = cheaper than", hint: "billiger als = cheap + -er + than" },
+        { kind: "type", label: "🇩🇪 New York ist nicht so alt wie London.", rules: [["new york"], ["is not as old as", "isn't as old as"], ["london"]], answers: ["New York is not as old as London."], show: "New York is not as old as London.", why: "nicht so … wie = not as … as", hint: "nicht so … wie = not as … as" },
+        { kind: "type", label: "🇩🇪 Wir bezahlten 40 Dollar für die beste Tour.", rules: [["we paid"], ["40", "forty"], ["for the best tour"]], answers: ["We paid $40 for the best tour."], show: "We paid $40 for the best tour.", why: "pay – paid (unregelmäßig!) · die beste = the best", hint: "bezahlen = pay, Vergangenheit unregelmäßig." },
+        { kind: "type", label: "🇩🇪 Der Kellner, der uns die Pommes verkaufte, war unhöflich.", rules: [["waiter"], ["who", "that"], ["sold us"], ["fries", "chips"], ["was impolite", "was rude", "was not polite", "wasn't polite"]], answers: ["The waiter who sold us the fries was impolite."], show: "The waiter who sold us the fries was impolite.", why: "Person → who · sell – sold · Pommes = fries (AE) / chips (BE). Im Englischen KEIN Komma vor who!", hint: "Person → who · verkaufen = sell, Vergangenheit unregelmäßig." },
+        { kind: "type", label: "🇩🇪 Sie erzählte uns von einer Sehenswürdigkeit, die berühmter als das Empire State Building ist.", rules: [["she told us about", "she told us of"], ["sight"], ["which", "that"], ["more famous than"], ["empire state building"]], answers: ["She told us about a sight which is more famous than the Empire State Building."], show: "She told us about a sight which is more famous than the Empire State Building.", why: "tell – told · Ding → which · famous → more famous than", hint: "erzählen von = tell about · berühmter = more famous" },
+      ] },
+
+    { type: "multi", tag: "Fun Facts 🤓", title: "Fun Facts für Sprach-Geeks",
+      q: "Für echte Sprach-Geeks: Rate! Bei falschen Antworten lernst du trotzdem was.",
+      why: "Noah Webster · fall war zuerst britisch · pants · 40 = „forty“ ohne u · gotten",
+      items: [
+        { kind: "choice", label: "Wer hat die amerikanische Schreibweise (color, center) berühmt gemacht?", options: ["Noah Webster mit seinem Wörterbuch (1828)", "Abraham Lincoln", "die New York Times", "Hollywood"], answer: "Noah Webster mit seinem Wörterbuch (1828)", why: "Webster wollte, dass Amerika seine eigene, einfachere Schreibweise hat. Sein Wörterbuch gibt es bis heute: „Merriam-Webster“.", hint: "Er hat ein Wörterbuch geschrieben." },
+        { kind: "choice", label: "Amerikaner sagen „fall“ für Herbst, Briten „autumn“. Woher kommt „fall“?", options: ["Es war zuerst britisches Englisch.", "Es kommt aus dem Spanischen.", "Ein Präsident hat es erfunden.", "Es kommt aus einem Hollywood-Film."], answer: "Es war zuerst britisches Englisch.", why: "„the fall of the leaf“ (wenn die Blätter fallen) sagte man früher in England. Die Siedler nahmen das Wort mit nach Amerika – in England kam es dann aus der Mode.", hint: "Denk an fallende Blätter …" },
+        { kind: "choice", label: "Vorsicht in London! „pants“ bedeutet in Großbritannien …", options: ["Unterhose", "Hose", "Socken", "Turnschuhe"], answer: "Unterhose", why: "In den USA sind pants eine Hose (BE: trousers). In London sind pants die Unterhose – peinlich, wenn du sagst: „I like your pants!“ 😅", hint: "Es ist ziemlich peinlich …" },
+        { kind: "choice", label: "Welche Zahl schreibt man OHNE u, obwohl four ein u hat?", options: ["forty", "fourteen", "fourth", "four hundred"], answer: "forty", why: "four, fourteen, fourth – aber forty! Das ist in AE und BE gleich und eine fiese Rechtschreibfalle.", hint: "Die Zehnerzahl." },
+        { kind: "choice", label: "Welcher Satz ist typisch amerikanisch?", options: ["I have gotten a new phone.", "I have got a new phone.", "Have you got a pen?", "I've got a brother."], answer: "I have gotten a new phone.", why: "„gotten“ benutzen fast nur Amerikaner. Briten sagen: I have got … / I've got …", hint: "Ein Wort gibt es in BE kaum." },
+      ] },
+  ]},
+]};
+</script>
+<script src="../../assets/quiz2.js"></script>
+</body>
+</html>
