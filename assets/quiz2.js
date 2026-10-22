@@ -23,8 +23,8 @@
     const box = $("#levels"); box.innerHTML = "";
     Q.levels.forEach((lv, n) => {
       if (lv.hidden) return;
-      const b = el("button", "level-btn");
-      b.innerHTML = `<span class="stars">${"★".repeat(lv.stars)}${"☆".repeat(3 - lv.stars)}</span>
+      const b = el("button", "level-btn" + (lv.stars > 3 ? " mega" : ""));
+      b.innerHTML = `<span class="stars">${"★".repeat(lv.stars)}${"☆".repeat(Math.max(0, 3 - lv.stars))}</span>
         <span><b>${esc(lv.name)}</b><small>${esc(lv.desc)} · ${lv.tasks.length} Aufgaben</small></span>
         ${done[n] ? `<span class="done">✓ ${done[n]}</span>` : ""}`;
       b.onclick = () => start(n);

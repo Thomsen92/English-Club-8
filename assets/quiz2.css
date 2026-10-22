@@ -56,3 +56,7 @@
 .small-q { font-size: 1.05rem; }
 .opt.face { font-size: 1.8rem; min-width: 72px; padding: 8px 16px; }
 .linkbtn { font: inherit; background: none; border: 0; color: var(--link); text-decoration: underline; cursor: pointer; padding: 14px 6px; }
+
+/* Extra-Stufe für Sprach-Geeks (stars: 4) */
+.level-btn.mega { border-color: var(--brick); background: linear-gradient(135deg, var(--card), var(--chip)); }
+.level-btn.mega .stars { color: var(--brick); }
