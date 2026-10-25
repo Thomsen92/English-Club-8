@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unit 1 · English Club 10m</title>
+<title>Unit 1 · I want to change the world · English Club 10m</title>
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz2.css">
 </head>
 <body>
 <header class="top">
@@ -12,25 +13,231 @@
     <a class="crumb" href="../">← Alle Units</a>
     <div class="brand">
       <div class="logo date">U1</div>
-      <div><p class="when">Unit 1</p><h1>Unit 1</h1><p>English Club 10m · Klasse 10m</p></div>
+      <div><p class="when">Unit 1</p><h1>I want to change the world</h1><p>Vokabeln · past perfect · passive</p></div>
     </div>
   </div>
 </header>
 <main class="wrap">
-  <div class="card">
-    <h2 style="margin-top:0">Hier entsteht Unit 1</h2>
-    <p class="hint" style="margin:0">Die Inhalte für Unit 1 kommen als Nächstes. Sag mir, was in Unit 1 drankommt – Wortschatz, Grammatik, Aufgaben –, dann baue ich die Seite.</p>
-  </div>
+  <section id="menu">
+    <div class="label">Selbsttest – wähle deine Stufe</div>
+    <p class="hint" style="margin:6px 0 14px">Drei Stufen: ★ Basis, ★★ Aufbau, ★★★ Profi. Lies die Sätze genau – manche Aufgaben haben mehrere Teile, und bei einigen gibt es mehr als eine richtige Schreibweise.</p>
+    <div class="levels" id="levels"></div>
 
-  <h2>Geplant</h2>
-  <div class="card">
-    <p style="margin:0 0 8px"><b>Wortschatz:</b> Vokabelliste(n) zur Unit</p>
-    <p style="margin:0 0 8px"><b>Grammatik:</b> Regeln, Beispiele, Übungen</p>
-    <p style="margin:0 0 8px"><b>Aufgaben:</b> Selbsttest in Stufen, Hör- und Sprechaufgaben</p>
-    <p style="margin:0"><b>Bonus:</b> Zusatzangebote zur Unit</p>
-  </div>
+    <h2>Merke dir</h2>
+    <div class="card">
+      <p style="margin:0 0 8px"><b>Past perfect:</b> <b>had + 3. Form</b> (had gone, had lost). Du benutzt es für etwas, das <b>vor</b> einer anderen Handlung in der Vergangenheit passiert war: When I arrived, Ben <b>had</b> already <b>gone</b> home.</p>
+      <p style="margin:0 0 8px"><b>Verneinung und Frage:</b> hadn't + 3. Form · <b>Had</b> you <b>read</b> …? · Signalwörter: when, after, before, already, by the time</p>
+      <p style="margin:0 0 8px"><b>Passive:</b> <b>be + 3. Form</b>. simple present: am / is / are + 3. Form (Adverts <b>are shown</b>.) · simple past: was / were + 3. Form (The message <b>was posted</b>.)</p>
+      <p style="margin:0"><b>By-agent:</b> Wer die Handlung ausführt, steht mit <b>by</b>: The song was sung <b>by the Beatles</b>.</p>
+    </div>
 
-  <p class="foot">Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+    <p class="hint">Buch: Language File 7 (S. 140) · Language File 12 (S. 143) · Vocabulary S. 162–169.</p>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
+  <p class="foot">English Club 10m · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
 </main>
+<script>
+window.QUIZ = { id: "10m-unit-1", choiceTip: "Achte auf die Zeit: past perfect = had + 3. Form, passive = be + 3. Form.", levels: [
+
+  // ================= ★ BASIS =================
+  { name: "Basis", stars: 1, desc: "Formen erkennen: Vokabeln, past perfect, passive", tasks: [
+    { type: "multi", tag: "Vokabeln", title: "Definitions",
+      q: "Welches Wort passt zur Definition? Schreib das englische Wort.",
+      hint: "Alle Wörter stehen auf den Vocabulary-Seiten 162–169.",
+      why: "activist · publicize · playground · upload · town hall",
+      items: [
+        { kind: "type", label: "A person who works to change society or politics.", answers: ["activist"], why: "activist = Aktivist/in", hint: "Beginnt mit a.", tip: "a…t" },
+        { kind: "type", label: "To make something known to many people, e.g. with posters or posts.", answers: ["publicize"], why: "publicize = öffentlich machen, bekannt machen", hint: "Verb auf -ize; das Nomen ist publicity.", tip: "p…e" },
+        { kind: "type", label: "A place where children can play, often with swings and slides.", answers: ["playground"], why: "playground = Spielplatz", hint: "play + ground." },
+        { kind: "type", label: "To put a file or a photo on the internet.", answers: ["upload"], why: "upload = hochladen (Gegenteil: download)", hint: "Gegenteil von download." },
+        { kind: "type", label: "The building where the local government of a town works.", answers: ["town hall"], why: "town hall = Rathaus", hint: "Zwei Wörter: town + …" },
+      ] },
+
+    { type: "multi", tag: "Past perfect", title: "Past perfect – Formen",
+      q: "Setz das past perfect ein.",
+      hint: "had + 3. Form – auch bei unregelmäßigen Verben.",
+      why: "had gone · had lost · hadn't seen · Had … read · had stopped",
+      items: [
+        { kind: "choice", label: "When I arrived at the party, Ben ___ home. (go)", options: ["had gone", "has gone", "went"], answer: "had gone", why: "Vorzeitig → had + past participle: had gone.", hint: "Vor dem Ankommen war er schon weg." },
+        { kind: "choice", label: "She couldn't call because she ___ her phone. (lose)", options: ["had lost", "has lost", "lost"], answer: "had lost", why: "Das Verlieren war vor dem Nicht-anrufen-Können → had lost.", hint: "Vorzeitig in der Vergangenheit." },
+        { kind: "choice", label: "They ___ the film before, so they knew the ending. (not see)", options: ["hadn't seen", "haven't seen", "didn't see"], answer: "hadn't seen", why: "Verneinung: hadn't + 3. Form.", hint: "Verneinung mit hadn't." },
+        { kind: "choice", label: "___ you read the email before you left? (read)", options: ["Had", "Have", "Did"], answer: "Had", why: "Frage im past perfect: Had + Person + 3. Form.", hint: "Frage mit Had …?" },
+        { kind: "choice", label: "After the storm ___, we went outside. (stop)", options: ["had stopped", "has stopped", "stopped"], answer: "had stopped", why: "Der Sturm hörte vor dem Hinausgehen auf → had stopped.", hint: "Zuerst der Sturm, dann wir." },
+      ] },
+
+    { type: "multi", tag: "Passive", title: "Passive – Formen",
+      q: "Setz das Passiv ein.",
+      hint: "be + 3. Form: present am/is/are, past was/were.",
+      why: "was posted · are shown · was sung · were presented · is spoken",
+      items: [
+        { kind: "choice", label: "The message ___ a minute ago. (post)", options: ["was posted", "is posted", "posted"], answer: "was posted", why: "simple past passive: was + past participle.", hint: "a minute ago → Vergangenheit." },
+        { kind: "choice", label: "Adverts ___ to teenagers all the time. (show)", options: ["are shown", "were shown", "show"], answer: "are shown", why: "simple present passive: are + shown.", hint: "all the time → Gegenwart." },
+        { kind: "choice", label: "The song ___ by the Beatles. (sing)", options: ["was sung", "was sang", "sung"], answer: "was sung", why: "sing – sang – sung; Passiv: was + sung.", hint: "Die 3. Form von sing ist sung." },
+        { kind: "choice", label: "New tablets ___ on TV yesterday. (present)", options: ["were presented", "are presented", "presented"], answer: "were presented", why: "simple past passive, Plural: were + presented.", hint: "yesterday und Plural." },
+        { kind: "choice", label: "English ___ all over the world. (speak)", options: ["is spoken", "is spoke", "speaks"], answer: "is spoken", why: "simple present passive: is + spoken.", hint: "3. Form von speak ist spoken." },
+      ] },
+
+    { type: "multi", tag: "Irregular verbs", title: "Past participle",
+      q: "Schreib die 3. Form (past participle).",
+      hint: "Die Liste steht im Buch, S. 232–233.",
+      why: "be – been · buy – bought · write – written · take – taken · see – seen · give – given",
+      items: [
+        { kind: "type", label: "be →", answers: ["been"], why: "be – was/were – been", hint: "Unregelmäßig, endet auf -en." },
+        { kind: "type", label: "buy →", answers: ["bought"], why: "buy – bought – bought", hint: "Wie „bring – brought“." },
+        { kind: "type", label: "write →", answers: ["written"], why: "write – wrote – written", hint: "Doppel-t am Ende." },
+        { kind: "type", label: "take →", answers: ["taken"], why: "take – took – taken", hint: "Endet auf -en." },
+        { kind: "type", label: "see →", answers: ["seen"], why: "see – saw – seen", hint: "Endet auf -n." },
+        { kind: "type", label: "give →", answers: ["given"], why: "give – gave – given", hint: "Endet auf -en." },
+      ] },
+
+    { type: "multi", tag: "Vokabeln", title: "Wörter im Satz",
+      q: "Setz das passende Wort ein.",
+      hint: "Alle Wörter stehen auf den Vocabulary-Seiten 162–169.",
+      why: "belongs · viral · suspicious · policy · effective",
+      items: [
+        { kind: "type", label: "This bag ___ to Jill – it's hers.", answers: ["belongs"], why: "belong to = gehören zu", hint: "3. Person Singular." },
+        { kind: "type", label: "The video went ___ after a famous singer shared it.", answers: ["viral"], why: "go viral = sich im Internet rasend schnell verbreiten", hint: "Wie ein Virus." },
+        { kind: "type", label: "The police stopped the man because he looked ___.", answers: ["suspicious"], why: "suspicious = verdächtig", hint: "Adjektiv auf -ous." },
+        { kind: "type", label: "Our school has a new ___ against bullying.", answers: ["policy"], why: "policy = Regel, Richtlinie", hint: "Beginnt mit p." },
+        { kind: "type", label: "The campaign was very ___ – it changed many people's minds.", answers: ["effective"], why: "effective = wirksam", hint: "Adjektiv auf -ive." },
+      ] },
+  ]},
+
+  // ================= ★★ AUFBAU =================
+  { name: "Aufbau", stars: 2, desc: "Anwenden: Lückentext, Umformen, Wortfamilien, Satzbau", tasks: [
+    { type: "multi", tag: "Past perfect", title: "Past perfect oder simple past?",
+      q: "Setz das Verb in der richtigen Form ein: past perfect oder simple past.",
+      hint: "Was war zuerst? Das Frühere steht im past perfect.",
+      why: "had already cooked · had finished · had left · hadn't seen · had started · had never been",
+      items: [
+        { kind: "type", label: "When Ali's mum arrived, he ___ the lunch. (already / cook)", answers: ["had already cooked"], why: "Das Kochen war vor dem Ankommen → had already cooked.", hint: "already steht zwischen had und 3. Form." },
+        { kind: "type", label: "After I ___ my homework, I met my friends. (finish)", answers: ["had finished"], why: "Erst die Hausaufgaben, dann die Freunde → had finished.", hint: "after + past perfect." },
+        { kind: "type", label: "She realized that she ___ her bag on the train. (leave)", answers: ["had left"], why: "Das Liegenlassen war vor dem Bemerken → had left.", hint: "leave – left – left." },
+        { kind: "type", label: "We ___ the film before, so we watched it. (not / see)", answers: ["hadn't seen", "had not seen"], show: "hadn't seen", why: "Verneinung: hadn't + seen.", hint: "hadn't + 3. Form." },
+        { kind: "type", label: "By the time we arrived, the concert ___. (start)", answers: ["had started"], why: "by the time + past perfect: had started.", hint: "Regelmäßig: start + ed." },
+        { kind: "type", label: "He told me that he ___ to London. (never / be)", answers: ["had never been"], why: "never steht zwischen had und been.", hint: "had never + 3. Form von be." },
+      ] },
+
+    { type: "multi", tag: "Passive", title: "Aktiv → Passiv",
+      q: "Schreib den Satz im Passiv. Behalte die Zeit bei.",
+      hint: "Das Objekt wird zum Subjekt: The message was posted …",
+      why: "was posted · are shown · was sung · is spoken · was presented",
+      items: [
+        { kind: "type", label: "Someone posted the message yesterday. →", answers: ["The message was posted yesterday", "The message was posted yesterday."], show: "The message was posted yesterday.", why: "simple past passive: was + posted.", hint: "Beginne mit „The message …“." },
+        { kind: "type", label: "They show adverts to teenagers. →", answers: ["Adverts are shown to teenagers", "Adverts are shown to teenagers."], show: "Adverts are shown to teenagers.", why: "simple present passive: are + shown.", hint: "Beginne mit „Adverts …“." },
+        { kind: "type", label: "The Beatles sang the song. →", answers: ["The song was sung by the Beatles", "The song was sung by the Beatles."], show: "The song was sung by the Beatles.", why: "by + Person, wenn sie wichtig ist.", hint: "Beginne mit „The song …“." },
+        { kind: "type", label: "People speak English all over the world. →", answers: ["English is spoken all over the world", "English is spoken all over the world."], show: "English is spoken all over the world.", why: "simple present passive: is + spoken.", hint: "Beginne mit „English …“." },
+        { kind: "type", label: "They presented a new tablet on TV yesterday. →", answers: ["A new tablet was presented on TV yesterday", "A new tablet was presented on TV yesterday."], show: "A new tablet was presented on TV yesterday.", why: "simple past passive: was + presented.", hint: "Beginne mit „A new tablet …“." },
+      ] },
+
+    { type: "multi", tag: "Wortfamilien", title: "Word families",
+      q: "Bilde das passende Wort der Wortfamilie.",
+      hint: "Achte auf die Wortart in Klammern.",
+      why: "publicity · creative · success · information · effective",
+      items: [
+        { kind: "type", label: "publicize → ___ (Substantiv)", answers: ["publicity"], why: "publicize (Verb) → publicity (Nomen)", hint: "Endet auf -ity." },
+        { kind: "type", label: "create → ___ (Adjektiv)", answers: ["creative"], why: "create → creative", hint: "Endet auf -ive." },
+        { kind: "type", label: "succeed → ___ (Substantiv)", answers: ["success"], why: "succeed → success", hint: "Doppel-s." },
+        { kind: "type", label: "inform → ___ (Substantiv)", answers: ["information"], why: "inform → information", hint: "Endet auf -tion." },
+        { kind: "type", label: "effect → ___ (Adjektiv)", answers: ["effective"], why: "effect → effective", hint: "Endet auf -ive." },
+      ] },
+
+    { type: "multi", tag: "Kollokationen", title: "Prepositions and phrases",
+      q: "Ergänze die fehlende Präposition oder das fehlende Wort.",
+      hint: "Diese Wendungen stehen auf den Vocabulary-Seiten.",
+      why: "arguing · of · of · to · According",
+      items: [
+        { kind: "type", label: "It's no use ___ with him. (argue)", answers: ["arguing"], why: "it's no use + -ing: It's no use arguing.", hint: "Verb + -ing." },
+        { kind: "type", label: "I'm afraid ___ mice.", answers: ["of"], why: "be afraid of sth. = Angst vor etwas haben", hint: "Kurze Präposition." },
+        { kind: "type", label: "Are you in favour ___ the plan?", answers: ["of"], why: "in favour of = für, zugunsten von", hint: "Wie bei afraid." },
+        { kind: "type", label: "This book belongs ___ me.", answers: ["to"], why: "belong to sb. = jemandem gehören", hint: "Kurze Präposition." },
+        { kind: "type", label: "___ to the weather forecast, it will rain.", answers: ["according"], why: "according to = laut, gemäß", hint: "Beginnt mit a, endet auf -ing." },
+      ] },
+
+    { type: "multi", tag: "Satzbau", title: "Sätze bauen",
+      q: "Tippe die Wörter in der richtigen Reihenfolge an.",
+      hint: "Tippe ein Wort noch einmal an, um es zurückzulegen.",
+      why: "past perfect · passive · past perfect · passive",
+      items: [
+        { kind: "build", label: "Satz 1", sentence: "When I arrived, Ben had already gone home.", why: "past perfect: had already gone.", tip: "Beginne mit „When I arrived, …“." },
+        { kind: "build", label: "Satz 2", sentence: "The message was posted a minute ago.", why: "simple past passive: was posted.", tip: "Beginne mit „The message …“." },
+        { kind: "build", label: "Satz 3", sentence: "She realized that she had lost her phone.", why: "past perfect nach realized.", tip: "Beginne mit „She realized …“." },
+        { kind: "build", label: "Satz 4", sentence: "Adverts are shown to teenagers all the time.", why: "simple present passive: are shown.", tip: "Beginne mit „Adverts …“." },
+      ] },
+  ]},
+
+  // ================= ★★★ PROFI =================
+  { name: "Profi", stars: 3, desc: "Produzieren: Fehler finden, Passiv mit by, Nuancen, Sprechen", tasks: [
+    { type: "multi", tag: "Fehler-Detektiv", title: "Error correction",
+      q: "In jedem Satz ist ein Fehler. Schreib nur die richtige Form.",
+      hint: "Achte auf die Zeit und auf die 3. Form.",
+      why: "had · posted · lost · shown · sung",
+      items: [
+        { kind: "type", label: "When I arrived, Ben has gone home.", answers: ["had"], why: "past perfect: had gone, nicht has gone.", hint: "Welches Hilfsverb gehört zum past perfect?" },
+        { kind: "type", label: "The message was post a minute ago.", answers: ["posted"], why: "Passiv braucht die 3. Form: was posted.", hint: "post → 3. Form." },
+        { kind: "type", label: "She had lose her phone.", answers: ["lost"], why: "had + 3. Form: had lost.", hint: "lose – lost – lost." },
+        { kind: "type", label: "Adverts are show to teenagers.", answers: ["shown"], why: "are + 3. Form: are shown.", hint: "show – showed – shown." },
+        { kind: "type", label: "The song was sang by the Beatles.", answers: ["sung"], why: "sing – sang – sung; Passiv: was sung.", hint: "Die 3. Form von sing." },
+      ] },
+
+    { type: "multi", tag: "Passive", title: "Passive with by",
+      q: "Schreib den Satz im Passiv und nenne die Person mit by.",
+      hint: "The song was sung by the Beatles.",
+      why: "was sung by · was introduced by · was criticized by · was organized by",
+      items: [
+        { kind: "type", label: "The Beatles sang the song. →", answers: ["The song was sung by the Beatles", "The song was sung by the Beatles."], show: "The song was sung by the Beatles.", why: "was + sung + by + Person.", hint: "Beginne mit „The song …“." },
+        { kind: "type", label: "The government introduced a new policy. →", answers: ["A new policy was introduced by the government", "A new policy was introduced by the government."], show: "A new policy was introduced by the government.", why: "was + introduced + by + government.", hint: "Beginne mit „A new policy …“." },
+        { kind: "type", label: "The mayor criticized the plan. →", answers: ["The plan was criticized by the mayor", "The plan was criticized by the mayor."], show: "The plan was criticized by the mayor.", why: "was + criticized + by + mayor.", hint: "Beginne mit „The plan …“." },
+        { kind: "type", label: "The students organized the demonstration. →", answers: ["The demonstration was organized by the students", "The demonstration was organized by the students."], show: "The demonstration was organized by the students.", why: "was + organized + by + students.", hint: "Beginne mit „The demonstration …“." },
+      ] },
+
+    { type: "multi", tag: "Vokabeln", title: "Nuances",
+      q: "Wähle das Wort, das am besten passt.",
+      hint: "Lies den ganzen Satz – der Kontext entscheidet.",
+      why: "informative · radical · complicated · balanced · tackle",
+      items: [
+        { kind: "choice", label: "The report was ___ – it gave me all the facts I needed.", options: ["informative", "complicated", "radical"], answer: "informative", why: "informative = informativ, aufschlussreich.", hint: "Es liefert Fakten." },
+        { kind: "choice", label: "The changes were ___: the whole system is different now.", options: ["radical", "balanced", "distant"], answer: "radical", why: "radical = radikal, grundlegend.", hint: "Alles ist anders." },
+        { kind: "choice", label: "The instructions were so ___ that nobody understood them.", options: ["complicated", "informative", "effective"], answer: "complicated", why: "complicated = kompliziert.", hint: "Niemand versteht sie." },
+        { kind: "choice", label: "The article is ___: it shows both sides of the argument.", options: ["balanced", "suspicious", "massive"], answer: "balanced", why: "balanced = ausgewogen.", hint: "Beide Seiten." },
+        { kind: "choice", label: "We need to ___ the problem, not just talk about it.", options: ["tackle", "conclude", "chant"], answer: "tackle", why: "tackle = angehen, in Angriff nehmen.", hint: "Etwas tun, nicht nur reden." },
+      ] },
+
+    { type: "multi", tag: "Satzbau", title: "Sätze bauen",
+      q: "Tippe die Wörter in der richtigen Reihenfolge an.",
+      hint: "Achte auf Passiv und by-agent.",
+      why: "passive · past perfect · passive · passive",
+      items: [
+        { kind: "build", label: "Satz 1", sentence: "The new policy was introduced by the government.", why: "Passiv mit by-agent.", tip: "Beginne mit „The new policy …“." },
+        { kind: "build", label: "Satz 2", sentence: "She had never been to London before.", why: "past perfect mit never.", tip: "Beginne mit „She had …“." },
+        { kind: "build", label: "Satz 3", sentence: "The demonstration was organized by the students.", why: "Passiv mit by-agent.", tip: "Beginne mit „The demonstration …“." },
+        { kind: "build", label: "Satz 4", sentence: "The problem is tackled by a new policy.", why: "simple present passive: is + tackled.", tip: "Beginne mit „The problem …“." },
+      ] },
+
+    { type: "record", tag: "Speaking 🎧", title: "Speaking: a campaign",
+      q: "Describe a campaign at your school. Use the passive at least twice.",
+      hint: "Kopfhörer auf! Sprich in ganzen Sätzen – mindestens drei Sätze.",
+      steps: [
+        "Überleg dir eine Kampagne an deiner Schule (z. B. mehr Fahrradständer, weniger Plastik).",
+        "Nimm deine Antwort auf (●) und hör sie dir an (▶).",
+        "Vergleiche mit der Musterantwort.",
+        "Schätze dich selbst ein.",
+      ],
+      say: [["A", "Tell me about a campaign at your school. What was done, and what was the result?"]],
+      model: "Last year a petition was started at our school. The plans were discussed in class, and a demonstration was organized. In the end, the policy was changed.",
+      modelAlt: "Wichtig: mindestens zwei Passivsätze (was/were + 3. Form) und ein klares Ergebnis. Deine Antwort darf anders klingen!",
+      modelSay: [["B", "Last year a petition was started at our school. The plans were discussed in class, and a demonstration was organized. In the end, the policy was changed."]],
+      why: "Passive: was started · were discussed · was organized · was changed.",
+    },
+  ]},
+]};
+</script>
+<script src="../assets/quiz2.js"></script>
 </body>
 </html>
