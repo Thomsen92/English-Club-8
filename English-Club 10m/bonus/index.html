@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonus · English Club 10m</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Startseite</a>
+    <div class="brand">
+      <div class="logo">★</div>
+      <div><p class="when">Schon fertig?</p><h1>Bonus</h1><p>Videos, Quizze und Rätsel zum Weitermachen</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <p class="hint" style="margin:0 0 16px">Hier kommen nach und nach neue Sachen dazu. Setz deine Kopfhörer auf und such dir etwas aus. Neues steht immer oben.</p>
+  <div class="list" id="bonus"></div>
+  <p class="foot">Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+</main>
+<script src="../assets/bonus.js"></script>
+<script>
+(function () {
+  const today = new Date(); today.setHours(12, 0, 0, 0);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const items = BONUS.filter(b => new Date(b.start + "T00:00:00") <= today).reverse();
+  document.getElementById("bonus").innerHTML = items.length ? items.map(b => `
+    <a class="row" href="${b.href}">
+      <span class="kw" style="font-size:1.5rem;min-width:40px">${b.ico}</span>
+      <span class="t"><b>${esc(b.title)}</b><small>${"★".repeat(b.stars)} · ${esc(b.desc)}</small></span>
+      <span class="go">→</span>
+    </a>`).join("") : `<p class="label">Bald gibt's hier etwas.</p>`;
+})();
+</script>
+</body>
+</html>

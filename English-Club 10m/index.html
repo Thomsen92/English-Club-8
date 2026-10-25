@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Club 10m</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner brand">
+    <div class="logo">10m</div>
+    <div><h1>English Club 10m</h1><p>Unit-Aufgaben für die Klasse 10m</p></div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="label">So funktioniert's</div>
+  <div class="card">
+    <p style="margin:0">Wir arbeiten <b>Unit für Unit</b> – keine Wochenpläne. Zu jeder Unit gibt es Wortschatz, Grammatik und Aufgaben. Eine Unit bleibt online, auch wenn die nächste schon da ist.</p>
+  </div>
+
+  <h2>Units</h2>
+  <div class="list" id="units"></div>
+
+  <h2>⭐ Schon fertig?</h2>
+  <a class="row" href="bonus/">
+    <span class="kw" style="font-size:1.5rem;min-width:40px">★</span>
+    <span class="t"><b>Bonus</b><small>Videos, Quizze und Rätsel zum Weitermachen</small></span>
+    <span class="go">→</span>
+  </a>
+
+  <p class="foot">Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+</main>
+<script src="assets/units.js"></script>
+<script>
+(function () {
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  document.getElementById("units").innerHTML = UNITS.map(u => `
+    <a class="row" href="${u.id}/">
+      <span class="kw" style="min-width:72px">Unit ${u.no}</span>
+      <span class="t"><b>${esc(u.title)}</b><small>${esc(u.topic)}${u.status ? " · " + esc(u.status) : ""}</small></span>
+      <span class="go">→</span>
+    </a>`).join("");
+})();
+</script>
+</body>
+</html>

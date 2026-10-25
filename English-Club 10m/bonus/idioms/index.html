@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonus · Idiom Lab · English Club 10m</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/quiz2.css">
+<style>
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 12px; }
+.tab { font: inherit; font-weight: 800; padding: 10px 16px; border-radius: 99px; border: 2px solid var(--line); background: var(--chip); color: var(--chip-ink); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--navy); color: #f7c531; border-color: var(--navy); }
+.idgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.idcard { font: inherit; text-align: left; cursor: pointer; border: 2px solid var(--line); border-radius: 14px; background: var(--card); color: var(--ink); padding: 12px 14px; min-height: 118px; display: flex; flex-direction: column; gap: 6px; }
+.idcard .emo { font-size: 2rem; line-height: 1; }
+.idcard .idm { font-weight: 800; font-size: 1.05rem; }
+.idcard .more { display: none; font-size: .93rem; }
+.idcard .more p { margin: 2px 0; }
+.idcard .more .de { color: var(--muted); }
+.idcard .more .ex { font-style: italic; }
+.idcard.open { border-color: var(--accent); }
+.idcard.open .more { display: block; }
+.idcard.seen:not(.open) { border-color: var(--ok); }
+.idcard .tag { font-size: .7rem; margin-left: 4px; vertical-align: middle; }
+.idsay { align-self: flex-start; font: inherit; border: 0; background: var(--chip); border-radius: 10px; padding: 6px 10px; cursor: pointer; margin-top: 4px; }
+.idprog { font-weight: 700; margin: 10px 0 0; }
+.level-btn.mega { border-color: var(--brick); }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Bonus</a>
+    <div class="brand">
+      <div class="logo">🧠</div>
+      <div><p class="when">Bonus · Mega-Challenge für Sprach-Geeks</p><h1>Idiom Lab</h1><p>40 englische Redewendungen über Alter und Charakter</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="menu">
+    <div class="label">Was sind Idioms?</div>
+    <p class="hint" style="margin:6px 0 0">Idioms sind Redewendungen. Ihre Bedeutung ist <b>nicht</b> die Summe der Wörter. „He's wet behind the ears“ heißt nicht, dass seine Ohren nass sind, sondern: Er ist noch unerfahren – im Deutschen sagen wir sogar fast dasselbe: <i>grün hinter den Ohren</i>! Wer Idioms kann, klingt wie ein Native Speaker. 😎</p>
+    <p class="hint" style="margin:8px 0 0"><b>So geht's:</b> 1. Lern die Idioms mit den Karten. &nbsp;2. Mach die Tests – vom 🧩 Aufwärmen bis zum 🧠 Boss Level. &nbsp;3. Spiel Memory.</p>
+
+    <h2>📇 Schritt 1: Lernkarten</h2>
+    <div class="card">
+      <p class="hint" style="margin:0">Tippe auf eine Karte: Dann siehst du, was das Idiom bedeutet, wie man es auf Deutsch sagt und einen Beispielsatz. 🔊 liest den Satz vor.</p>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" data-deck="age">⏳ Age (20)</button>
+        <button class="tab" role="tab" data-deck="pers">🎭 Personality (20)</button>
+      </div>
+      <div class="idgrid" id="idgrid"></div>
+      <p class="idprog" id="idprog"></p>
+    </div>
+
+    <h2>✏️ Schritt 2: Tests</h2>
+    <div class="levels" id="levels"></div>
+
+    <h2 id="mem-sec">🃏 Schritt 3: Memory – Idiom + deutsche Redewendung</h2>
+    <div class="card"><div id="memory"></div></div>
+
+    <h2>💭 Für echte Profis</h2>
+    <div class="card">
+      <p style="margin:0 0 6px"><b>Which idiom describes YOU? And your best friend?</b></p>
+      <p class="hint" style="margin:0">Schreib 3 Sätze in dein Heft und erklär, warum.<br><i>Example: “I'm a social butterfly because I love parties. My best friend is a dark horse – nobody knows that she can draw really well!”</i><br>Achtung: Manche Idioms sind nicht nett (two-faced, crybaby). Benutze sie nicht über echte Mitschüler!</p>
+    </div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
+  <p class="foot">English Club 10m · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
+</main>
+<script>
+// [Emoji, Idiom, Bedeutung (easy English), Deutsch, Beispielsatz, Hinweis]
+window.IDIOMS = {
+  age: [
+    ["🐔", "no spring chicken", "not young any more", "nicht mehr der/die Jüngste", "My uncle runs marathons, but he's no spring chicken – he's 63!"],
+    ["👂", "wet behind the ears", "young and without experience", "grün hinter den Ohren", "The new goalkeeper is still wet behind the ears, but he learns fast."],
+    ["📅", "getting on in years", "getting old", "in die Jahre kommen", "Our dog is getting on in years. He sleeps all day now."],
+    ["⛰️", "as old as the hills", "extremely old", "steinalt, uralt", "This joke is as old as the hills – Dad tells it every Christmas!"],
+    ["✨", "bright young things", "young people who are full of energy, cool and ambitious", "junge, ehrgeizige Leute", "The bright young things at the start-up work day and night."],
+    ["🌉", "bridge the generation gap", "something that young and old people both like", "Jung und Alt verbinden", "Board games bridge the generation gap – Grandma always wins."],
+    ["🍎", "a ripe old age", "a very old age", "ein hohes Alter", "My great-grandma lived to the ripe old age of 99."],
+    ["🧒", "act your age", "behave like a person of your age should", "sich seinem Alter entsprechend benehmen", "You're 14, not 4! Act your age!"],
+    ["👶", "at the tender age of …", "when someone was very young", "im zarten Alter von …", "Mozart wrote music at the tender age of 5."],
+    ["🦴", "feel my age", "notice that I am getting older", "mein Alter spüren", "I really feel my age when my students talk about new apps."],
+    ["💪", "in the prime of your life", "at your best: healthy and successful", "im besten Alter", "At 30, she was in the prime of her life and won the World Cup."],
+    ["🦗", "knee-high to a grasshopper", "very small and young", "ein Dreikäsehoch", "I've known Leo since he was knee-high to a grasshopper."],
+    ["🦷", "long in the tooth", "old (often: too old for something)", "nicht mehr taufrisch", "I'm a bit long in the tooth for skateboarding."],
+    ["🌅", "the twilight years", "the last years of someone's life", "der Lebensabend", "My grandparents spent their twilight years in Florida."],
+    ["🏔️", "over the hill", "old; past your best years", "die besten Jahre hinter sich haben", "Mum says she's over the hill since she turned 50. She isn't!"],
+    ["❤️", "young at heart", "old, but still feeling and acting young", "jung geblieben", "Grandpa is 80, but he's young at heart and plays video games."],
+    ["😳", "that awkward age", "the teenage years when you feel unsure and shy", "das schwierige Alter", "My brother is at that awkward age – he never talks at dinner."],
+    ["🎂", "come of age", "become an adult (with adult rights)", "volljährig werden", "In Germany you come of age when you turn 18."],
+    ["🧀", "improve with age", "get better when it gets older", "mit dem Alter besser werden", "Some cheeses improve with age."],
+    ["💯", "a great age", "a very old age", "ein hohes Alter", "Mrs Brown reached the great age of 101."],
+  ],
+  pers: [
+    ["🌈", "a vivid imagination", "the ability to think of exciting pictures and ideas", "eine lebhafte Fantasie", "Lena has a vivid imagination – her stories are amazing."],
+    ["🛋️", "a fuddy-duddy", "someone who doesn't want to try new things", "ein Langweiler, ein Spießer", "Don't be such a fuddy-duddy – come to the party!"],
+    ["🙅", "a selfish streak", "a part of someone's character that is selfish", "eine egoistische Ader", "Tim has a selfish streak. He never shares his snacks."],
+    ["🎭", "two-faced", "nice to you, but saying bad things behind your back", "falsch, doppelzüngig", "She said she liked my song, but laughed about it later. So two-faced!"],
+    ["🎺", "as bold as brass", "very confident, not shy at all", "frech wie Oskar", "As bold as brass, Jonas asked the singer for a selfie."],
+    ["🍔", "an average Joe", "a normal man with simple tastes", "Otto Normalverbraucher", "He isn't a star – he's just an average Joe who loves football.", "US"],
+    ["😂", "a barrel of laughs", "a very funny person or situation", "eine Stimmungskanone", "Our class trip was a barrel of laughs."],
+    ["😭", "a crybaby", "someone who cries a lot without a good reason", "eine Heulsuse", "Don't be a crybaby – it's only a game!"],
+    ["🤓", "too smart for your own good", "so proud of what you know that it's annoying", "neunmalklug", "Ben corrects every teacher. He's too smart for his own good."],
+    ["🌍", "down to earth", "practical and normal, not arrogant", "bodenständig", "She's a famous actress, but she's very down to earth."],
+    ["🪰", "wouldn't hurt a fly", "is completely harmless", "keiner Fliege etwas zuleide tun", "Our big dog looks dangerous, but he wouldn't hurt a fly."],
+    ["🦋", "a social butterfly", "a person who loves meeting people and going to parties", "ein geselliger Mensch, Partylöwe", "Mia is a social butterfly – she knows everybody at school."],
+    ["🐺", "a lone wolf", "someone who likes to be or work alone", "ein Einzelgänger", "My cousin is a lone wolf. He likes hiking alone."],
+    ["🦢", "wouldn't say boo to a goose", "is very shy and nervous", "sich nichts trauen, sehr schüchtern sein", "Paul is so shy, he wouldn't say boo to a goose.", "UK"],
+    ["🐕", "her bark is worse than her bite", "she isn't as scary as she seems", "Hunde, die bellen, beißen nicht", "Our coach shouts a lot, but her bark is worse than her bite."],
+    ["🐎", "a dark horse", "someone with a surprising hidden talent", "ein stilles Wasser, eine Überraschung", "Sara is a dark horse – she won the chess competition!"],
+    ["🥚", "a good egg", "an honest person you can trust", "ein feiner Kerl, ein guter Mensch", "Max is a good egg. He always helps his friends."],
+    ["🧂", "the salt of the earth", "a very kind, honest and normal person", "ein herzensguter Mensch", "Our neighbours are the salt of the earth – they help everybody."],
+    ["🍪", "a tough cookie", "a strong person who doesn't give up easily", "eine harte Nuss, ein zäher Typ", "Lisa broke her arm but finished the race. She's a tough cookie!"],
+    ["🥒", "as cool as a cucumber", "very calm and relaxed", "die Ruhe selbst, cool wie ein Eisberg", "Everybody was nervous, but Tom was as cool as a cucumber."],
+  ],
+};
+
+window.MEMORY = [
+  ["wet behind the ears", "grün hinter den Ohren"],
+  ["an average Joe", "Otto Normalverbraucher"],
+  ["as bold as brass", "frech wie Oskar"],
+  ["knee-high to a grasshopper", "ein Dreikäsehoch"],
+  ["too smart for your own good", "neunmalklug"],
+  ["a crybaby", "eine Heulsuse"],
+  ["a lone wolf", "ein Einzelgänger"],
+  ["her bark is worse than her bite", "Hunde, die bellen, beißen nicht"],
+];
+
+const YO = ["young 👶", "old 👴"];
+window.QUIZ = { id: "bonus-idioms", levels: [
+
+  // ===== Stufe 1 =====
+  { name: "🧩 Aufwärmen: Age", stars: 1, desc: "Jung oder alt? Was bedeutet das Idiom?", tasks: [
+    { type: "multi", tag: "Age", title: "Young or old?", keep: true,
+      q: "Geht es um junge oder um alte Menschen? Entscheide bei jedem Idiom.",
+      hint: "Schau in die Lernkarten „⏳ Age“, wenn du unsicher bist.",
+      why: "young: wet behind the ears · knee-high to a grasshopper · at the tender age · bright young things · that awkward age — old: no spring chicken · long in the tooth · twilight years · over the hill · as old as the hills",
+      items: [
+        { kind: "choice", keep: true, label: "wet behind the ears", options: YO, answer: "young 👶", why: "jung und unerfahren" },
+        { kind: "choice", keep: true, label: "no spring chicken", options: YO, answer: "old 👴", why: "nicht mehr jung" },
+        { kind: "choice", keep: true, label: "knee-high to a grasshopper", options: YO, answer: "young 👶", why: "so klein, dass man nur bis zum Knie einer Heuschrecke reicht 🦗" },
+        { kind: "choice", keep: true, label: "long in the tooth", options: YO, answer: "old 👴", why: "Bei alten Pferden wirken die Zähne länger – daher kommt das Idiom." },
+        { kind: "choice", keep: true, label: "the twilight years", options: YO, answer: "old 👴", why: "twilight = Dämmerung → der Lebensabend" },
+        { kind: "choice", keep: true, label: "that awkward age", options: YO, answer: "young 👶", why: "die Teenagerzeit" },
+        { kind: "choice", keep: true, label: "over the hill", options: YO, answer: "old 👴", why: "über den Gipfel hinaus → die besten Jahre sind vorbei" },
+        { kind: "choice", keep: true, label: "bright young things", options: YO, answer: "young 👶", why: "junge, ehrgeizige Leute" },
+      ] },
+    { type: "multi", tag: "Age", title: "Was bedeutet das?",
+      q: "Wähle die richtige Bedeutung.",
+      why: "young at heart = jung geblieben · act your age = sich dem Alter entsprechend benehmen · come of age = volljährig werden · bridge the generation gap = Jung und Alt verbinden · improve with age = mit dem Alter besser werden",
+      items: [
+        { kind: "choice", label: "Grandma is young at heart.", options: ["She is old, but she still feels young.", "She has a young heart doctor.", "She is younger than she looks.", "She loves young people."], answer: "She is old, but she still feels young.", why: "young at heart = jung geblieben" },
+        { kind: "choice", label: "“Act your age!”", options: ["Behave like a person of your age!", "Tell me how old you are!", "Play a role in a film!", "Look older!"], answer: "Behave like a person of your age!", why: "Das sagen Eltern gern, wenn man sich kindisch benimmt. 😉" },
+        { kind: "choice", label: "In Germany you come of age at 18.", options: ["You become an adult.", "You can come to school alone.", "You have a big party.", "You get your first job."], answer: "You become an adult.", why: "come of age = volljährig werden" },
+        { kind: "choice", label: "This film bridges the generation gap.", options: ["Kids and grandparents both like it.", "It's a film about a bridge.", "Only old people like it.", "It's too long for kids."], answer: "Kids and grandparents both like it.", why: "Die „Lücke“ zwischen den Generationen wird überbrückt." },
+        { kind: "choice", label: "Cheese improves with age.", options: ["It gets better when it gets older.", "It gets worse when it gets older.", "Old people like cheese.", "You should eat it fast."], answer: "It gets better when it gets older.", why: "improve = besser werden" },
+      ] },
+  ]},
+
+  // ===== Stufe 2 =====
+  { name: "🔧 Fix the idiom", stars: 2, desc: "In jedem Satz ist ein Wort im Idiom falsch. Schreib das richtige Idiom.", tasks: [
+    { type: "multi", tag: "Age", title: "Fix the idiom 1",
+      q: "Ein Wort im Idiom ist falsch. Schreib das ganze Idiom richtig.",
+      hint: "Beispiel: „Stop jumping on the table! Play your age!“ → du schreibst: act your age",
+      why: "young at heart · wet behind the ears · long in the tooth · come of age",
+      items: [
+        { kind: "type", label: "My grandma is 80, but she is still young at mind.", answers: ["young at heart"], why: "heart, nicht mind ❤️", hint: "Wo sitzen die Gefühle?", tip: "young at h…" },
+        { kind: "type", label: "Our new trainer is a bit wet behind the neck.", answers: ["wet behind the ears"], why: "ears – wie im Deutschen: grün hinter den Ohren 👂", hint: "Wie im Deutschen: grün hinter den …" },
+        { kind: "type", label: "I'm too long in the mouth for roller coasters.", answers: ["long in the tooth"], why: "tooth – denk an alte Pferde 🦷", hint: "Ein Teil im Mund …" },
+        { kind: "type", label: "In Germany you arrive of age when you turn 18.", answers: ["come of age"], why: "come of age = volljährig werden 🎂", hint: "Ein kurzes Verb mit c." },
+      ] },
+    { type: "multi", tag: "Age", title: "Fix the idiom 2",
+      q: "Und noch einmal: Schreib das ganze Idiom richtig.",
+      hint: "Achtung, bei einem Idiom ändert sich auch „your“ → „his“.",
+      why: "as old as the hills · the twilight years · in the prime of his life · knee-high to a grasshopper",
+      items: [
+        { kind: "type", label: "This castle is as old as the mountains.", answers: ["as old as the hills"], why: "hills, nicht mountains ⛰️", hint: "Kleiner als mountains …" },
+        { kind: "type", label: "My grandpa spent his midnight years in Florida.", answers: ["twilight years", "the twilight years", "his twilight years"], show: "twilight years", why: "twilight = Dämmerung 🌅", hint: "Nicht Mitternacht, sondern Dämmerung." },
+        { kind: "type", label: "Dad is 40 and feels great. He's in the top of his life.", answers: ["in the prime of his life", "the prime of his life", "prime of his life"], show: "in the prime of his life", why: "prime = die beste Zeit 💪", hint: "Ein Wort mit p, das „beste Zeit“ bedeutet." },
+        { kind: "type", label: "I've known her since she was knee-high to a cricket.", answers: ["knee-high to a grasshopper", "knee high to a grasshopper"], show: "knee-high to a grasshopper", why: "grasshopper = Grashüpfer 🦗", hint: "Ein anderes Insekt, das springt …" },
+      ] },
+  ]},
+
+  // ===== Stufe 3 =====
+  { name: "🕵️ Who is it?", stars: 2, desc: "Lies die Situation. Welches Idiom passt?", tasks: [
+    { type: "multi", tag: "Personality", title: "Who is it? 1",
+      q: "Lies die Situation und wähle das passende Idiom.",
+      why: "a tough cookie · a social butterfly · wouldn't hurt a fly · two-faced · a dark horse",
+      items: [
+        { kind: "choice", label: "Mia never gives up. When people laugh at her, she just smiles and keeps going.", options: ["a tough cookie", "a crybaby", "a fuddy-duddy", "a lone wolf"], answer: "a tough cookie", why: "tough = hart, zäh 🍪" },
+        { kind: "choice", label: "Leon goes to every party and knows everybody at school.", options: ["a social butterfly", "a lone wolf", "a dark horse", "a good egg"], answer: "a social butterfly", why: "Er „flattert“ von Person zu Person 🦋" },
+        { kind: "choice", label: "Mr Smith's dog is huge and looks dangerous. But it's really sweet.", options: ["It wouldn't hurt a fly.", "It's a dark horse.", "It's two-faced.", "It's as bold as brass."], answer: "It wouldn't hurt a fly.", why: "tut keiner Fliege etwas zuleide 🪰" },
+        { kind: "choice", label: "Ella says she loves your new shoes. Later she tells her friends they're ugly.", options: ["She's two-faced.", "She's down to earth.", "She's the salt of the earth.", "She's young at heart."], answer: "She's two-faced.", why: "zwei Gesichter = falsch 🎭" },
+        { kind: "choice", label: "Ben hardly ever talks. Nobody knew he can sing – until he won the talent show!", options: ["He's a dark horse.", "He's a barrel of laughs.", "He's an average Joe.", "He's a fuddy-duddy."], answer: "He's a dark horse.", why: "Beim Pferderennen: ein unbekanntes Pferd, das plötzlich gewinnt 🐎" },
+      ] },
+    { type: "multi", tag: "Personality", title: "Who is it? 2",
+      q: "Noch fünf Situationen. Welches Idiom passt?",
+      why: "down to earth · as cool as a cucumber · a crybaby · a lone wolf · the salt of the earth",
+      items: [
+        { kind: "choice", label: "Max won a lot of money, but he still lives in his small flat and rides his old bike.", options: ["He's down to earth.", "He's too smart for his own good.", "He's as bold as brass.", "He has a selfish streak."], answer: "He's down to earth.", why: "bodenständig 🌍" },
+        { kind: "choice", label: "Before the test everybody panics. Only Jana is totally calm.", options: ["She's as cool as a cucumber.", "She's a tough cookie.", "She's wet behind the ears.", "She's a crybaby."], answer: "She's as cool as a cucumber.", why: "Gurken fühlen sich kühl an 🥒" },
+        { kind: "choice", label: "Tom cries every time he loses a game of Uno.", options: ["He's a crybaby.", "He's a lone wolf.", "He's a good egg.", "He's a dark horse."], answer: "He's a crybaby.", why: "Heulsuse 😭" },
+        { kind: "choice", label: "Sam doesn't like group work. He always wants to work alone.", options: ["He's a lone wolf.", "He's a social butterfly.", "He's a barrel of laughs.", "He's an average Joe."], answer: "He's a lone wolf.", why: "Einzelgänger 🐺" },
+        { kind: "choice", label: "Our neighbour helps everybody, is always honest and never shows off.", options: ["She's the salt of the earth.", "She's two-faced.", "She's a fuddy-duddy.", "She's too smart for her own good."], answer: "She's the salt of the earth.", why: "ein herzensguter Mensch 🧂" },
+      ] },
+  ]},
+
+  // ===== Stufe 4 =====
+  { name: "✍️ Idiom-Schreiber", stars: 3, desc: "Du bekommst die Bedeutung – schreib das Idiom.", tasks: [
+    { type: "multi", tag: "Personality", title: "Idiom-Schreiber 1",
+      q: "Schreib das passende Idiom zur Bedeutung.",
+      hint: "Beispiel: someone who doesn't want to try new things = a fuddy-duddy",
+      why: "her bark is worse than her bite · as cool as a cucumber · as bold as brass · a barrel of laughs · wouldn't hurt a fly",
+      items: [
+        { kind: "type", label: "She isn't as scary as she seems.", answers: ["her bark is worse than her bite"], why: "bark = bellen, bite = beißen 🐕", hint: "Etwas mit Hund: bellen und beißen.", tip: "her b… is worse than her b…" },
+        { kind: "type", label: "very calm and relaxed", answers: ["as cool as a cucumber", "cool as a cucumber"], show: "as cool as a cucumber", why: "🥒", hint: "as … as + ein Gemüse", tip: "as cool as a c…" },
+        { kind: "type", label: "very confident, not shy at all", answers: ["as bold as brass", "bold as brass"], show: "as bold as brass", why: "brass = Messing (glänzendes Metall) 🎺", hint: "as b… as b…" },
+        { kind: "type", label: "a very funny person or situation", answers: ["a barrel of laughs", "barrel of laughs"], show: "a barrel of laughs", why: "ein ganzes Fass voller Lacher 😂", hint: "a b… of laughs" },
+        { kind: "type", label: "is completely harmless", answers: ["wouldn't hurt a fly", "would not hurt a fly"], show: "wouldn't hurt a fly", why: "wie im Deutschen 🪰", hint: "Wie im Deutschen: keiner Fliege …" },
+      ] },
+    { type: "multi", tag: "Personality", title: "Idiom-Schreiber 2",
+      q: "Noch fünf. Schreib das passende Idiom zur Bedeutung.",
+      hint: "Artikel (a / an / the) darfst du mitschreiben.",
+      why: "a fuddy-duddy · a good egg · wouldn't say boo to a goose · an average Joe · too smart for her own good",
+      items: [
+        { kind: "type", label: "someone who doesn't want to try new things", answers: ["a fuddy-duddy", "fuddy-duddy", "a fuddy duddy", "fuddy duddy"], show: "a fuddy-duddy", why: "🛋️", hint: "a f…-d…" },
+        { kind: "type", label: "an honest person you can trust", answers: ["a good egg", "good egg"], show: "a good egg", why: "🥚", hint: "Etwas zum Frühstück …" },
+        { kind: "type", label: "is very shy and nervous (UK)", answers: ["wouldn't say boo to a goose", "would not say boo to a goose"], show: "wouldn't say boo to a goose", why: "nicht mal „Buh!“ zu einer Gans sagen 🦢", hint: "wouldn't say b… to a g…" },
+        { kind: "type", label: "a normal man with simple tastes (US)", answers: ["an average joe", "average joe", "a average joe"], show: "an average Joe", why: "Otto Normalverbraucher 🍔", hint: "an a… Joe" },
+        { kind: "type", label: "She's so proud of what she knows that it's annoying.", answers: ["too smart for her own good", "she's too smart for her own good", "she is too smart for her own good"], show: "too smart for her own good", why: "neunmalklug 🤓", hint: "too s… for her own g…" },
+      ] },
+  ]},
+
+  // ===== Stufe 5: Boss =====
+  { name: "🧠 Boss Level", stars: 4, desc: "Wörtlich-Fallen, deutsche Gegenstücke, Sätze bauen, frei sprechen", tasks: [
+    { type: "multi", tag: "Boss", title: "Wörtlich-Falle",
+      q: "Achtung, Falle! Stimmt die Aussage, wenn man das Idiom RICHTIG versteht?",
+      why: "Idioms darf man nie Wort für Wort verstehen!",
+      items: [
+        { kind: "choice", keep: true, label: "“Paul wouldn't say boo to a goose.” → Paul is afraid of geese.", options: ["true", "false"], answer: "false", why: "Paul ist einfach sehr schüchtern – mit Gänsen hat das nichts zu tun." },
+        { kind: "choice", keep: true, label: "“Lisa is a tough cookie.” → Lisa is a strong person.", options: ["true", "false"], answer: "true", why: "tough cookie = zäher, starker Mensch" },
+        { kind: "choice", keep: true, label: "“My aunt is over the hill.” → My aunt went hiking.", options: ["true", "false"], answer: "false", why: "Sie fühlt sich alt – die besten Jahre sind vorbei." },
+        { kind: "choice", keep: true, label: "“Sara is a dark horse.” → Sara surprised everybody.", options: ["true", "false"], answer: "true", why: "Sie hatte ein verstecktes Talent." },
+        { kind: "choice", keep: true, label: "“Jim is the salt of the earth.” → Jim is a very good person.", options: ["true", "false"], answer: "true", why: "herzensguter, ehrlicher Mensch" },
+        { kind: "choice", keep: true, label: "“He's long in the tooth.” → He needs to go to the dentist.", options: ["true", "false"], answer: "false", why: "Er ist einfach alt (oder zu alt für etwas)." },
+      ] },
+    { type: "multi", tag: "Boss", title: "Das deutsche Gegenstück",
+      q: "Welche deutsche Redewendung bedeutet dasselbe?",
+      why: "average Joe = Otto Normalverbraucher · bold as brass = frech wie Oskar · knee-high to a grasshopper = Dreikäsehoch · bark worse than bite = Hunde, die bellen, beißen nicht · too smart for her own good = neunmalklug",
+      items: [
+        { kind: "choice", label: "an average Joe", options: ["Otto Normalverbraucher", "Hans im Glück", "ein armer Schlucker", "ein Pechvogel"], answer: "Otto Normalverbraucher", why: "Joe ist ein typischer Name in den USA – wie Otto bei uns." },
+        { kind: "choice", label: "as bold as brass", options: ["frech wie Oskar", "stark wie ein Bär", "schlau wie ein Fuchs", "stur wie ein Esel"], answer: "frech wie Oskar", why: "Beides: total selbstbewusst, fast frech." },
+        { kind: "choice", label: "knee-high to a grasshopper", options: ["ein Dreikäsehoch", "ein Hans Dampf", "ein Spätzünder", "ein Angsthase"], answer: "ein Dreikäsehoch", why: "Beides: ein ganz kleines Kind." },
+        { kind: "choice", label: "her bark is worse than her bite", options: ["Hunde, die bellen, beißen nicht.", "Der frühe Vogel fängt den Wurm.", "Lügen haben kurze Beine.", "Viele Köche verderben den Brei."], answer: "Hunde, die bellen, beißen nicht.", why: "Wer laut schimpft, ist meist harmlos." },
+        { kind: "choice", label: "too smart for her own good", options: ["neunmalklug", "blitzgescheit", "ein helles Köpfchen", "ein Streber"], answer: "neunmalklug", why: "neunmalklug ist – genau wie das Idiom – nicht als Lob gemeint." },
+      ] },
+    { type: "multi", tag: "Boss", title: "Idiom-Sätze bauen",
+      q: "Bau die Sätze: Tippe die Wörter in der richtigen Reihenfolge an. Jeder Satz hat ein Idiom UND ein Grammatik-Thema der Woche (Vergleich oder Relativsatz).",
+      hint: "Tippe ein Wort noch einmal an, um es zurückzulegen.",
+      why: "Idioms + Grammatik: not as … as · who · than",
+      items: [
+        { kind: "build", label: "Satz 1", sentence: "Our coach is not as scary as she seems – her bark is worse than her bite.", tip: "Satz 1 beginnt mit „Our coach …“.", why: "not as scary as = nicht so gruselig wie" },
+        { kind: "build", label: "Satz 2", sentence: "Leo is a dark horse who plays the piano better than our teacher.", tip: "Satz 2 beginnt mit „Leo is a dark horse …“.", why: "who für Personen · better than = besser als" },
+        { kind: "build", label: "Satz 3", sentence: "My grandpa is over the hill, but he is still young at heart.", tip: "Satz 3 beginnt mit „My grandpa …“.", why: "over the hill ↔ young at heart: alt, aber jung geblieben" },
+      ] },
+    { type: "record", tag: "Speaking 🎤", title: "Beschreib eine berühmte Person",
+      q: "Beschreib eine berühmte Person (Sportler, Star, Figur aus einem Film oder Spiel) mit zwei Idioms. Sag auch, warum.",
+      hint: "Nimm keine echten Mitschüler! Nette Idioms: a tough cookie, as cool as a cucumber, down to earth, a dark horse, young at heart …",
+      steps: [
+        "Such dir eine berühmte Person und zwei passende Idioms aus.",
+        "Plane 3 Sätze: Wer? Welches Idiom? Warum?",
+        "Nimm dich auf (●) und hör dich an (▶).",
+        "Vergleiche mit der Musterantwort und schätze dich selbst ein.",
+      ],
+      model: "Spider-Man is a tough cookie because he never gives up. In real life he's just an average Joe – he lives with his aunt and goes to school. And in a fight he's as cool as a cucumber.",
+      modelAlt: "Deine Antwort darf ganz anders sein. Wichtig: 2 Idioms richtig benutzt + ein Grund (because …).",
+      why: "Super, wenn du die Idioms so benutzt, als wären sie ganz normale Wörter!" },
+  ]},
+]};
+
+// ---------- Lernkarten ----------
+(function () {
+  const grid = document.getElementById("idgrid"), prog = document.getElementById("idprog");
+  const KEY = "ec8-idioms-seen";
+  let seen = {}; try { seen = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+  const store = () => { try { localStorage.setItem(KEY, JSON.stringify(seen)); } catch (e) {} };
+  const say = (w) => { if (!("speechSynthesis" in window)) return; speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(w); const v = speechSynthesis.getVoices().find((x) => /en[-_](US|GB)/i.test(x.lang));
+    if (v) u.voice = v; u.lang = v ? v.lang : "en-US"; u.rate = 0.85; speechSynthesis.speak(u); };
+  const total = IDIOMS.age.length + IDIOMS.pers.length;
+  const upd = () => { const n = Object.keys(seen).length; prog.textContent = n >= total ? `🎉 Du hast alle ${total} Karten angeschaut! Jetzt ab zu den Tests.` : `👀 ${n} von ${total} Karten angeschaut`; };
+  function show(deck) {
+    document.querySelectorAll(".tab").forEach((t) => t.setAttribute("aria-selected", String(t.dataset.deck === deck)));
+    grid.innerHTML = "";
+    IDIOMS[deck].forEach(([emo, idm, en, de, ex, reg]) => {
+      const c = document.createElement("div"); c.className = "idcard" + (seen[idm] ? " seen" : ""); c.tabIndex = 0; c.setAttribute("role", "button");
+      c.innerHTML = `<span class="emo"></span><span class="idm"></span><div class="more"><p class="en"></p><p class="de"></p><p class="ex"></p></div>`;
+      c.querySelector(".emo").textContent = emo;
+      c.querySelector(".idm").textContent = idm;
+      if (reg) { const t = document.createElement("span"); t.className = "tag mid"; t.textContent = reg === "US" ? "🇺🇸 US" : "🇬🇧 UK"; c.querySelector(".idm").appendChild(t); }
+      c.querySelector(".en").textContent = "= " + en;
+      c.querySelector(".de").textContent = "🇩🇪 " + de;
+      c.querySelector(".ex").textContent = "„" + ex + "“";
+      const b = document.createElement("button"); b.className = "idsay"; b.textContent = "🔊 Anhören"; b.onclick = (e) => { e.stopPropagation(); say(ex); };
+      c.querySelector(".more").appendChild(b);
+      const flip = () => { c.classList.toggle("open"); if (!seen[idm]) { seen[idm] = 1; store(); upd(); } c.classList.add("seen"); };
+      c.onclick = flip; c.onkeydown = (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } };
+      grid.appendChild(c);
+    });
+  }
+  document.querySelectorAll(".tab").forEach((t) => (t.onclick = () => show(t.dataset.deck)));
+  show("age"); upd();
+})();
+</script>
+<script src="../../assets/quiz2.js"></script>
+<script src="../../assets/memory.js"></script>
+</body>
+</html>
