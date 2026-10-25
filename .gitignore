@@ -1,0 +1,17 @@
+# English Club 8 – ins öffentliche Repo gehört nur die Website.
+# Lokale Unterrichtsmaterialien (Buchscans, Arbeitsblätter, Wochenpläne, PowerPoints)
+# bleiben draußen – sie sind urheberrechtlich geschützt und werden nicht veröffentlicht.
+Stoff/
+Wochenplaene/
+
+# System- und Editor-Dateien
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.tmp
+
+# Office-Sperrdateien (Word/LibreOffice)
+~$*
+.~lock.*
