@@ -231,7 +231,7 @@
     if (Array.isArray(t.options) && t.options.length) {
       choiceBox = el("div", "rp-choice");
       const reveal = el("button", "linkbtn", "Keine Aufnahme? Antwortmöglichkeiten anzeigen");
-      const q = el("p", "rp-choice-q", "Wähle die richtige Antwort:");
+      const q = el("p", "rp-choice-q", "Wähle die richtige Antwort – nur eine ist fehlerfrei:");
       q.hidden = true;
       const list = el("div", "rp-options");
       list.hidden = true;
