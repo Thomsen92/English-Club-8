@@ -23,6 +23,21 @@
     <p class="hint" style="margin:6px 0 14px">Drei Stufen: ★ Basis, ★★ Aufbau, ★★★ Profi. Lies die Sätze genau – manche Aufgaben haben mehrere Teile, und bei einigen gibt es mehr als eine richtige Schreibweise.</p>
     <div class="levels" id="levels"></div>
 
+    <h2 id="rp-sec">🎭 Rollenspiel: At the bank</h2>
+    <div class="card">
+      <p class="hint" style="margin:0 0 12px">Du bist Diego. Die Bankangestellte spricht – du antwortest Runde für Runde. Kopfhörer auf!</p>
+      <div class="info">
+        <p style="margin:0"><b>Redemittel:</b> I'd like to change some money. · Do you have …? · What else can I do? · I hadn't realized … · Thanks for your help.</p>
+      </div>
+      <ol class="steps">
+        <li>Tippe auf 🔊, hör der Bankangestellten zu und antworte.</li>
+        <li>Nimm deine Antwort auf (●) und hör sie dir an (▶).</li>
+        <li>Vergleiche mit der Musterantwort und tippe auf „Weiter“.</li>
+        <li>Ohne Aufnahme: Antwortmöglichkeiten anzeigen – nur die richtige führt weiter.</li>
+      </ol>
+      <div id="bank-roleplay"></div>
+    </div>
+
     <h2>Merke dir</h2>
     <div class="card">
       <p style="margin:0 0 8px"><b>Past perfect:</b> <b>had + 3. Form</b> (had gone, had lost). Du benutzt es für etwas, das <b>vor</b> einer anderen Handlung in der Vergangenheit passiert war: When I arrived, Ben <b>had</b> already <b>gone</b> home.</p>
@@ -236,7 +251,17 @@ window.QUIZ = { id: "10m-unit-1", choiceTip: "Achte auf die Zeit: past perfect =
     },
   ]},
 ]};
+
+window.ROLEPLAY = { mount: "#bank-roleplay", role: "Bank clerk", audioDir: "../assets/audio/bank/", audioOther: "clerk", audioYou: "du", turns: [
+  { say: "Good morning. Can I help you?", hint: "Sag, dass du Geld wechseln willst und Rupien brauchst.", model: "Hi, yes. I'd like to change some money. I need some Indian rupees, please.", options: ["Hi, yes. I like to change some money. I need some Indian rupees, please.", "Hi, yes. I'd like to change some money. I need some Indian rupee, please."] },
+  { say: "Rupees? I'm really sorry, but we can't sell you rupees. Visitors aren't allowed to take rupees in and out of India.", hint: "Erklär, dass du nach Indien gehst und dort Geld brauchst – frag nach Dollars.", model: "But I'm going to India and I'll need money there. Will people accept dollars there?", options: ["But I'm going to India and I'll need money there. Will people accept dollars here?", "But I'm going to India and I'll need money there. Will people accept dollar there?"] },
+  { say: "No, not everywhere. But do you have a credit card and a current account?", hint: "Antworte auf die Frage nach Kreditkarte und Girokonto.", model: "Yes, I do. I have a credit card and a current account.", options: ["Yes, I have. I have a credit card and a current account.", "Yes, I do. I have a credit card and current account."] },
+  { say: "Well, then you can get rupees from an ATM when you arrive in India. But it can be quite expensive because the exchange rate isn't very good.", hint: "Frag, was du sonst tun kannst.", model: "OK, what else can I do?", options: ["OK, what else I can do?", "OK, what else can I do it?"] },
+  { say: "You can buy a prepaid travel card. You put money on it here and then you can use it in an ATM in India and withdraw rupees.", hint: "Sag, dass du das nicht wusstest – du willst darüber nachdenken.", model: "OK, I hadn't realized it was so complicated. I'll go and think about it.", options: ["OK, I didn't realized it was so complicated. I'll go and think about it.", "OK, I hadn't realize it was so complicated. I'll go and think about it."] },
+  { say: "Good idea. Here's a brochure with our exchange rates and bank charges.", hint: "Bedank dich und verabschiede dich.", model: "Thanks for your help. Bye.", options: ["Thanks for you help. Bye.", "Thank for your help. Bye."] },
+]};
 </script>
 <script src="../assets/quiz2.js"></script>
+<script src="../assets/roleplay.js"></script>
 </body>
 </html>

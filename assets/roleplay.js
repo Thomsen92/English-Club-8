@@ -14,6 +14,8 @@
   const total = R.turns.length;
   const roleName = R.role || "Waiter";
   const audioDir = R.audioDir || "";
+  const audioOther = R.audioOther || "waiter";
+  const audioYou = R.audioYou || "du";
 
   // ---------- Vorlesen (Gerätestimme, offline) ----------
   function enVoices() {
@@ -91,13 +93,13 @@
   }
 
   function playSay(i, rate) {
-    return playFile(fileFor(i, "waiter"), rate).catch(() => {
+    return playFile(fileFor(i, audioOther), rate).catch(() => {
       speak([["A", R.turns[i].say]], rate && rate < 1 ? 0.6 : 0.9);
     });
   }
 
   function playModel(i) {
-    return playFile(fileFor(i, "du"), 1).catch(() => speak([["B", R.turns[i].model]], 0.9));
+    return playFile(fileFor(i, audioYou), 1).catch(() => speak([["B", R.turns[i].model]], 0.9));
   }
 
   function playDialog() {
@@ -108,8 +110,8 @@
     (async () => {
       for (let i = 0; i < total; i++) {
         try {
-          await playFile(fileFor(i, "waiter"), 1);
-          await playFile(fileFor(i, "du"), 1);
+          await playFile(fileFor(i, audioOther), 1);
+          await playFile(fileFor(i, audioYou), 1);
           first = false;
         } catch (e) {
           if (first) speak(all, 0.9);
