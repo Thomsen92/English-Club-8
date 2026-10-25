@@ -62,6 +62,16 @@
   // ---------- Runden ----------
   let turn = 0;
 
+  // Nur nach oben nachziehen, wenn die Runden-Überschrift schon aus dem Bild ist.
+  // Sonst bleibt die Seite genau da stehen, wo geklickt wurde.
+  function keepTurnVisible() {
+    const head = mount.querySelector(".rp-head");
+    if (!head || typeof head.getBoundingClientRect !== "function") return;
+    if (head.getBoundingClientRect().top < 0 && typeof head.scrollIntoView === "function") {
+      head.scrollIntoView({ block: "start", behavior: "smooth" });
+    }
+  }
+
   function render(autoPlay) {
     stopRec();
     mount.innerHTML = "";
@@ -164,7 +174,7 @@
       modelBtn.hidden = true;
       if (skip) skip.hidden = true;
       next.hidden = false;
-      next.focus();
+      next.focus({ preventScroll: true });
     }
     modelBtn.onclick = showModel;
     if (skip) skip.onclick = showModel;
@@ -175,7 +185,7 @@
       turn++;
       if (turn >= total) { renderEnd(); return; }
       render(true);
-      if (mount.scrollIntoView) mount.scrollIntoView({ behavior: "smooth", block: "start" });
+      keepTurnVisible();
     };
 
     mount.append(head, bubble, listen, hint, recBox, rowModel, modelBox, rowNext);
@@ -221,7 +231,7 @@
         const msg = el("p", "rp-self-msg", label);
         self.append(msg);
         const again = el("button", "btn", "Nochmal spielen");
-        again.onclick = () => { turn = 0; render(false); if (mount.scrollIntoView) mount.scrollIntoView({ behavior: "smooth", block: "start" }); };
+        again.onclick = () => { turn = 0; render(false); keepTurnVisible(); };
         const row = el("div", "actions");
         row.append(again);
         self.append(row);
