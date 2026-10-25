@@ -13,6 +13,7 @@
   const canRec = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
   const total = R.turns.length;
   const roleName = R.role || "Waiter";
+  const youName = R.you || "Du";
   const audioDir = R.audioDir || "";
   const audioOther = R.audioOther || "waiter";
   const audioYou = R.audioYou || "du";
@@ -154,7 +155,7 @@
     head.append(el("span", "rp-step", "Runde " + (turn + 1) + " von " + total), el("span", "rp-role", roleName));
 
     const bubble = el("div", "rp-bubble");
-    bubble.append(el("span", "rp-bubble-ic", "👨‍🍳"));
+    bubble.append(el("span", "rp-bubble-ic", R.icon || "👨‍🍳"));
     const line = el("p", "rp-line", "🎧 Hör zu und antworte …");
     line.setAttribute("aria-live", "polite");
     bubble.append(line);
@@ -164,7 +165,7 @@
     const b2 = el("button", "btn secondary", "🐢 Langsam"); b2.onclick = () => playSay(turn, 0.75);
     listen.append(b1, b2);
 
-    const hint = el("p", "hint rp-hint", "Du: " + t.hint);
+    const hint = el("p", "hint rp-hint", youName + ": " + t.hint);
 
     // Steuerung „Musterantwort“ und „Weiter“ früh anlegen, damit die Aufnahme sie freischalten kann
     const modelBtn = el("button", "btn secondary", "👀 Musterantwort zeigen");
@@ -325,7 +326,7 @@
 
     const dlg = el("div", "rp-dialog");
     R.turns.forEach((t) => {
-      dlg.append(dialogRow(roleName, t.say), dialogRow("Du", t.model));
+      dlg.append(dialogRow(roleName, t.say), dialogRow(youName, t.model));
     });
     box.append(dlg);
 

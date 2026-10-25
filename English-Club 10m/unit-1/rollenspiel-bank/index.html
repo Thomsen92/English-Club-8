@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rollenspiel: At the bank · Unit 1 · English Club 10m</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/quiz2.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Unit 1</a>
+    <div class="brand">
+      <div class="logo">🎭</div>
+      <div><p class="when">Unit 1 · Rollenspiel</p><h1>At the bank</h1><p>Sparkasse Bank, San Francisco · Du bist Diego</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="label">Schauplatz</div>
+  <div class="card">
+    <p style="margin:0 0 10px">Du stehst <b>am Schalter</b> der Sparkasse Bank in San Francisco. Die Bankangestellte sitzt <b>hinter dem Schreibtisch</b> und spricht dich an.</p>
+    <div class="info" style="margin:0">
+      <table>
+        <tr><th>Sprecher</th><th>Wo?</th></tr>
+        <tr><td>🏦 Bank clerk</td><td>hinter dem Schalter</td></tr>
+        <tr><td>🧍 Du (Diego)</td><td>am Schalter, davor</td></tr>
+      </table>
+    </div>
+    <p class="hint" style="margin:12px 0 0">Du willst für deine Reise nach Indien Rupien besorgen. Antworte Runde für Runde – Kopfhörer auf!</p>
+  </div>
+
+  <h2>So geht's</h2>
+  <div class="card">
+    <ol class="steps" style="margin:0">
+      <li>Tippe auf 🔊, hör der Bankangestellten zu und antworte.</li>
+      <li>Nimm deine Antwort auf (●) und hör sie dir an (▶).</li>
+      <li>Vergleiche mit der Musterantwort und tippe auf „Weiter“.</li>
+      <li>Ohne Aufnahme: Antwortmöglichkeiten anzeigen – nur die richtige führt weiter.</li>
+    </ol>
+  </div>
+
+  <h2>Redemittel</h2>
+  <div class="card">
+    <p style="margin:0">I'd like to change some money. · Do you have …? · What else can I do? · I'm afraid … · I hadn't realized … · Thanks for your help.</p>
+  </div>
+
+  <h2>Rollenspiel</h2>
+  <div class="card">
+    <div id="bank-roleplay"></div>
+  </div>
+
+  <p class="foot">English Club 10m · Kein Login · keine Werbung · es werden keine Daten verschickt. Aufnahmen bleiben nur kurz auf dem Tablet und werden nicht gespeichert.</p>
+</main>
+<script>
+window.ROLEPLAY = { mount: "#bank-roleplay", role: "Bank clerk", you: "Du (am Schalter)", icon: "👩‍💼", audioDir: "../../assets/audio/bank/", audioOther: "clerk", audioYou: "du", turns: [
+  { say: "Good morning, welcome to the Sparkasse bank. How can I help you?", hint: "Sag, dass du Geld wechseln willst und Rupien für deine Reise brauchst.", model: "Hi, yes. I'd like to change some money, please. I need some Indian rupees for my trip to India.", options: ["Hi, yes. I like to change some money, please. I need some Indian rupees for my trip to India.", "Hi, yes. I'd like to change some money, please. I need some Indian rupee for my trip to India."] },
+  { say: "Rupees? I'm really sorry, but we can't sell you rupees here. Visitors aren't allowed to take Indian rupees in and out of the country.", hint: "Erklär, dass du nächste Woche nach Indien fliegst und dort Geld brauchst – frag nach Dollars.", model: "But I'm going to India next week and I'll need money there. Will people accept dollars there, or do I need rupees?", options: ["But I'm going to India next week and I'll need money there. Will people accept dollars here, or do I need rupees?", "But I'm going to India next week and I'll need money there. Will people accept dollar there, or do I need rupees?"] },
+  { say: "No, not everywhere, I'm afraid. But do you have a credit card and a current account with us?", hint: "Antworte auf die Frage nach Kreditkarte und Girokonto.", model: "Yes, I do. I have a credit card and a current account with your bank.", options: ["Yes, I have. I have a credit card and a current account with your bank.", "Yes, I do. I have a credit card and current account with your bank."] },
+  { say: "Well, then you can get rupees from an ATM when you arrive in India. But it can be quite expensive, because the exchange rate isn't very good at the moment.", hint: "Frag, was du sonst tun kannst.", model: "OK, I see. What else can I do?", options: ["OK, I see. What else I can do?", "OK, I see. What else can I do it?"] },
+  { say: "You can buy a prepaid travel card. You put money on it here in San Francisco, and then you can use it in an ATM in India and withdraw rupees.", hint: "Sag, dass du das nicht wusstest – du willst ein oder zwei Tage darüber nachdenken.", model: "OK, I hadn't realized it was so complicated. I'll go and think about it for a day or two.", options: ["OK, I didn't realized it was so complicated. I'll go and think about it for a day or two.", "OK, I hadn't realize it was so complicated. I'll go and think about it for a day or two."] },
+  { say: "Good idea. Here's a brochure with our exchange rates and bank charges. Have a look, and come back if you have any questions.", hint: "Bedank dich, sag, dass du die Broschüre liest, und verabschiede dich.", model: "Thanks for your help. I'll read it and come back tomorrow. Bye.", options: ["Thanks for you help. I'll read it and come back tomorrow. Bye.", "Thank for your help. I'll read it and come back tomorrow. Bye."] },
+]};
+</script>
+<script src="../../assets/roleplay.js"></script>
+</body>
+</html>
