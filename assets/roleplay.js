@@ -225,15 +225,23 @@
       recBox.append(el("p", "hint", "Aufnehmen geht auf diesem Gerät nicht. Sprich deine Antwort einfach laut."));
     }
 
-    // Statt Aufnahme: Multiple Choice – nur die richtige Antwort führt weiter
+    // Multiple Choice als Hilfe – erst auf Wunsch sichtbar, damit zuerst gesprochen wird
     let shown = false;
     let choiceBox = null;
     if (Array.isArray(t.options) && t.options.length) {
       choiceBox = el("div", "rp-choice");
-      choiceBox.append(el("p", "rp-choice-q", "Keine Aufnahme? Wähle die richtige Antwort:"));
+      const reveal = el("button", "linkbtn", "Keine Aufnahme? Antwortmöglichkeiten anzeigen");
+      const q = el("p", "rp-choice-q", "Wähle die richtige Antwort:");
+      q.hidden = true;
       const list = el("div", "rp-options");
+      list.hidden = true;
       const fb = el("p", "rp-choice-fb");
       fb.hidden = true;
+      reveal.onclick = () => {
+        reveal.hidden = true;
+        q.hidden = false;
+        list.hidden = false;
+      };
       shuffle([t.model].concat(t.options)).forEach((text) => {
         const b = el("button", "rp-option", text);
         b.onclick = () => {
@@ -255,7 +263,7 @@
         };
         list.append(b);
       });
-      choiceBox.append(list, fb);
+      choiceBox.append(reveal, q, list, fb);
     }
 
     // Musterantwort
