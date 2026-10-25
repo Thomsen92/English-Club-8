@@ -20,13 +20,34 @@
 <main class="wrap">
   <section id="menu">
     <div class="label">Selbsttest – wähle deine Stufe</div>
-    <p class="hint" style="margin:6px 0 14px">Diese Woche wiederholst du alles aus Unit 1: simple past, Relativsätze, Vergleiche und die Vokabeln von Blatt 6. Fang bei ★ an. Viele Aufgaben haben mehrere Teile: Fülle alles aus und tippe dann auf „Prüfen“. Bei einem Fehler darfst du es nochmal versuchen. Für die Sprech-Aufgabe brauchst du Kopfhörer.</p>
+    <p class="hint" style="margin:6px 0 14px">Diese Woche wiederholst du alles aus Unit 1: simple past, Relativsätze, Vergleiche und die Vokabeln von Blatt 6. Fang bei ★ an. Viele Aufgaben haben mehrere Teile: Fülle alles aus und tippe dann auf „Prüfen“. Bei einem Fehler darfst du es nochmal versuchen. Für das Rollenspiel brauchst du Kopfhörer.</p>
     <div class="levels" id="levels"></div>
 
     <h2 id="cloze-sec">✍️ Einsetzübung – 10 Lücken</h2>
     <div class="card">
       <p class="hint" style="margin:0 0 12px">So wie bei englisch-hilfen.de: Fülle alle Lücken aus und tippe dann auf <b>Auswerten</b>. Du siehst sofort, wie viele richtig sind – und bei Fehlern die Lösung.</p>
       <div id="cloze"></div>
+    </div>
+
+    <h2 id="rp-sec">🎭 Rollenspiel: At Sam's Diner</h2>
+    <div class="card">
+      <p class="hint" style="margin:0 0 12px">Komplettes Rollenspiel in 4 Runden: Der Kellner spricht – du antwortest. Danach kommt die nächste Runde. Kopfhörer auf!</p>
+      <div class="info">
+        <table>
+          <tr><th>Sam's Diner – menu</th></tr>
+          <tr><td>🍔 veggie burger with hash browns</td></tr>
+          <tr><td>🥤 fizzy water · apple juice</td></tr>
+          <tr><td>🍰 cherry pie with ice cream</td></tr>
+          <tr><td>🍏 apple pie</td></tr>
+        </table>
+      </div>
+      <ol class="steps">
+        <li>Tippe auf 🔊 und hör dem Kellner zu.</li>
+        <li>Nimm deine Antwort auf (●) und hör sie dir an (▶).</li>
+        <li>Vergleiche mit der Musterantwort und tippe auf „Weiter“.</li>
+        <li>Nach der letzten Runde siehst du den ganzen Dialog.</li>
+      </ol>
+      <div id="roleplay"></div>
     </div>
 
     <h2>Merke dir</h2>
@@ -79,14 +100,6 @@ const FACTS = `<table>
   <tr><td>cherry pie</td><td class="price">$6.95</td></tr>
   <tr><td>burger</td><td class="price">$9.95</td></tr>
   <tr><td>dessert</td><td class="price">$6.95</td></tr>
-</table>`;
-
-const MENU = `<table>
-  <tr><th>Sam's Diner – menu</th></tr>
-  <tr><td>🍔 veggie burger with hash browns</td></tr>
-  <tr><td>🥤 fizzy water · apple juice</td></tr>
-  <tr><td>🍰 cherry pie with ice cream</td></tr>
-  <tr><td>🍏 apple pie</td></tr>
 </table>`;
 
 window.QUIZ = { id: "2026-10-26", choiceTip: "Person → who, Ding → which. Vergleich → than oder as … as.", levels: [
@@ -256,7 +269,7 @@ window.QUIZ = { id: "2026-10-26", choiceTip: "Person → who, Ding → which. Ve
   ]},
 
   // ================= ★★★ PROFI =================
-  { name: "Profi", stars: 3, desc: "Produzieren: Fehler finden, Sätze bauen, Essen erklären, Rollenspiel", tasks: [
+  { name: "Profi", stars: 3, desc: "Produzieren: Fehler finden, Sätze bauen, Essen erklären", tasks: [
     { type: "multi", tag: "Fehler-Detektiv", title: "Fehler-Detektiv",
       q: "In jedem Satz ist ein Fehler. Schreib nur die richtige Form.",
       hint: "Beispiel: „I goed to school.“ → du schreibst „went“.",
@@ -300,23 +313,6 @@ window.QUIZ = { id: "2026-10-26", choiceTip: "Person → who, Ding → which. Ve
         { kind: "type", label: "It's water which has bubbles in it.", answers: ["fizzy water", "fizzy"], why: "fizzy water = Wasser mit Kohlensäure", hint: "Doppel-z.", tip: "f…y" },
         { kind: "type", label: "It's a small red fruit which we put in pies.", answers: ["cherry", "a cherry"], why: "cherry = Kirsche", hint: "rr doppelt.", tip: "c…y" },
       ] },
-
-    { type: "record", tag: "Speaking 🎧", title: "Rollenspiel: At Sam's Diner",
-      q: "Du bist Gast im Diner. Hör dir den Kellner an und bestell dein Essen.",
-      hint: "Kopfhörer auf! Schau in die Karte. Sprich ganze Sätze und sei höflich.",
-      info: MENU,
-      steps: [
-        "Tippe auf 🔊 und hör dem Kellner zu (so oft du willst).",
-        "Überleg: Was möchtest du essen, was trinken, was als Nachtisch?",
-        "Nimm deine Bestellung auf (●) und hör sie dir an (▶).",
-        "Vergleiche mit der Musterantwort und schätze dich selbst ein.",
-      ],
-      say: [["A", "Good afternoon! Welcome to Sam's Diner. What would you like?"]],
-      model: "Could I have a veggie burger with hash browns, please? And a fizzy water. For dessert I'd like cherry pie with ice cream.",
-      modelAlt: "Wichtig: höflich bestellen (Could I have …, please? / I'd like …), etwas zu trinken nennen und einen Nachtisch. Deine Antwort darf anders klingen!",
-      modelSay: [["B", "Could I have a veggie burger with hash browns, please? And a fizzy water. For dessert I'd like cherry pie with ice cream."]],
-      why: "Could I have …, please? · And a … · For dessert I'd like …",
-    },
   ]},
 ]};
 
@@ -333,8 +329,17 @@ window.CLOZE = { mount: "#cloze", items: [
   { before: "Can I have a", after: "of cake, please?", answers: ["piece"], show: "piece", why: "a piece of cake = ein Stück Kuchen" },
   { before: "The river is too", after: "– we can't get across.", answers: ["wide"], show: "wide", why: "wide = breit (Gegenteil: narrow)" },
 ]};
+
+// Komplettes Rollenspiel: hören → antworten → hören → antworten …
+window.ROLEPLAY = { mount: "#roleplay", role: "Waiter", turns: [
+  { say: "Good afternoon! Welcome to Sam's Diner. What would you like?", hint: "Bestell etwas zu essen.", model: "Could I have a veggie burger with hash browns, please?" },
+  { say: "Sure. Anything to drink?", hint: "Bestell etwas zu trinken.", model: "A fizzy water, please." },
+  { say: "And for dessert?", hint: "Bestell einen Nachtisch.", model: "Cherry pie with ice cream, please." },
+  { say: "OK. Here you are. Enjoy your meal!", hint: "Bedank dich höflich.", model: "Thank you very much!" },
+]};
 </script>
 <script src="../assets/quiz2.js"></script>
 <script src="../assets/cloze.js"></script>
+<script src="../assets/roleplay.js"></script>
 </body>
 </html>
