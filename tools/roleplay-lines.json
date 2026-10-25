@@ -1,0 +1,16 @@
+[
+  { "file": "01-waiter.mp3", "voice": "en-US-GuyNeural", "text": "Good afternoon! Welcome to Sam's Diner. What would you like?" },
+  { "file": "01-du.mp3", "voice": "en-US-JennyNeural", "text": "Could I have a veggie burger with hash browns, please?" },
+  { "file": "02-waiter.mp3", "voice": "en-US-GuyNeural", "text": "I'm sorry, we don't have any veggie burgers today. Would you like something else?" },
+  { "file": "02-du.mp3", "voice": "en-US-JennyNeural", "text": "No worries! Could I have the pasta with tomato sauce, please?" },
+  { "file": "03-waiter.mp3", "voice": "en-US-GuyNeural", "text": "Sure. Anything to drink?" },
+  { "file": "03-du.mp3", "voice": "en-US-JennyNeural", "text": "A fizzy water, please." },
+  { "file": "04-waiter.mp3", "voice": "en-US-GuyNeural", "text": "And for dessert? What would you like?" },
+  { "file": "04-du.mp3", "voice": "en-US-JennyNeural", "text": "Then I'd like the apple pie with ice cream, please." },
+  { "file": "05-waiter.mp3", "voice": "en-US-GuyNeural", "text": "I'm sorry, the apple pie is not available today. But the cherry pie is very good." },
+  { "file": "05-du.mp3", "voice": "en-US-JennyNeural", "text": "OK, then the cherry pie, please. With ice cream, please." },
+  { "file": "06-waiter.mp3", "voice": "en-US-GuyNeural", "text": "Anything else? Maybe a coffee?" },
+  { "file": "06-du.mp3", "voice": "en-US-JennyNeural", "text": "No, thank you. That's all." },
+  { "file": "07-waiter.mp3", "voice": "en-US-GuyNeural", "text": "Great. Your food will be ready in a few minutes. Enjoy your meal!" },
+  { "file": "07-du.mp3", "voice": "en-US-JennyNeural", "text": "Thank you very much. I'm looking forward to it. Have a nice day!" }
+]

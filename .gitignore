@@ -15,3 +15,7 @@ desktop.ini
 # Office-Sperrdateien (Word/LibreOffice)
 ~$*
 .~lock.*
+
+# Temporäre Ordner (pip-Installation, Sandbox-Diagnose)
+.tmp-tts/
+.acl-recovery/

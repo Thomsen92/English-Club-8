@@ -12,6 +12,7 @@
   const canRec = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
   const total = R.turns.length;
   const roleName = R.role || "Waiter";
+  const audioDir = R.audioDir || "";
 
   // ---------- Vorlesen (Gerätestimme, offline) ----------
   function enVoices() {
@@ -50,6 +51,73 @@
     window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
   }
 
+  // ---------- Audiodateien (edge-tts) mit Gerätestimme als Fallback ----------
+  const pad2 = (n) => (n < 10 ? "0" + n : "" + n);
+  let currentAudio = null;
+
+  function fileFor(i, who) {
+    return audioDir ? audioDir + pad2(i + 1) + "-" + who + ".mp3" : null;
+  }
+
+  function stopAudio() {
+    if (!currentAudio) return;
+    try { currentAudio.pause(); currentAudio.currentTime = 0; } catch (e) {}
+    currentAudio = null;
+  }
+
+  function playFile(url, rate) {
+    return new Promise((resolve, reject) => {
+      if (!url || typeof Audio !== "function") { reject(new Error("kein Audio")); return; }
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+      stopAudio();
+      let a;
+      try { a = new Audio(url); } catch (e) { reject(e); return; }
+      currentAudio = a;
+      a.playbackRate = rate || 1;
+      if ("preservesPitch" in a) a.preservesPitch = true;
+      let settled = false;
+      const done = (ok) => {
+        if (settled) return;
+        settled = true;
+        if (currentAudio === a) currentAudio = null;
+        if (ok) resolve(true); else reject(new Error("Audio nicht abspielbar"));
+      };
+      a.onended = () => done(true);
+      a.onerror = () => done(false);
+      const p = a.play();
+      if (p && typeof p.catch === "function") p.catch(() => done(false));
+    });
+  }
+
+  function playSay(i, rate) {
+    return playFile(fileFor(i, "waiter"), rate).catch(() => {
+      speak([["A", R.turns[i].say]], rate && rate < 1 ? 0.6 : 0.9);
+    });
+  }
+
+  function playModel(i) {
+    return playFile(fileFor(i, "du"), 1).catch(() => speak([["B", R.turns[i].model]], 0.9));
+  }
+
+  function playDialog() {
+    const all = [];
+    R.turns.forEach((t) => { all.push(["A", t.say], ["B", t.model]); });
+    if (!audioDir) { speak(all, 0.9); return; }
+    let first = true;
+    (async () => {
+      for (let i = 0; i < total; i++) {
+        try {
+          await playFile(fileFor(i, "waiter"), 1);
+          await playFile(fileFor(i, "du"), 1);
+          first = false;
+        } catch (e) {
+          if (first) speak(all, 0.9);
+          return;
+        }
+      }
+    })();
+  }
+
   // ---------- Aufnahme ----------
   let rec = null, stream = null, url = null;
   function stopRec() {
@@ -74,6 +142,8 @@
 
   function render(autoPlay) {
     stopRec();
+    stopAudio();
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     mount.innerHTML = "";
     const t = R.turns[turn];
 
@@ -87,8 +157,8 @@
     bubble.append(line);
 
     const listen = el("div", "actions");
-    const b1 = el("button", "btn listen", "🔊 Anhören"); b1.onclick = () => speak([["A", t.say]], 0.9);
-    const b2 = el("button", "btn secondary", "🐢 Langsam"); b2.onclick = () => speak([["A", t.say]], 0.6);
+    const b1 = el("button", "btn listen", "🔊 Anhören"); b1.onclick = () => playSay(turn, 1);
+    const b2 = el("button", "btn secondary", "🐢 Langsam"); b2.onclick = () => playSay(turn, 0.75);
     listen.append(b1, b2);
 
     const hint = el("p", "hint", "Du: " + t.hint);
@@ -120,6 +190,8 @@
 
       recBtn.onclick = async () => {
         if (rec && rec.state === "recording") { rec.stop(); return; }
+        stopAudio();
+        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
         stopRec();
         try {
           stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -159,7 +231,7 @@
     modelBox.hidden = true;
     modelBox.append(el("div", "label", "Musterantwort"), el("p", "rp-model-text", t.model));
     const mb = el("button", "btn listen", "🔊 Musterantwort anhören");
-    mb.onclick = () => speak([["B", t.model]], 0.9);
+    mb.onclick = () => playModel(turn);
     const mActions = el("div", "actions");
     mActions.append(mb);
     modelBox.append(mActions);
@@ -169,6 +241,8 @@
       if (shown) return;
       shown = true;
       stopRec();
+      stopAudio();
+      if ("speechSynthesis" in window) window.speechSynthesis.cancel();
       line.textContent = t.say;
       modelBox.hidden = false;
       modelBtn.hidden = true;
@@ -189,7 +263,7 @@
     };
 
     mount.append(head, bubble, listen, hint, recBox, rowModel, modelBox, rowNext);
-    if (autoPlay) speak([["A", t.say]], 0.9);
+    if (autoPlay) playSay(turn, 1);
   }
 
   function dialogRow(who, text) {
@@ -200,6 +274,8 @@
 
   function renderEnd() {
     stopRec();
+    stopAudio();
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     mount.innerHTML = "";
     const box = el("div", "rp-end");
     box.append(el("div", "label", "Rollenspiel geschafft"));
@@ -211,10 +287,8 @@
     });
     box.append(dlg);
 
-    const all = [];
-    R.turns.forEach((t) => { all.push(["A", t.say], ["B", t.model]); });
     const playAll = el("button", "btn listen", "🔊 Ganzen Dialog anhören");
-    playAll.onclick = () => speak(all, 0.9);
+    playAll.onclick = playDialog;
     const rowAll = el("div", "actions");
     rowAll.append(playAll);
     box.append(rowAll);
