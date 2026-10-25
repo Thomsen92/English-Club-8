@@ -9,6 +9,7 @@
   if (!mount) return;
 
   const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const shuffle = (a) => { const b = a.slice(); for (let k = b.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [b[k], b[j]] = [b[j], b[k]]; } return b; };
   const canRec = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
   const total = R.turns.length;
   const roleName = R.role || "Waiter";
@@ -165,10 +166,8 @@
 
     // Steuerung „Musterantwort“ und „Weiter“ früh anlegen, damit die Aufnahme sie freischalten kann
     const modelBtn = el("button", "btn secondary", "👀 Musterantwort zeigen");
-    const skip = canRec ? el("button", "linkbtn", "Ohne Aufnahme weiter") : null;
     const rowModel = el("div", "actions");
     rowModel.append(modelBtn);
-    if (skip) rowModel.append(skip);
 
     const next = el("button", "btn", turn + 1 === total ? "Rollenspiel abschließen" : "Weiter →");
     next.hidden = true;
@@ -226,6 +225,39 @@
       recBox.append(el("p", "hint", "Aufnehmen geht auf diesem Gerät nicht. Sprich deine Antwort einfach laut."));
     }
 
+    // Statt Aufnahme: Multiple Choice – nur die richtige Antwort führt weiter
+    let shown = false;
+    let choiceBox = null;
+    if (Array.isArray(t.options) && t.options.length) {
+      choiceBox = el("div", "rp-choice");
+      choiceBox.append(el("p", "rp-choice-q", "Keine Aufnahme? Wähle die richtige Antwort:"));
+      const list = el("div", "rp-options");
+      const fb = el("p", "rp-choice-fb");
+      fb.hidden = true;
+      shuffle([t.model].concat(t.options)).forEach((text) => {
+        const b = el("button", "rp-option", text);
+        b.onclick = () => {
+          if (shown) return;
+          if (text === t.model) {
+            b.classList.add("right");
+            list.querySelectorAll("button").forEach((x) => (x.disabled = true));
+            fb.hidden = false;
+            fb.className = "rp-choice-fb right";
+            fb.textContent = "Richtig!";
+            showModel();
+          } else {
+            b.classList.add("wrong");
+            b.disabled = true;
+            fb.hidden = false;
+            fb.className = "rp-choice-fb wrong";
+            fb.textContent = "Noch nicht. Lies die Antwort noch einmal genau.";
+          }
+        };
+        list.append(b);
+      });
+      choiceBox.append(list, fb);
+    }
+
     // Musterantwort
     const modelBox = el("div", "rp-model");
     modelBox.hidden = true;
@@ -236,7 +268,6 @@
     mActions.append(mb);
     modelBox.append(mActions);
 
-    let shown = false;
     function showModel() {
       if (shown) return;
       shown = true;
@@ -246,12 +277,11 @@
       line.textContent = t.say;
       modelBox.hidden = false;
       modelBtn.hidden = true;
-      if (skip) skip.hidden = true;
+      if (choiceBox) choiceBox.hidden = true;
       next.hidden = false;
       next.focus({ preventScroll: true });
     }
     modelBtn.onclick = showModel;
-    if (skip) skip.onclick = showModel;
     modelBtn.disabled = canRec; // erst sprechen, dann vergleichen
 
     next.onclick = () => {
@@ -262,7 +292,9 @@
       keepTurnVisible();
     };
 
-    mount.append(head, bubble, listen, hint, recBox, rowModel, modelBox, rowNext);
+    mount.append(head, bubble, listen, hint, recBox, rowModel);
+    if (choiceBox) mount.appendChild(choiceBox);
+    mount.append(modelBox, rowNext);
     if (autoPlay) playSay(turn, 1);
   }
 

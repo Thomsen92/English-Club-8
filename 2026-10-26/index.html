@@ -46,6 +46,7 @@
         <li>Tippe auf 🔊, hör dem Kellner zu und antworte.</li>
         <li>Nimm deine Antwort auf (●) und hör sie dir an (▶).</li>
         <li>Vergleiche mit der Musterantwort und tippe auf „Weiter“.</li>
+        <li>Ohne Aufnahme: Wähle unten die richtige Antwort – nur dann geht es weiter.</li>
         <li>Bei einem Problem: erst zuhören, dann reagieren – z. B. etwas anderes bestellen.</li>
         <li>Nach der letzten Runde siehst du den ganzen Dialog.</li>
       </ol>
@@ -334,13 +335,13 @@ window.CLOZE = { mount: "#cloze", items: [
 
 // Komplettes Rollenspiel: hören → antworten → hören → antworten …
 window.ROLEPLAY = { mount: "#roleplay", role: "Waiter", audioDir: "../assets/audio/roleplay/", turns: [
-  { say: "Good afternoon! Welcome to Sam's Diner. What would you like?", hint: "Bestell etwas zu essen.", model: "Could I have a veggie burger with hash browns, please?" },
-  { say: "I'm sorry, we don't have any veggie burgers today. Would you like something else?", hint: "Der Veggie Burger ist heute aus – bestell etwas anderes von der Karte.", model: "No worries! Could I have the pasta with tomato sauce, please?" },
-  { say: "Sure. Anything to drink?", hint: "Bestell etwas zu trinken.", model: "A fizzy water, please." },
-  { say: "And for dessert? What would you like?", hint: "Bestell einen Nachtisch – mit Eis.", model: "Then I'd like the apple pie with ice cream, please." },
-  { say: "I'm sorry, the apple pie is not available today. But the cherry pie is very good.", hint: "Der Apple Pie ist auch nicht da – entscheide dich um.", model: "OK, then the cherry pie, please. With ice cream, please." },
-  { say: "Anything else? Maybe a coffee?", hint: "Du möchtest nichts mehr – lehn höflich ab.", model: "No, thank you. That's all." },
-  { say: "Great. Your food will be ready in a few minutes. Enjoy your meal!", hint: "Bedank dich und verabschiede dich höflich.", model: "Thank you very much. I'm looking forward to it. Have a nice day!" },
+  { say: "Good afternoon! Welcome to Sam's Diner. What would you like?", hint: "Bestell etwas zu essen.", model: "Could I have a veggie burger with hash browns, please?", options: ["Could I have a pizza with chips, please?", "Could I have a coffee with ice cream, please?"] },
+  { say: "I'm sorry, we don't have any veggie burgers today. Would you like something else?", hint: "Der Veggie Burger ist heute aus – bestell etwas anderes von der Karte.", model: "No worries! Could I have the pasta with tomato sauce, please?", options: ["No worries! Another veggie burger, please.", "No worries! A fizzy water, please."] },
+  { say: "Sure. Anything to drink?", hint: "Bestell etwas zu trinken.", model: "A fizzy water, please.", options: ["A cherry pie, please.", "A veggie burger, please."] },
+  { say: "And for dessert? What would you like?", hint: "Bestell einen Nachtisch – mit Eis.", model: "Then I'd like the apple pie with ice cream, please.", options: ["Then I'd like the pasta with tomato sauce, please.", "Then I'd like a fizzy water, please."] },
+  { say: "I'm sorry, the apple pie is not available today. But the cherry pie is very good.", hint: "Der Apple Pie ist auch nicht da – entscheide dich um.", model: "OK, then the cherry pie, please. With ice cream, please.", options: ["OK, then the apple pie, please.", "OK, then the veggie burger, please."] },
+  { say: "Anything else? Maybe a coffee?", hint: "Du möchtest nichts mehr – lehn höflich ab.", model: "No, thank you. That's all.", options: ["You're welcome.", "Here you are."] },
+  { say: "Great. Your food will be ready in a few minutes. Enjoy your meal!", hint: "Bedank dich und verabschiede dich höflich.", model: "Thank you very much. I'm looking forward to it. Have a nice day!", options: ["No, thank you. That's all.", "A fizzy water, please."] },
 ]};
 </script>
 <script src="../assets/quiz2.js"></script>
