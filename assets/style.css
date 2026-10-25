@@ -223,3 +223,6 @@ input[type=text] {
 .rp-choice-fb { margin: 8px 0 0; font-weight: 700; }
 .rp-choice-fb.right { color: var(--ok); }
 .rp-choice-fb.wrong { color: var(--bad); }
+
+/* Rollenspiel: Hinweiszeile mit Abstand zu den Buttons */
+.rp-hint { margin: 12px 0 14px; font-size: 1.02rem; line-height: 1.5; }

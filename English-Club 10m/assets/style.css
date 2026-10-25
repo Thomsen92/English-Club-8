@@ -223,3 +223,15 @@ input[type=text] {
 .rp-choice-fb { margin: 8px 0 0; font-weight: 700; }
 .rp-choice-fb.right { color: var(--ok); }
 .rp-choice-fb.wrong { color: var(--bad); }
+
+/* Rollenspiel: Hinweiszeile mit Abstand zu den Buttons */
+.rp-hint { margin: 12px 0 14px; font-size: 1.02rem; line-height: 1.5; }
+
+/* Einklappbare Bereiche (z. B. Rollenspiel) */
+.fold { margin: 28px 0 12px; }
+.fold > summary { cursor: pointer; font-size: 1.15rem; font-weight: 700; color: var(--ink); list-style: none; display: flex; align-items: center; gap: 8px; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::after { content: "▾"; margin-left: auto; color: var(--muted); transition: transform .2s; }
+.fold[open] > summary::after { transform: rotate(180deg); }
+.fold > summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 8px; }
+.fold > .card { margin-top: 12px; }

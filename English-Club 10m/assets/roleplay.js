@@ -164,7 +164,7 @@
     const b2 = el("button", "btn secondary", "🐢 Langsam"); b2.onclick = () => playSay(turn, 0.75);
     listen.append(b1, b2);
 
-    const hint = el("p", "hint", "Du: " + t.hint);
+    const hint = el("p", "hint rp-hint", "Du: " + t.hint);
 
     // Steuerung „Musterantwort“ und „Weiter“ früh anlegen, damit die Aufnahme sie freischalten kann
     const modelBtn = el("button", "btn secondary", "👀 Musterantwort zeigen");
