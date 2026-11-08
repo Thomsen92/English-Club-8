@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Woche ab 09.11. · Have you ever been to New York? · English Club 8</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz2.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Alle Wochen</a>
+    <div class="brand">
+      <div class="logo date">09.11</div>
+      <div><p class="when">Woche ab Montag, 09.11.</p><h1>Have you ever been to New York?</h1><p>Unit 1 · Present perfect oder simple past · Vokabelblatt 7 (Unit 2)</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section id="menu">
+    <div class="label">Selbsttest – wähle deine Stufe</div>
+    <p class="hint" style="margin:6px 0 14px">Diese Woche geht es um present perfect und simple past (Have you ever …? – I went there last year.), die Verben be, go, see, have, do, come und die Vokabeln von Blatt 7. Fang bei ★ an. Viele Aufgaben haben mehrere Teile: Fülle alles aus und tippe dann auf „Prüfen“. Bei einem Fehler darfst du es nochmal versuchen. Für das Rollenspiel brauchst du Kopfhörer.</p>
+    <div class="levels" id="levels"></div>
+
+    <h2 id="cloze-sec">✍️ Einsetzübung – 10 Lücken</h2>
+    <div class="card">
+      <p class="hint" style="margin:0 0 12px">So wie bei englisch-hilfen.de: Fülle alle Lücken aus und tippe dann auf <b>Auswerten</b>. Du siehst sofort, wie viele richtig sind – und bei Fehlern die Lösung.</p>
+      <div id="cloze"></div>
+    </div>
+
+    <h2 id="rp-sec">🎭 Rollenspiel: Noah from Texas</h2>
+    <div class="card">
+      <p class="hint" style="margin:0 0 12px">Komplettes Rollenspiel in 7 Runden: Noah fragt dich nach deinen Erfahrungen. Frage und Kurzantwort stehen im present perfect, die Details im simple past. Hör genau zu und reagiere. Kopfhörer auf!</p>
+      <div class="info"><table><tr><th>Redemittel</th></tr><tr><td>Have you ever been to …? – Yes, I have. / No, I haven't.</td></tr><tr><td>When did you go? – I went there last year.</td></tr><tr><td>What did you see? – I saw … · Did you like it? – It was great!</td></tr></table></div>
+      <ol class="steps">
+        <li>Tippe auf 🔊, hör Noah zu und antworte.</li>
+        <li>Nimm deine Antwort auf (●) und hör sie dir an (▶).</li>
+        <li>Vergleiche mit der Musterantwort und tippe auf „Weiter“.</li>
+        <li>Ohne Aufnahme: Sprich zuerst selbst laut – nur als Hilfe kannst du dir die Antwortmöglichkeiten anzeigen lassen.</li>
+        <li>Denk an die Signalwörter: ever / never → present perfect, last year / yesterday → simple past.</li>
+        <li>Nach der letzten Runde siehst du den ganzen Dialog.</li>
+      </ol>
+      <div id="roleplay"></div>
+    </div>
+
+    <h2>Merke dir</h2>
+    <div class="card">
+      <p style="margin:0 0 8px"><b>Present perfect:</b> <b>have / has + 3. Form</b> (I have been · she has seen) · Frage: <b>Have you ever …?</b> · Kurzantwort: <b>Yes, I have. / No, I haven't.</b></p>
+      <p style="margin:0 0 8px"><b>Signalwörter present perfect:</b> ever · never · already · just · so far</p>
+      <p style="margin:0 0 8px"><b>Simple past:</b> feste Zeitangabe (yesterday · last year · two days ago · in 2015) → 2. Form · Frage <b>Did … + Grundform?</b></p>
+      <p style="margin:0"><b>Verben der Woche:</b> be – was/were – been · go – went – gone · see – saw – seen · have – had – had · do – did – done · come – came – come · dazu: become – became – become · get – got – got · feel – felt – felt · win – won – won</p>
+    </div>
+
+    <h2>Noch mehr üben</h2>
+    <div class="links">
+      <a class="ext" href="https://www.englisch-hilfen.de/exercises_list/alle_grammar.htm" target="_blank" rel="noopener">
+        <span class="ico">📚</span><span><b>Alle Grammatik-Übungen – Übersicht <span class="tag mid">★★</span></b><small>Die ganze Liste von englisch-hilfen.de: Such dir selbst eine Übung zu einem Thema aus.</small></span></a>
+    </div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
+  <p class="foot">English Club 8 · Kein Login · keine Werbung · es werden keine Daten verschickt. Aufnahmen bleiben nur kurz auf dem Tablet und werden nicht gespeichert.</p>
+</main>
+<script>
+window.QUIZ = { id: "2026-11-09", choiceTip: "Erfahrung / ever / never / just / already → present perfect. Zeitangabe (last year, yesterday, ago) → simple past.", levels: [
+
+  // ================= ★ BASIS =================
+  { name: "Basis", stars: 1, desc: "Formen erkennen: 3. Form, Signalwörter, Vokabelblatt 7", tasks: [
+    { type: "multi", tag: "Irregular verbs", title: "Die 3. Form (past participle)",
+      q: "Trag die 3. Form ein.",
+      hint: "Die Liste steht im Buch, S. 236–237.",
+      why: "be – been · go – gone · see – seen · have – had · do – done · come – come",
+      items: [
+        { kind: "type", label: "be (sein) →", answers: ["been"], why: "be – was/were – been", hint: "Vier Buchstaben, beginnt mit b.", tip: "b…n" },
+        { kind: "type", label: "go (gehen) →", answers: ["gone"], why: "go – went – gone", hint: "Nicht „went“ – das ist die 2. Form.", tip: "g…e" },
+        { kind: "type", label: "see (sehen) →", answers: ["seen"], why: "see – saw – seen", hint: "Endet auf -en.", tip: "s…n" },
+        { kind: "type", label: "have (haben) →", answers: ["had"], why: "have – had – had", hint: "Drei Buchstaben.", tip: "h…" },
+        { kind: "type", label: "do (machen) →", answers: ["done"], why: "do – did – done", hint: "Nicht „did“.", tip: "d…e" },
+        { kind: "type", label: "come (kommen) →", answers: ["come"], why: "come – came – come: 1. und 3. Form sind gleich.", hint: "Sieht aus wie die Grundform." },
+      ] },
+
+    { type: "multi", tag: "Signalwörter", title: "Present perfect oder simple past?",
+      q: "Welche Zeit gehört zu dem Signalwort?",
+      hint: "ever, never, just, already, so far → present perfect · yesterday, last year, ago → simple past",
+      why: "ever · never · just · already · so far → present perfect · yesterday · last week · in 2015 · two days ago → simple past",
+      items: [
+        { kind: "choice", keep: true, label: "yesterday", options: ["present perfect", "simple past"], answer: "simple past", why: "yesterday ist eine feste Zeitangabe → simple past.", hint: "Gestern ist vorbei." },
+        { kind: "choice", keep: true, label: "ever", options: ["present perfect", "simple past"], answer: "present perfect", why: "Have you ever …? → present perfect.", hint: "Erfahrung im Leben." },
+        { kind: "choice", keep: true, label: "two days ago", options: ["present perfect", "simple past"], answer: "simple past", why: "ago nennt einen Zeitpunkt in der Vergangenheit → simple past.", hint: "ago = vor …" },
+        { kind: "choice", keep: true, label: "never", options: ["present perfect", "simple past"], answer: "present perfect", why: "I have never been … → present perfect.", hint: "noch nie" },
+        { kind: "choice", keep: true, label: "last summer", options: ["present perfect", "simple past"], answer: "simple past", why: "last summer ist eine feste Zeit → simple past.", hint: "Letzten Sommer – das ist vorbei." },
+      ] },
+
+    { type: "multi", tag: "Present perfect", title: "have oder has?",
+      q: "Wähle die richtige Form.",
+      hint: "I / you / we / they → have · he / she / it → has",
+      why: "have + 3. Form · bei he / she / it: has + 3. Form",
+      items: [
+        { kind: "choice", keep: true, label: "I ___ never seen a whale.", options: ["have", "has"], answer: "have", why: "I → have.", hint: "Welche Person?" },
+        { kind: "choice", keep: true, label: "She ___ just come home.", options: ["have", "has"], answer: "has", why: "she → has.", hint: "Welche Person?" },
+        { kind: "choice", keep: true, label: "We ___ already done our homework.", options: ["have", "has"], answer: "have", why: "we → have.", hint: "Welche Person?" },
+        { kind: "choice", keep: true, label: "My cousin ___ been to Florida.", options: ["have", "has"], answer: "has", why: "My cousin = he / she → has.", hint: "Ein Cousin – he oder they?" },
+      ] },
+
+    { type: "multi", tag: "Vokabeln", title: "Vokabel-Check Blatt 7",
+      q: "Schreib das englische Wort.",
+      hint: "Alle Wörter stehen auf Vokabelblatt 7.",
+      why: "wildlife · whale · palm tree · flight · cousin",
+      items: [
+        { kind: "type", label: "die Tierwelt", answers: ["wildlife"], why: "wildlife = Tierwelt", hint: "wild + life", tip: "w…e" },
+        { kind: "type", label: "der Wal", answers: ["whale"], why: "whale = Wal (Achtung: wh am Anfang)", hint: "Beginnt mit wh.", tip: "wh…" },
+        { kind: "type", label: "die Palme", answers: ["palm tree"], why: "palm tree = Palme", hint: "Zwei Wörter.", tip: "p… t…" },
+        { kind: "type", label: "der Flug", answers: ["flight"], why: "flight = Flug (gh wird nicht gesprochen)", hint: "Beginnt mit fl.", tip: "fl…" },
+        { kind: "type", label: "der Cousin / die Cousine", answers: ["cousin"], why: "cousin = Cousin / Cousine", hint: "Beginnt mit c, endet auf -in.", tip: "c…n" },
+      ] },
+
+    { type: "multi", tag: "Vokabeln", title: "Ordne zu",
+      q: "Wähle die richtige Übersetzung.",
+      hint: "Blatt 7, Unit 2 · S. 178",
+      why: "advantage = Vorteil · foreground = Vordergrund · background = Hintergrund · opening times = Öffnungszeiten",
+      items: [
+        { kind: "choice", keep: true, label: "advantage", options: ["Vorteil", "Abenteuer", "Werbung"], answer: "Vorteil", why: "advantage = Vorteil", hint: "Gegenteil von Nachteil." },
+        { kind: "choice", keep: true, label: "foreground", options: ["Hintergrund", "Vordergrund", "Boden"], answer: "Vordergrund", why: "foreground = Vordergrund (vorne im Bild)", hint: "fore = vorne" },
+        { kind: "choice", keep: true, label: "background", options: ["Hintergrund", "Vordergrund", "Gebäude"], answer: "Hintergrund", why: "background = Hintergrund (hinten im Bild)", hint: "back = hinten" },
+        { kind: "choice", keep: true, label: "opening times", options: ["Öffnungszeiten", "Uhrzeiten", "Ferien"], answer: "Öffnungszeiten", why: "opening times = Öffnungszeiten", hint: "Wann ist geöffnet?" },
+      ] },
+  ]},
+
+  // ================= ★★ AUFBAU =================
+  { name: "Aufbau", stars: 2, desc: "Anwenden: Lückentext, Fragen, Sätze bauen, Dialog, Hören", tasks: [
+    { type: "multi", tag: "Present perfect", title: "Setz die richtige Form ein",
+      q: "Present perfect: have / has + 3. Form.",
+      hint: "Die 3. Form findest du im Buch auf S. 236–237.",
+      why: "have been · has seen · have eaten · has gone · have done",
+      items: [
+        { kind: "type", label: "I ___ never ___ to Alaska. (be)", answers: ["have been"], show: "have been", why: "have + been", hint: "have + 3. Form von be." },
+        { kind: "type", label: "She ___ already ___ the Statue of Liberty. (see)", answers: ["has seen"], show: "has seen", why: "she → has + seen", hint: "she → has." },
+        { kind: "type", label: "We ___ never ___ a hot dog. (eat)", answers: ["have eaten"], show: "have eaten", why: "have + eaten", hint: "eat – ate – eaten" },
+        { kind: "type", label: "Jonas ___ just ___ home. (go)", answers: ["has gone"], show: "has gone", why: "Jonas = he → has + gone", hint: "go – went – gone" },
+        { kind: "type", label: "They ___ already ___ their homework. (do)", answers: ["have done"], show: "have done", why: "have + done", hint: "do – did – done" },
+      ] },
+
+    { type: "multi", tag: "Simple past", title: "Setz die 2. Form ein",
+      q: "Hier gibt es eine feste Zeitangabe – also simple past.",
+      hint: "Achte auf die Zeitangabe. 2. Form: Liste im Buch, S. 236–237.",
+      why: "went · saw · had · came · was",
+      items: [
+        { kind: "type", label: "We ___ to New York last year. (go)", answers: ["went"], why: "go – went", hint: "Unregelmäßig.", tip: "w…" },
+        { kind: "type", label: "I ___ a whale two days ago. (see)", answers: ["saw"], why: "see – saw", hint: "Drei Buchstaben.", tip: "s…" },
+        { kind: "type", label: "They ___ a great time yesterday. (have)", answers: ["had"], why: "have – had", hint: "Drei Buchstaben." },
+        { kind: "type", label: "My cousin ___ to Florida last summer. (come)", answers: ["came"], why: "come – came", hint: "Beginnt mit c." },
+        { kind: "type", label: "It ___ awesome! (be)", answers: ["was"], why: "be – was / were", hint: "it → was." },
+      ] },
+
+    { type: "multi", tag: "Fragen & Antworten", title: "Have you ever …?",
+      q: "Bilde die Fragen und Kurzantworten.",
+      hint: "Have you ever + 3. Form …? – Yes, I have. / No, I haven't.",
+      why: "Have you ever been …? · Yes, I have. · No, I haven't.",
+      items: [
+        { kind: "type", label: "you / ever / be / to New York / ?", answers: ["have you ever been to new york"], show: "Have you ever been to New York?", why: "Have + you + ever + been …", hint: "Beginne mit „Have you ever …“." },
+        { kind: "type", label: "you / ever / see / a whale / ?", answers: ["have you ever seen a whale"], show: "Have you ever seen a whale?", why: "Have + you + ever + seen …", hint: "see – saw – seen" },
+        { kind: "choice", keep: true, label: "Have you ever been to Texas? – Ja, war ich.", options: ["Yes, I have.", "Yes, I did.", "Yes, I am."], answer: "Yes, I have.", why: "Kurzantwort im present perfect: Yes, I have.", hint: "Die Frage beginnt mit have." },
+        { kind: "choice", keep: true, label: "Have you ever eaten sushi? – Nein, noch nie.", options: ["No, I didn't.", "No, I haven't.", "No, I don't."], answer: "No, I haven't.", why: "Kurzantwort im present perfect: No, I haven't.", hint: "Die Frage beginnt mit have." },
+      ] },
+
+    { type: "multi", tag: "Beides kombinieren", title: "Present perfect oder simple past?",
+      q: "Wähle die richtige Form.",
+      hint: "Feste Zeitangabe → simple past. ever / never / just / already → present perfect.",
+      why: "Details mit Zeitangabe: simple past · Erfahrung ohne Zeit: present perfect",
+      items: [
+        { kind: "choice", keep: true, label: "I ___ him yesterday.", options: ["have seen", "saw", "have saw"], answer: "saw", why: "yesterday → simple past.", hint: "Zeitangabe?" },
+        { kind: "choice", keep: true, label: "___ you ever been to Alaska?", options: ["Did", "Have", "Has"], answer: "Have", why: "ever → present perfect: Have you ever …?", hint: "ever!" },
+        { kind: "choice", keep: true, label: "We ___ in Brooklyn two days ago.", options: ["have been", "were", "was"], answer: "were", why: "two days ago → simple past; we → were.", hint: "ago → simple past" },
+        { kind: "choice", keep: true, label: "She has never ___ a hot dog.", options: ["ate", "eaten", "eat"], answer: "eaten", why: "has never + 3. Form: eaten.", hint: "has + 3. Form" },
+        { kind: "choice", keep: true, label: "My cousin ___ to Florida last summer.", options: ["has gone", "went", "has went"], answer: "went", why: "last summer → simple past: went.", hint: "last summer ist feste Zeit." },
+        { kind: "choice", keep: true, label: "They have just ___ home.", options: ["came", "come", "comed"], answer: "come", why: "have just + 3. Form: come.", hint: "come – came – come" },
+      ] },
+
+    { type: "multi", tag: "Satzbau", title: "Sätze bauen",
+      q: "Tippe die Wörter in der richtigen Reihenfolge an.",
+      hint: "Tippe ein Wort noch einmal an, um es zurückzulegen.",
+      why: "Frage mit have + 3. Form · Details im simple past",
+      items: [
+        { kind: "build", label: "Warst du schon mal in New York?", sentence: "Have you ever been to New York?", why: "Have + you + ever + been.", tip: "Beginne mit „Have you …“." },
+        { kind: "build", label: "Ich war letztes Jahr dort.", sentence: "I went there last year.", why: "last year → simple past: went.", tip: "Beginne mit „I went …“." },
+        { kind: "build", label: "Wir haben noch nie einen Wal gesehen.", sentence: "We have never seen a whale.", why: "have never + 3. Form.", tip: "Beginne mit „We have …“." },
+        { kind: "build", label: "Sie hat gestern die Freiheitsstatue gesehen.", sentence: "She saw the Statue of Liberty yesterday.", why: "yesterday → simple past: saw.", tip: "Beginne mit „She saw …“." },
+      ] },
+
+    { type: "multi", tag: "Vokabeln", title: "Vokabeln im Satz",
+      q: "Welches Wort von Vokabelblatt 7 passt?",
+      hint: "Alle Wörter stehen auf Vokabelblatt 7.",
+      why: "theme park · snorkelling · opening times · snow · modern",
+      items: [
+        { kind: "type", label: "We went to a ___ in Florida and rode the rollercoaster.", answers: ["theme park"], why: "theme park = Freizeitpark", hint: "Zwei Wörter, beginnt mit th.", tip: "t… p…" },
+        { kind: "type", label: "Sam went ___ in the sea and saw many fish.", answers: ["snorkelling", "snorkeling"], show: "snorkelling", why: "snorkelling = Schnorcheln (britisch mit Doppel-l)", hint: "Doppel-l.", tip: "sn…" },
+        { kind: "type", label: "Check the ___ on the website before you go.", answers: ["opening times"], why: "opening times = Öffnungszeiten", hint: "Zwei Wörter.", tip: "o… t…" },
+        { kind: "type", label: "In Alaska there is a lot of ___ in winter.", answers: ["snow"], why: "snow = Schnee", hint: "Vier Buchstaben, beginnt mit s.", tip: "s…" },
+        { kind: "type", label: "The new museum is very ___ – it looks like a spaceship.", answers: ["modern"], why: "modern = modern", hint: "Sieht fast aus wie im Deutschen.", tip: "m…n" },
+      ] },
+
+    { type: "order", tag: "Dialog", title: "Noah from Texas",
+      q: "Bring den Dialog in die richtige Reihenfolge.",
+      hint: "Tippe auf ▲ und ▼, um eine Zeile zu verschieben. A = Grace · B = Noah",
+      names: ["Grace", "Noah"],
+      why: "Erst die Frage (present perfect), dann die Kurzantwort, dann Details im simple past.",
+      lines: [
+        { who: "A", text: "Have you ever been to New Orleans?" },
+        { who: "B", text: "Yes, I have." },
+        { who: "A", text: "When did you go there?" },
+        { who: "B", text: "I went there last year." },
+        { who: "A", text: "Did you like it?" },
+        { who: "B", text: "Yes, it was great. We had a great time." },
+      ] },
+
+    { type: "multi", tag: "Listen 🎧", title: "Hör zu",
+      q: "Hör die Sätze und beantworte die Fragen. Kopfhörer auf!",
+      hint: "Tippe auf 🔊, so oft du willst.",
+      why: "Have you ever …? · went · seen · has",
+      items: [
+        { kind: "choice", keep: true, say: "Have you ever been to New York?", label: "Wie beginnt die Frage?", options: ["Have you ever …?", "Did you ever …?", "Do you ever …?"], answer: "Have you ever …?", why: "Erfahrung erfragen → Have you ever …?", hint: "Achte auf das erste Wort." },
+        { kind: "choice", keep: true, say: "I went there last year.", label: "Welche Form hörst du?", options: ["went", "have been", "go"], answer: "went", why: "last year → simple past: went.", hint: "last year → simple past" },
+        { kind: "type", say: "We have never seen a whale.", label: "Welche Form von „see“ hörst du? Tippe das Wort.", answers: ["seen"], why: "have never seen – 3. Form von see.", hint: "see – saw – seen" },
+        { kind: "choice", keep: true, say: "She has just come home.", label: "Welches Hilfsverb hörst du?", options: ["has", "have", "did"], answer: "has", why: "she → has.", hint: "Welche Person?" },
+      ] },
+  ]},
+
+  // ================= ★★★ PROFI =================
+  { name: "Profi", stars: 3, desc: "Produzieren: Fehler finden, Sätze schreiben, Verben der Woche", tasks: [
+    { type: "multi", tag: "Fehler-Detektiv", title: "Fehler-Detektiv",
+      q: "In jedem Satz ist ein Fehler. Schreib nur die richtige Form.",
+      hint: "Beispiel: „I goed to school.“ → du schreibst „went“.",
+      why: "been · saw · has · went · did you go",
+      items: [
+        { kind: "type", label: "Have you ever be to Texas?", answers: ["been"], why: "Nach have steht die 3. Form: been.", hint: "be – was – been", tip: "b…n" },
+        { kind: "type", label: "I have seen him yesterday.", answers: ["saw"], why: "yesterday → simple past: saw.", hint: "Feste Zeitangabe!", tip: "s…" },
+        { kind: "type", label: "My sister have never eaten sushi.", answers: ["has"], why: "my sister = she → has.", hint: "Welche Person?" },
+        { kind: "type", label: "He has went to Florida last summer.", answers: ["went"], why: "last summer → simple past: went (nicht has went).", hint: "Feste Zeitangabe → nur eine Form." },
+        { kind: "type", label: "Have you went there last year?", answers: ["did you go", "did"], show: "Did you go", why: "last year → simple past: Did you go there last year?", hint: "Zeitangabe → Frage mit did." },
+      ] },
+
+    { type: "multi", tag: "Irregular verbs", title: "Verben der Woche",
+      q: "Trag die fehlenden Formen ein.",
+      hint: "Die Liste steht im Buch, S. 236–237.",
+      why: "become – became – become · get – got – got · feel – felt – felt · win – won – won",
+      items: [
+        { kind: "type", label: "become (werden) – ___ – become", answers: ["became"], why: "become – became – become", hint: "Beginnt mit bec.", tip: "b…e" },
+        { kind: "type", label: "get (bekommen) – ___ – got", answers: ["got"], why: "get – got – got", hint: "Drei Buchstaben.", tip: "g…" },
+        { kind: "type", label: "feel (sich fühlen) – felt – ___", answers: ["felt"], why: "feel – felt – felt", hint: "Wie das Material Filz.", tip: "f…t" },
+        { kind: "type", label: "win (gewinnen) – won – ___", answers: ["won"], why: "win – won – won", hint: "Reimt sich auf son.", tip: "w…" },
+        { kind: "type", label: "Last week we ___ the match! (win)", answers: ["won"], why: "last week → simple past: won", hint: "win – won – won" },
+      ] },
+
+    { type: "multi", tag: "Schreiben", title: "Schreib den Satz",
+      q: "Schreib den Satz auf Englisch (ohne Hilfe).",
+      hint: "Erfahrung → present perfect · feste Zeit → simple past.",
+      why: "Have you ever …? · I have never … · We went … last …",
+      items: [
+        { kind: "type", label: "Hast du schon mal einen Wal gesehen?", answers: ["Have you ever seen a whale?"], show: "Have you ever seen a whale?", rules: [["have"], ["ever"], ["seen"]], why: "Have you ever seen a whale?", hint: "Beginne mit „Have you ever …“." },
+        { kind: "type", label: "Ich war noch nie in Alaska.", answers: ["I have never been to Alaska."], show: "I have never been to Alaska.", rules: [["have", "ve"], ["never"], ["been"]], why: "I have never been to Alaska.", hint: "Beginne mit „I have never …“." },
+        { kind: "type", label: "Letzten Sommer sind wir nach Florida geflogen. (fly – flew)", answers: ["We flew to Florida last summer."], show: "We flew to Florida last summer.", rules: [["flew"], ["florida"], ["last summer"]], why: "We flew to Florida last summer.", hint: "Feste Zeit → simple past: flew." },
+      ] },
+
+    { type: "multi", tag: "Vokabeln", title: "Definitionen",
+      q: "Welches Wort von Vokabelblatt 7 ist gemeint? Tippe es.",
+      hint: "Lies die Definition genau.",
+      why: "cousin · foreground · wildlife · space",
+      items: [
+        { kind: "type", label: "He is the child of your aunt or uncle.", answers: ["cousin", "a cousin"], why: "cousin = Cousin / Cousine", hint: "Beginnt mit c.", tip: "c…n" },
+        { kind: "type", label: "It is the front part of a picture.", answers: ["foreground", "the foreground"], why: "foreground = Vordergrund", hint: "fore + ground", tip: "f…d" },
+        { kind: "type", label: "These are the animals and plants in a place.", answers: ["wildlife"], why: "wildlife = Tierwelt", hint: "wild + life", tip: "w…e" },
+        { kind: "type", label: "It is where the stars and planets are.", answers: ["space", "outer space"], show: "space", why: "space = Weltraum", hint: "Fünf Buchstaben.", tip: "s…e" },
+      ] },
+  ]},
+]};
+
+// Einsetzübung im Stil von englisch-hilfen.de
+window.CLOZE = { mount: "#cloze", items: [
+  { before: "I", after: "never been to Alaska.", answers: ["have"], show: "have", why: "I → have + been" },
+  { before: "She", after: "just come home.", answers: ["has"], show: "has", why: "she → has + come" },
+  { before: "We went there last year. We", after: "(see) a whale.", answers: ["saw"], show: "saw", why: "last year → simple past: saw" },
+  { before: "", after: "you ever been to New York?", answers: ["have"], show: "Have", why: "Have you ever …?" },
+  { before: "Yes, I", after: ".", answers: ["have"], show: "have", why: "Kurzantwort: Yes, I have." },
+  { before: "No, I", after: ".", answers: ["haven't", "have not"], show: "haven't", why: "Kurzantwort: No, I haven't." },
+  { before: "We have already", after: "(do) our homework.", answers: ["done"], show: "done", why: "do – did – done" },
+  { before: "Last summer my cousin", after: "(go) to Florida.", answers: ["went"], show: "went", why: "last summer → simple past: went" },
+  { before: "In the", after: "you can see a boat, in the background there is the sea.", answers: ["foreground"], show: "foreground", why: "foreground = Vordergrund" },
+  { before: "Check the", after: "of the theme park before you go.", answers: ["opening times"], show: "opening times", why: "opening times = Öffnungszeiten" },
+]};
+
+// Komplettes Rollenspiel (Gerätestimme): hören → antworten → hören → antworten …
+window.ROLEPLAY = { mount: "#roleplay", role: "Noah", icon: "🧑", turns: [
+  { say: "Hi! I'm Noah. Have you ever been to New York?", hint: "Antworte mit einer Kurzantwort im present perfect.", model: "Yes, I have.", options: ["Yes, I did.", "Yes, I am."] },
+  { say: "Cool! When did you go there?", hint: "Sag, wann du dort warst (simple past).", model: "I went there last year.", options: ["I have gone there last year.", "I go there last year."] },
+  { say: "What did you see there?", hint: "Erzähl, was du gesehen hast.", model: "We saw the Statue of Liberty and the Empire State Building.", options: ["We have seen the Statue of Liberty yesterday.", "We seen the Statue of Liberty."] },
+  { say: "Did you like it?", hint: "Sag, wie es war.", model: "Yes, it was awesome! We had a great time.", options: ["Yes, it is awesome! We have a great time.", "Yes, it was awesome! We has a great time."] },
+  { say: "I have never been to New York. I want to go!", hint: "Mach Noah Mut.", model: "You should go! I'm sure you will love it.", options: ["You should went! I'm sure you will love it.", "You should to go! I'm sure you will love it."] },
+  { say: "Have you ever been to Florida?", hint: "Du warst noch nie dort.", model: "No, I haven't. But I want to go snorkelling.", options: ["No, I didn't. But I want to go snorkelling.", "No, I haven't. But I want to went snorkelling."] },
+  { say: "Great idea! Thanks for talking to me.", hint: "Bedank dich und verabschiede dich.", model: "You're welcome. Bye, Noah!", options: ["You're welcomed. Bye, Noah!", "Your welcome. Bye, Noah!"] },
+]};
+</script>
+<script src="../assets/quiz2.js"></script>
+<script src="../assets/cloze.js"></script>
+<script src="../assets/roleplay.js"></script>
+</body>
+</html>
