@@ -1,0 +1,13 @@
+passive_news_dialog.mp3 · Datum 2026-11-10 · ElevenLabs eleven_multilingual_v2 · eigener Text (Dialog Maya/Oliver, Passiv, Activism/California)
+Stimmen: Maya = Jennifer (American, female) (DCJ53Jyl6Yue4JEOi4o9); Oliver = Dan (British, male) (9x3LCv1U6rJuU05dIEO3)
+Text:
+Maya: Did you see the news about the school strike in San Francisco?
+Oliver: No. What happened?
+Maya: A big demonstration was organized last Friday. More than two thousand students were invited by a group of young activists.
+Oliver: Wow. How was the event publicized?
+Maya: A video was uploaded on Monday, and it was shared thousands of times. Posters were put up all over the city, too.
+Oliver: And what did the mayor say?
+Maya: The students were welcomed by the mayor at the town hall. A petition was handed over, and it was signed by five thousand people.
+Oliver: That is great. Will anything change?
+Maya: Maybe. The petition is read by the city council next week, and the results are announced online.
+Oliver: Then let us hope that the activists are heard.

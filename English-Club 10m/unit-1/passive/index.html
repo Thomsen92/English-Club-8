@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passive · Unit 1 · English Club 10m</title>
+<link rel="stylesheet" href="../../assets/style.css">
+<link rel="stylesheet" href="../../assets/quiz2.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-inner">
+    <a class="crumb" href="../">← Unit 1</a>
+    <div class="brand">
+      <div class="logo date">U1</div>
+      <div><p class="when">Unit 1 · Baustein</p><h1>Passive</h1><p>be + 3. Form · simple present und simple past · mit Hörübung</p></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="card" style="margin:0 0 14px"><p style="margin:0"><b>Lösung liegt auf Teams.</b> Hier im English Club zeigt jede Aufgabe ihre eigene Lösung.</p></div>
+  <section id="menu">
+    <div class="label">Selbsttest – wähle deine Stufe</div>
+    <p class="hint" style="margin:6px 0 14px">Drei Stufen: ★ Basis, ★★ Aufbau, ★★★ Profi – dazu eine Zusatz-Challenge. Lies die Sätze genau.</p>
+    <div class="levels" id="levels"></div>
+
+    <h2>Hören</h2>
+    <div class="card" id="listen">
+      <p style="margin:0 0 6px"><b>Listening: School strike in San Francisco</b> (ca. 45 Sekunden)</p>
+      <p class="hint" style="margin:0 0 10px">Hör den Dialog zuerst ganz an. Beantworte dann die Fragen. Kopfhörer sind erlaubt.</p>
+      <audio controls preload="none" src="assets/audio/passive_news_dialog.mp3" style="width:100%"></audio>
+      <div id="lq" style="margin-top:12px"></div>
+      <details style="margin-top:12px"><summary><b>Transkript anzeigen</b></summary>
+        <p style="margin:8px 0 0"><b>Maya:</b> Did you see the news about the school strike in San Francisco?<br><b>Oliver:</b> No. What happened?<br><b>Maya:</b> A big demonstration was organized last Friday. More than two thousand students were invited by a group of young activists.<br><b>Oliver:</b> Wow. How was the event publicized?<br><b>Maya:</b> A video was uploaded on Monday, and it was shared thousands of times. Posters were put up all over the city, too.<br><b>Oliver:</b> And what did the mayor say?<br><b>Maya:</b> The students were welcomed by the mayor at the town hall. A petition was handed over, and it was signed by five thousand people.<br><b>Oliver:</b> That is great. Will anything change?<br><b>Maya:</b> Maybe. The petition is read by the city council next week, and the results are announced online.<br><b>Oliver:</b> Then let us hope that the activists are heard.</p>
+      </details>
+    </div>
+
+    <div class="card" style="margin-top:18px"><p style="margin:0"><b>Passive:</b> <b>be + 3. Form</b>. present: am / is / are + 3. Form · past: was / were + 3. Form. Wer es getan hat, steht mit <b>by</b>.</p></div>
+  </section>
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+  <p class="foot">English Club 10m · Kein Login · keine Werbung · es werden keine Daten verschickt. Eigene Sätze und eigene Lösungen.</p>
+</main>
+<script>
+window.QUIZ = {
+ "id": "10m-unit-1-passive",
+ "choiceTip": "Passiv: be + 3. Form. present: am/is/are · past: was/were.",
+ "levels": [
+  {
+   "name": "Basis",
+   "stars": 1,
+   "desc": "Formen erkennen: is/are, was/were, 3. Form",
+   "tasks": [
+    {
+     "type": "multi",
+     "tag": "Passive",
+     "title": "Die richtige Form",
+     "q": "Wähle die richtige Passivform.",
+     "hint": "be + 3. Form: present am/is/are, past was/were.",
+     "why": "is made · were taken · are sold · was opened · is called",
+     "items": [
+      {
+       "kind": "choice",
+       "label": "The poster ___ by the students yesterday.",
+       "options": [
+        "was made",
+        "is made",
+        "made"
+       ],
+       "answer": "was made",
+       "why": "yesterday → simple past passive.",
+       "hint": "Vergangenheit."
+      },
+      {
+       "kind": "choice",
+       "label": "The pictures ___ last week.",
+       "options": [
+        "were taken",
+        "was taken",
+        "are taken"
+       ],
+       "answer": "were taken",
+       "why": "Plural + last week → were taken.",
+       "hint": "Plural."
+      },
+      {
+       "kind": "choice",
+       "label": "Badges ___ at the school shop.",
+       "options": [
+        "are sold",
+        "were sold",
+        "sells"
+       ],
+       "answer": "are sold",
+       "why": "Gegenwart + Plural → are sold.",
+       "hint": "Gegenwart."
+      },
+      {
+       "kind": "choice",
+       "label": "The new playground ___ in May.",
+       "options": [
+        "was opened",
+        "is opened",
+        "opens"
+       ],
+       "answer": "was opened",
+       "why": "in May (vergangen) → was opened.",
+       "hint": "Vergangenheit."
+      },
+      {
+       "kind": "choice",
+       "label": "This tram ___ the “Blue Line”.",
+       "options": [
+        "is called",
+        "was call",
+        "calls"
+       ],
+       "answer": "is called",
+       "why": "Gegenwart, Singular → is called.",
+       "hint": "Gegenwart."
+      }
+     ]
+    },
+    {
+     "type": "multi",
+     "tag": "Passive",
+     "title": "Aktiv oder Passiv?",
+     "q": "Ist der Satz Aktiv oder Passiv?",
+     "hint": "Passiv = Form von be + 3. Form.",
+     "why": "passive · active · passive · active · passive",
+     "items": [
+      {
+       "kind": "choice",
+       "label": "The mayor opened the town hall.",
+       "options": [
+        "active",
+        "passive"
+       ],
+       "answer": "active",
+       "why": "Der Bürgermeister tut etwas → Aktiv.",
+       "hint": ""
+      },
+      {
+       "kind": "choice",
+       "label": "The town hall was opened by the mayor.",
+       "options": [
+        "active",
+        "passive"
+       ],
+       "answer": "passive",
+       "why": "was opened = be + 3. Form → Passiv.",
+       "hint": ""
+      },
+      {
+       "kind": "choice",
+       "label": "Volunteers collect signatures.",
+       "options": [
+        "active",
+        "passive"
+       ],
+       "answer": "active",
+       "why": "Aktiv.",
+       "hint": ""
+      },
+      {
+       "kind": "choice",
+       "label": "Signatures are collected by volunteers.",
+       "options": [
+        "active",
+        "passive"
+       ],
+       "answer": "passive",
+       "why": "are collected → Passiv.",
+       "hint": ""
+      },
+      {
+       "kind": "choice",
+       "label": "The petition was signed by many people.",
+       "options": [
+        "active",
+        "passive"
+       ],
+       "answer": "passive",
+       "why": "was signed → Passiv.",
+       "hint": ""
+      }
+     ]
+    },
+    {
+     "type": "multi",
+     "tag": "Irregular verbs",
+     "title": "3. Form im Passiv",
+     "q": "Wähle die richtige 3. Form.",
+     "hint": "Die 3. Form steht nach is/are/was/were.",
+     "why": "written · taken · broken · sung · hidden",
+     "items": [
+      {
+       "kind": "choice",
+       "label": "The diary was ___ by Diego.",
+       "options": [
+        "written",
+        "wrote",
+        "writed"
+       ],
+       "answer": "written",
+       "why": "write – wrote – written",
+       "hint": ""
+      },
+      {
+       "kind": "choice",
+       "label": "The photos were ___ by a student.",
+       "options": [
+        "taken",
+        "took",
+        "taked"
+       ],
+       "answer": "taken",
+       "why": "take – took – taken",
+       "hint": ""
+      },
+      {
+       "kind": "choice",
+       "label": "The window was ___ yesterday.",
+       "options": [
+        "broken",
+        "broke",
+        "breaked"
+       ],
+       "answer": "broken",
+       "why": "break – broke – broken",
+       "hint": ""
+      },
+      {
+       "kind": "choice",
+       "label": "The song was ___ by the whole class.",
+       "options": [
+        "sung",
+        "sang",
+        "singed"
+       ],
+       "answer": "sung",
+       "why": "sing – sang – sung",
+       "hint": ""
+      },
+      {
+       "kind": "choice",
+       "label": "The key was ___ under a stone.",
+       "options": [
+        "hidden",
+        "hid",
+        "hided"
+       ],
+       "answer": "hidden",
+       "why": "hide – hid – hidden",
+       "hint": ""
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Aufbau",
+   "stars": 2,
+   "desc": "Anwenden: Lückentext, Aktiv → Passiv, Satzbau",
+   "tasks": [
+    {
+     "type": "multi",
+     "tag": "Passive",
+     "title": "Lückentext",
+     "q": "Setze das Passiv ein. Achte auf das Signalwort.",
+     "hint": "every day / today = present · yesterday / last year = past",
+     "why": "is publicized · were put up · are signed · was read · is spoken",
+     "items": [
+      {
+       "kind": "type",
+       "label": "Every day the news ___ (publicize) online.",
+       "answers": [
+        "is publicized"
+       ],
+       "why": "Gegenwart, Singular.",
+       "hint": "is + 3. Form."
+      },
+      {
+       "kind": "type",
+       "label": "Yesterday the posters ___ (put up) in town.",
+       "answers": [
+        "were put up"
+       ],
+       "why": "Vergangenheit, Plural.",
+       "hint": "put – put – put."
+      },
+      {
+       "kind": "type",
+       "label": "Today many petitions ___ (sign) online.",
+       "answers": [
+        "are signed"
+       ],
+       "why": "Gegenwart, Plural.",
+       "hint": "are + 3. Form."
+      },
+      {
+       "kind": "type",
+       "label": "Last week the letter ___ (read) in class.",
+       "answers": [
+        "was read"
+       ],
+       "why": "read – read – read.",
+       "hint": "was + 3. Form."
+      },
+      {
+       "kind": "type",
+       "label": "English ___ (speak) in many countries.",
+       "answers": [
+        "is spoken"
+       ],
+       "why": "speak – spoke – spoken.",
+       "hint": "is + 3. Form."
+      }
+     ]
+    },
+    {
+     "type": "multi",
+     "tag": "Passive",
+     "title": "Aktiv → Passiv",
+     "q": "Schreibe den Satz im Passiv. Behalte die Zeit.",
+     "hint": "Das Objekt wird zum Subjekt.",
+     "why": "was opened · are made · was built · is kept",
+     "items": [
+      {
+       "kind": "type",
+       "label": "The mayor opened the town hall. →",
+       "answers": [
+        "The town hall was opened by the mayor",
+        "The town hall was opened by the mayor."
+       ],
+       "why": "simple past: was + opened.",
+       "hint": "Beginne mit „The town hall …“.",
+       "show": "The town hall was opened by the mayor."
+      },
+      {
+       "kind": "type",
+       "label": "Activists make badges. →",
+       "answers": [
+        "Badges are made by activists",
+        "Badges are made by activists."
+       ],
+       "why": "simple present: are + made.",
+       "hint": "Beginne mit „Badges …“.",
+       "show": "Badges are made by activists."
+      },
+      {
+       "kind": "type",
+       "label": "Students built a small stage. →",
+       "answers": [
+        "A small stage was built by students",
+        "A small stage was built by students."
+       ],
+       "why": "build – built – built.",
+       "hint": "Beginne mit „A small stage …“.",
+       "show": "A small stage was built by students."
+      },
+      {
+       "kind": "type",
+       "label": "The school keeps the old photos. →",
+       "answers": [
+        "The old photos are kept by the school",
+        "The old photos are kept by the school."
+       ],
+       "why": "keep – kept – kept.",
+       "hint": "Beginne mit „The old photos …“.",
+       "show": "The old photos are kept by the school."
+      }
+     ]
+    },
+    {
+     "type": "multi",
+     "tag": "Satzbau",
+     "title": "Sätze bauen",
+     "q": "Tippe die Wörter in der richtigen Reihenfolge an.",
+     "hint": "Tippe ein Wort noch einmal an, um es zurückzulegen.",
+     "why": "passive · passive · passive",
+     "items": [
+      {
+       "kind": "build",
+       "label": "Satz 1",
+       "sentence": "The petition was signed by many young people.",
+       "why": "simple past passive.",
+       "tip": "Beginne mit „The petition …“."
+      },
+      {
+       "kind": "build",
+       "label": "Satz 2",
+       "sentence": "Posters are put up all over the school.",
+       "why": "simple present passive.",
+       "tip": "Beginne mit „Posters …“."
+      },
+      {
+       "kind": "build",
+       "label": "Satz 3",
+       "sentence": "A video was uploaded by two volunteers.",
+       "why": "simple past passive.",
+       "tip": "Beginne mit „A video …“."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Profi",
+   "stars": 3,
+   "desc": "Produzieren: Fehler finden, Passiv mit by, Schlagzeilen",
+   "tasks": [
+    {
+     "type": "multi",
+     "tag": "Fehler-Detektiv",
+     "title": "Error correction",
+     "q": "In jedem Satz ist ein Fehler. Schreibe nur die richtige Form.",
+     "hint": "Achte auf be, die 3. Form und die Zeit.",
+     "why": "were · made · is · written · was",
+     "items": [
+      {
+       "kind": "type",
+       "label": "The posters was put up yesterday.",
+       "answers": [
+        "were"
+       ],
+       "why": "Plural → were.",
+       "hint": "Singular oder Plural?"
+      },
+      {
+       "kind": "type",
+       "label": "The badges are make by volunteers.",
+       "answers": [
+        "made"
+       ],
+       "why": "3. Form: made.",
+       "hint": "make – made – made."
+      },
+      {
+       "kind": "type",
+       "label": "English are spoken in many countries.",
+       "answers": [
+        "is"
+       ],
+       "why": "English = Singular → is.",
+       "hint": "Singular oder Plural?"
+      },
+      {
+       "kind": "type",
+       "label": "The diary was wrote by Diego.",
+       "answers": [
+        "written"
+       ],
+       "why": "3. Form: written.",
+       "hint": "write – wrote – written."
+      },
+      {
+       "kind": "type",
+       "label": "Yesterday the petition is signed by 200 people.",
+       "answers": [
+        "was"
+       ],
+       "why": "yesterday → Vergangenheit.",
+       "hint": "Welche Zeit?"
+      }
+     ]
+    },
+    {
+     "type": "multi",
+     "tag": "Passive",
+     "title": "Mit by",
+     "q": "Schreibe den Satz im Passiv und nenne die Person mit by.",
+     "hint": "Beispiel: The song was sung by the Beatles.",
+     "why": "was organized by · were chosen by · is written by",
+     "items": [
+      {
+       "kind": "type",
+       "label": "The students organized the demonstration. →",
+       "answers": [
+        "The demonstration was organized by the students",
+        "The demonstration was organized by the students."
+       ],
+       "why": "was + organized + by + students.",
+       "hint": "Beginne mit „The demonstration …“.",
+       "show": "The demonstration was organized by the students."
+      },
+      {
+       "kind": "type",
+       "label": "A journalist wrote the article. →",
+       "answers": [
+        "The article was written by a journalist",
+        "The article was written by a journalist.",
+        "An article was written by a journalist",
+        "An article was written by a journalist."
+       ],
+       "why": "write – wrote – written.",
+       "hint": "Beginne mit „The article …“.",
+       "show": "The article was written by a journalist."
+      },
+      {
+       "kind": "type",
+       "label": "Young people choose the topics. →",
+       "answers": [
+        "The topics are chosen by young people",
+        "The topics are chosen by young people."
+       ],
+       "why": "choose – chose – chosen.",
+       "hint": "Beginne mit „The topics …“.",
+       "show": "The topics are chosen by young people."
+      }
+     ]
+    },
+    {
+     "type": "multi",
+     "tag": "Schlagzeilen",
+     "title": "Headlines",
+     "q": "Schreibe einen vollständigen Satz im Passiv (simple past).",
+     "hint": "In Schlagzeilen fehlen Artikel und be.",
+     "why": "was signed · was held · were collected",
+     "items": [
+      {
+       "kind": "type",
+       "label": "Petition signed by 5,000 people →",
+       "answers": [
+        "A petition was signed by 5,000 people",
+        "A petition was signed by 5,000 people.",
+        "The petition was signed by 5,000 people",
+        "The petition was signed by 5,000 people."
+       ],
+       "why": "was signed.",
+       "hint": "Beginne mit „A petition …“.",
+       "show": "A petition was signed by 5,000 people."
+      },
+      {
+       "kind": "type",
+       "label": "Demonstration held in San Francisco →",
+       "answers": [
+        "A demonstration was held in San Francisco",
+        "A demonstration was held in San Francisco."
+       ],
+       "why": "hold – held – held.",
+       "hint": "Beginne mit „A demonstration …“.",
+       "show": "A demonstration was held in San Francisco."
+      },
+      {
+       "kind": "type",
+       "label": "Signatures collected at school →",
+       "answers": [
+        "Signatures were collected at school",
+        "Signatures were collected at school."
+       ],
+       "why": "were collected.",
+       "hint": "Beginne mit „Signatures …“.",
+       "show": "Signatures were collected at school."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Challenge",
+   "stars": 4,
+   "desc": "Zusatz: kleine Nachricht mit Passiv",
+   "tasks": [
+    {
+     "type": "multi",
+     "tag": "Challenge",
+     "title": "Eine kleine Nachricht",
+     "q": "Ergänze die Nachricht mit dem Passiv (simple past).",
+     "hint": "Alle Lücken stehen in der Vergangenheit.",
+     "why": "was started · were collected · was handed · was heard",
+     "items": [
+      {
+       "kind": "type",
+       "label": "Last week a campaign ___ (start) at our school.",
+       "answers": [
+        "was started"
+       ],
+       "why": "start → was started.",
+       "hint": "was + 3. Form."
+      },
+      {
+       "kind": "type",
+       "label": "Two hundred signatures ___ (collect) in three days.",
+       "answers": [
+        "were collected"
+       ],
+       "why": "Plural → were collected.",
+       "hint": "were + 3. Form."
+      },
+      {
+       "kind": "type",
+       "label": "On Friday the petition ___ (hand) to the mayor.",
+       "answers": [
+        "was handed"
+       ],
+       "why": "Singular → was handed.",
+       "hint": "was + 3. Form."
+      },
+      {
+       "kind": "type",
+       "label": "At last, the students’ voice ___ (hear).",
+       "answers": [
+        "was heard"
+       ],
+       "why": "hear – heard – heard.",
+       "hint": "was + 3. Form."
+      }
+     ]
+    }
+   ]
+  }
+ ]
+};
+</script>
+<script src="../../assets/quiz2.js"></script>
+<script>
+(function(){
+ const Q=[
+  {q:"When was the demonstration organized?",o:["last Friday","last Monday","next week"],a:"last Friday"},
+  {q:"How many students were invited?",o:["more than 200","more than 2,000","more than 20,000"],a:"more than 2,000"},
+  {q:"Where were the students welcomed by the mayor?",o:["at school","at the town hall","at the beach"],a:"at the town hall"},
+  {q:"What happens to the petition next week?",o:["It is read by the city council.","It is signed again.","It is put up on posters."],a:"It is read by the city council."}];
+ const box=document.getElementById("lq");
+ Q.forEach((x,i)=>{const d=document.createElement("div");d.style.margin="0 0 12px";
+  d.innerHTML='<p style="margin:0 0 6px"><b>'+(i+1)+'</b> '+x.q+'</p>';
+  const row=document.createElement("div");row.className="opts wide";
+  const fb=document.createElement("p");fb.className="hint";fb.style.margin="6px 0 0";
+  x.o.forEach(o=>{const b=document.createElement("button");b.className="opt";b.textContent=o;
+   b.onclick=()=>{const ok=o===x.a;row.querySelectorAll(".opt").forEach(e=>e.classList.remove("right","wrong"));b.classList.add(ok?"right":"wrong");fb.textContent=ok?"✓ Richtig.":"Hör noch einmal hin – und versuche es nochmal.";};
+   row.appendChild(b);});
+  d.appendChild(row);d.appendChild(fb);box.appendChild(d);});
+})();
+</script>
+</body>
+</html>
