@@ -2,5 +2,5 @@
 // Neue Unit: Ordner anlegen (z. B. unit-3/) und hier ergänzen.
 window.UNITS = [
   { id: "unit-1", no: 1, title: "Swerve", topic: "Vokabeln · Aufgaben folgen", status: "in Arbeit" },
-  { id: "unit-2", no: 2, title: "Kia ora from New Zealand", topic: "Selbstkontrolle S. 26–29 · NZ fun facts", status: "in Arbeit" },
+  { id: "unit-2", no: 2, title: "Kia ora from New Zealand", topic: "Vokabeln · Hören · Landeskunde", status: "in Arbeit" },
 ];

@@ -26,29 +26,20 @@
     <a class="crumb" href="../">← Alle Units</a>
     <div class="brand">
       <div class="logo date">U2</div>
-      <div><p class="when">Unit 2 · Fr, 13.11.</p><h1>Kia ora from New Zealand</h1><p>Selbstkontrolle S. 26–29 · Fun facts</p></div>
+      <div><p class="when">Unit 2 · Fr, 13.11.</p><h1>Kia ora from New Zealand</h1><p>Vokabeln · Hören · Landeskunde</p></div>
     </div>
   </div>
 </header>
 <main class="wrap">
   <section id="menu">
-    <div class="label">Selbstkontrolle – wähle einen Teil</div>
-    <p class="hint" style="margin:6px 0 14px">Mach zuerst die Aufgabe im Buch. Danach prüfst du hier selbst. Wenn etwas falsch ist, schau noch einmal in den Text und verbessere in deinem Heft.</p>
+    <div class="label">Wähle eine Übung</div>
+    <p class="hint" style="margin:6px 0 14px">Übe die Wörter von Vokabelliste 1 (SB S. 162–163) auf verschiedene Arten und lerne mehr über Neuseeland. Wenn etwas falsch ist, bekommst du Tipps und am Ende die Lösung.</p>
     <div class="levels" id="levels"></div>
 
-    <h2>✍️ Lina's photos (S. 28) – Selbst-Check</h2>
-    <div class="card chk">
-      <p class="hint" style="margin:0 0 8px"><b>1a:</b> Zu jedem Foto A–G steht ein kurzer Kommentar. Das Beispiel steht im Buch (A: Love the view!).</p>
-      <p class="hint" style="margin:0 0 8px"><b>1b:</b> Beschreibe ein Foto mit Personen (Partner). Hake ab, was du schon gemacht hast:</p>
-      <label><input type="checkbox"> I said what I can see <b>in the foreground</b> and <b>in the background</b>.</label>
-      <label><input type="checkbox"> I used the <b>present progressive</b> (They are climbing …).</label>
-      <label><input type="checkbox"> I used <b>There is / There are</b> and <b>It looks like …</b></label>
-      <label><input type="checkbox"> I compared the photo with <b>my own holidays</b> (I usually … on holiday. / I would love to try …).</label>
-      <label><input type="checkbox"> We swapped roles.</label>
-      <button class="btn secondary" id="showModel" type="button" style="margin-top:8px">Beispiel zeigen (Foto F)</button>
-      <div class="model" id="model" hidden>
-        <b>Example:</b> In the foreground there is a waterfall. In the background you can see trees and rocks. Some people are climbing down the waterfall with ropes. It looks like fun, but it also looks a bit scary. On holiday I usually go swimming, so this is something new for me. I would love to try it!
-      </div>
+    <h2>🎧 Listen and spell</h2>
+    <div class="card">
+      <p class="hint" style="margin:0 0 6px">Höre das Wort (Kopfhörer!) und schreibe es richtig auf. Du kannst es so oft hören, wie du willst.</p>
+      <div id="spell"></div>
     </div>
 
     <h2>🎧 NZ fun facts</h2>
@@ -56,18 +47,6 @@
       <p class="hint" style="margin:0 0 6px">Schon fertig? Höre die Fun facts über Neuseeland (Kopfhörer!). Schreibe die gesuchte Zahl oder das gesuchte Wort auf und tippe auf <b>Prüfen</b>.</p>
       <div id="facts"></div>
     </div>
-
-    <h2>✅ Lösungen</h2>
-    <details class="card chk">
-      <summary><b>Lösungen anzeigen</b> (erst selbst versuchen!)</summary>
-      <p><b>S. 26 · 1a:</b> 1 B · 2 D · 3 C · 4 A</p>
-      <p><b>S. 26 · 1c:</b> 1 30 metres · 2 16 % · 3 four hours · 4 Wellington · 5 China (and India) · 6 Fish and chips · 7 four times</p>
-      <p><b>S. 27 · 2a:</b> 1 true · 2 true · 3 true · 4 false (no hospital) · 5 true · 6 true · 7 true</p>
-      <p><b>S. 28 · 1a (Beispiele):</b> A Love the view! · B Great shot! · C Looks funny! · D How cute! · E Looks scary! · F What an adventure! · G What a shot!</p>
-      <p><b>S. 28 · 1b:</b> frei – siehe Beispiel zu Foto F oben.</p>
-      <p><b>S. 29 · 2a:</b> Text 1 → D · Text 2 → B · Text 3 → E · Text 4 → G · Text 5 → F</p>
-      <p><b>S. 29 · 2b (Beispiele):</b> 1 The journey took almost 24 hours (via Dubai). · 2 It is an organic farm on South Island, and Lina is learning new skills. · 3 Rugby is very popular, and New Zealand is one of the top countries. · 4 A volcano that is not active anymore.</p>
-    </details>
   </section>
 
   <section id="quiz" hidden>
@@ -79,73 +58,756 @@
   <p class="foot">English Club 9m · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
 </main>
 <script>
-window.QUIZ = { id: "9m-u2-lead-in", choiceTip: "", levels: [
-
-  { name: "Lead-in & Film (S. 26–27)", stars: 1, desc: "Texte A–D, Hörtext 1.16, Run Rabbit", tasks: [
-    { type: "multi", tag: "S. 26 · 1a", title: "Match texts A–D with the headings",
-      q: "Welcher Text passt zu welcher Überschrift?",
-      hint: "Lies die Kurztexte noch einmal. Welche Wörter helfen dir (e.g. 300 years, 5 million, King, mountains)?",
-      why: "1 first inhabitants → B · 2 population → D · 3 political information → C · 4 the natural world → A",
-      items: [
-        { kind: "choice", keep: true, label: "1  first inhabitants", options: ["A", "B", "C", "D"], answer: "B", why: "Text B: The Māori people came to New Zealand about 300 years before the Europeans.", hint: "Wer war zuerst da?" },
-        { kind: "choice", keep: true, label: "2  population", options: ["A", "B", "C", "D"], answer: "D", why: "Text D: Only 5 million people live in New Zealand.", hint: "Wie viele Menschen?" },
-        { kind: "choice", keep: true, label: "3  political information", options: ["A", "B", "C", "D"], answer: "C", why: "Text C: independent country, head of state, flag.", hint: "Land, Staatsoberhaupt, Flagge." },
-        { kind: "choice", keep: true, label: "4  the natural world", options: ["A", "B", "C", "D"], answer: "A", why: "Text A: coast, mountains, geysers.", hint: "Landschaft." },
-      ] },
-
-    { type: "multi", tag: "S. 26 · 1c", title: "Listen again and complete the sentences",
-      q: "Was hast du im Hörtext gehört? Trage Zahl oder Wort ein.",
-      hint: "Schreibe nur ein Wort oder eine Zahl (Zahlen als Ziffern oder Wort).",
-      why: "Prüfe noch einmal mit dem Hörtext 1.16 und den Kurztexten A–D.",
-      items: [
-        { kind: "type", label: "1  Pohutu Geyser shoots … to a height of up to ___ metres.", answers: ["30", "thirty"], why: "30 metres", hint: "Zwei Ziffern." },
-        { kind: "type", label: "2  Māori people are about ___ % of the population of New Zealand.", answers: ["16", "sixteen"], why: "16 %", hint: "Zwei Ziffern." },
-        { kind: "type", label: "3  A flight from Auckland to Sydney takes ___ hours.", answers: ["4", "four"], why: "four hours", hint: "Eine kleine Zahl." },
-        { kind: "type", label: "4  The capital of New Zealand is ___.", answers: ["wellington"], why: "Wellington (nicht Auckland!)", hint: "Beginnt mit W." },
-        { kind: "type", label: "5  Most immigrants today come from China and ___.", answers: ["india"], why: "India", hint: "Beginnt mit I." },
-        { kind: "type", label: "6  ___ is a popular meal.", answers: ["fish and chips", "fish & chips"], why: "Fish and chips", hint: "Drei Wörter." },
-        { kind: "type", label: "7  New Zealand is about ___ times as big as Bavaria.", answers: ["4", "four"], why: "four times", hint: "Eine kleine Zahl." },
-      ] },
-
-    { type: "multi", tag: "S. 27 · 2a", title: "Run Rabbit – What do you see in the film?",
-      q: "Was kommt im Film vor? Wähle yes oder no.",
-      hint: "Denk an die Szenen aus dem Film.",
-      why: "yes: farm, fireworks, hills, river, road sign, sheep · no: hospital",
-      items: [
-        { kind: "choice", keep: true, label: "1  a farm", options: ["yes", "no"], answer: "yes", why: "Eine Farm kommt vor." },
-        { kind: "choice", keep: true, label: "2  fireworks", options: ["yes", "no"], answer: "yes", why: "Feuerwerk kommt vor." },
-        { kind: "choice", keep: true, label: "3  hills", options: ["yes", "no"], answer: "yes", why: "Hügel kommen vor." },
-        { kind: "choice", keep: true, label: "4  a hospital", options: ["yes", "no"], answer: "no", why: "Ein Krankenhaus kommt nicht vor." },
-        { kind: "choice", keep: true, label: "5  a river", options: ["yes", "no"], answer: "yes", why: "Ein Fluss kommt vor." },
-        { kind: "choice", keep: true, label: "6  a road sign", options: ["yes", "no"], answer: "yes", why: "Ein Straßenschild kommt vor." },
-        { kind: "choice", keep: true, label: "7  a sheep", options: ["yes", "no"], answer: "yes", why: "Ein Schaf kommt vor." },
-      ] },
-  ] },
-
-  { name: "Lina's texts (S. 29)", stars: 2, desc: "Texte 1–5 den Fotos zuordnen, Fragen", tasks: [
-    { type: "multi", tag: "S. 29 · 2a", title: "Match texts 1–5 with a photo (A–G, page 28)",
-      q: "Zu welchem Foto auf S. 28 passt der Text?",
-      hint: "Suche Schlüsselwörter: volcanoes, rugby, wetsuits, Maori guide, high-rise buildings, goat …",
-      why: "Text 1 → D · Text 2 → B · Text 3 → E · Text 4 → G · Text 5 → F",
-      items: [
-        { kind: "choice", keep: true, label: "Text 1 (organic farm, milk a goat)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "D", why: "Das Foto D zeigt eine Ziege.", hint: "Welches Tier?" },
-        { kind: "choice", keep: true, label: "Text 2 (Auckland tour with Tai, Māori guide)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "B", why: "Foto B zeigt zwei Menschen mit Māori-Tattoos.", hint: "Tai ist ein Māori-Guide." },
-        { kind: "choice", keep: true, label: "Text 3 (flight, Sky Tower, volcanoes)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "E", why: "Foto E zeigt den Sky Tower.", hint: "Ein hoher Turm." },
-        { kind: "choice", keep: true, label: "Text 4 (rugby)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "G", why: "Foto G zeigt Rugby.", hint: "Sport." },
-        { kind: "choice", keep: true, label: "Text 5 (river tour, wetsuits, caves)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "F", why: "Foto F zeigt Menschen am Wasserfall.", hint: "Klettern am Wasser." },
-      ] },
-
-    { type: "multi", tag: "S. 29 · 2b", title: "Read the texts again. Then answer the questions.",
-      q: "Welche Antwort passt? (Schreibe die Antworten zuerst in vollständigen Sätzen ins Heft.)",
-      hint: "Die Antworten stehen in den Texten 1–4 auf S. 29.",
-      why: "Prüfe mit den Texten.",
-      items: [
-        { kind: "choice", keep: true, label: "1  What can you say about Lina's journey to New Zealand?", options: ["It was short.", "It took almost 24 hours.", "She flew directly from Munich."], answer: "It took almost 24 hours.", why: "6 + 17 Stunden Flug, über Dubai.", hint: "Text 3." },
-        { kind: "choice", keep: true, label: "2  What do you know about Lina's stay on the farm?", options: ["It is an organic farm on South Island.", "It is a big city hotel.", "She works with computers."], answer: "It is an organic farm on South Island.", why: "Text 1: organic farm, South Island, learning new skills.", hint: "Text 1." },
-        { kind: "choice", keep: true, label: "3  What has Lina learned about rugby?", options: ["Nobody plays it.", "It is very popular, and NZ is one of the top countries.", "It is only for tourists."], answer: "It is very popular, and NZ is one of the top countries.", why: "Text 4.", hint: "Text 4." },
-        { kind: "choice", keep: true, label: "4  What can you see in the photo on the right (page 29)?", options: ["An active volcano.", "A volcano that is not active anymore.", "A big city."], answer: "A volcano that is not active anymore.", why: "Hügel/Vulkan, nicht mehr aktiv.", hint: "Neben Text 3." },
-      ] },
-  ] },
+window.QUIZ = { id: "9m-u2-vocab-nz", choiceTip: "", levels: [
+ {
+  "name": "Vocabulary 1 · Match",
+  "stars": 1,
+  "desc": "Deutsch – Englisch, Definitionen, Lückensätze",
+  "tasks": [
+   {
+    "type": "multi",
+    "tag": "Zuordnung",
+    "title": "Which English word fits?",
+    "q": "Wähle das passende englische Wort.",
+    "hint": "Schau in die Vokabelliste 1, wenn du unsicher bist.",
+    "why": "Höhle cave · Vulkan volcano · Geysir geyser · Höhe height · Ecke corner · melken (to) milk · Schwimmweste life jacket · Hochhaus high-rise building",
+    "items": [
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Höhle  →",
+      "options": [
+       "life jacket",
+       "corner",
+       "high-rise building",
+       "cave"
+      ],
+      "answer": "cave",
+      "why": "Höhle = cave",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Vulkan  →",
+      "options": [
+       "cave",
+       "geyser",
+       "volcano",
+       "(to) milk"
+      ],
+      "answer": "volcano",
+      "why": "Vulkan = volcano",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Geysir  →",
+      "options": [
+       "cave",
+       "life jacket",
+       "high-rise building",
+       "geyser"
+      ],
+      "answer": "geyser",
+      "why": "Geysir = geyser",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Höhe  →",
+      "options": [
+       "height",
+       "(to) milk",
+       "life jacket",
+       "volcano"
+      ],
+      "answer": "height",
+      "why": "Höhe = height",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Ecke  →",
+      "options": [
+       "geyser",
+       "corner",
+       "volcano",
+       "cave"
+      ],
+      "answer": "corner",
+      "why": "Ecke = corner",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "melken  →",
+      "options": [
+       "geyser",
+       "life jacket",
+       "corner",
+       "(to) milk"
+      ],
+      "answer": "(to) milk",
+      "why": "melken = (to) milk",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Schwimmweste  →",
+      "options": [
+       "corner",
+       "life jacket",
+       "high-rise building",
+       "cave"
+      ],
+      "answer": "life jacket",
+      "why": "Schwimmweste = life jacket",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Hochhaus  →",
+      "options": [
+       "geyser",
+       "volcano",
+       "height",
+       "high-rise building"
+      ],
+      "answer": "high-rise building",
+      "why": "Hochhaus = high-rise building",
+      "hint": ""
+     }
+    ]
+   },
+   {
+    "type": "multi",
+    "tag": "Definitionen",
+    "title": "Definition → word",
+    "q": "Welches Wort passt zur Erklärung? Schreibe es auf.",
+    "hint": "Alle Wörter stehen auf S. 162–163.",
+    "why": "cave · wetsuit · guide · explore · volcano · countryside",
+    "items": [
+     {
+      "kind": "type",
+      "label": "a big natural hole in a hill or under the ground",
+      "answers": [
+       "cave"
+      ],
+      "why": "cave",
+      "hint": "Fängt mit c an."
+     },
+     {
+      "kind": "type",
+      "label": "a tight rubber suit that keeps you warm in the water",
+      "answers": [
+       "wetsuit"
+      ],
+      "why": "wetsuit",
+      "hint": "Zwei Wörter in einem: wet + suit."
+     },
+     {
+      "kind": "type",
+      "label": "a person who shows tourists around a place",
+      "answers": [
+       "guide"
+      ],
+      "why": "guide",
+      "hint": "Fängt mit g an."
+     },
+     {
+      "kind": "type",
+      "label": "to travel around a place to find out what it is like",
+      "answers": [
+       "explore",
+       "to explore"
+      ],
+      "why": "(to) explore",
+      "hint": "Fängt mit e an."
+     },
+     {
+      "kind": "type",
+      "label": "a mountain with a hole at the top where hot melted rock can come out",
+      "answers": [
+       "volcano"
+      ],
+      "why": "volcano",
+      "hint": "Fängt mit v an."
+     },
+     {
+      "kind": "type",
+      "label": "land outside towns and cities, with fields, hills and farms",
+      "answers": [
+       "countryside"
+      ],
+      "why": "countryside",
+      "hint": "Zwei Wörter in einem: country + side."
+     }
+    ]
+   },
+   {
+    "type": "multi",
+    "tag": "Lückensätze",
+    "title": "Fill the gap",
+    "q": "Welches Wort passt in die Lücke?",
+    "hint": "Lies den ganzen Satz.",
+    "why": "1 incredible · 2 guide · 3 height · 4 organic · 5 close to · 6 surprised",
+    "items": [
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "The view from the mountain was ___ – I could not believe it!",
+      "options": [
+       "incredible",
+       "organic",
+       "close",
+       "simple"
+      ],
+      "answer": "incredible",
+      "why": "incredible = unglaublich",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Our ___ showed us the best places in the city.",
+      "options": [
+       "guide",
+       "cave",
+       "shot",
+       "corner"
+      ],
+      "answer": "guide",
+      "why": "guide = Reiseleiter/in",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "What is the ___ of the Sky Tower? – 328 metres.",
+      "options": [
+       "height",
+       "wetsuit",
+       "volcano",
+       "identity"
+      ],
+      "answer": "height",
+      "why": "height = Höhe",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "This farm sells ___ vegetables, grown without chemicals.",
+      "options": [
+       "organic",
+       "deadly",
+       "dirty",
+       "posh"
+      ],
+      "answer": "organic",
+      "why": "organic = Bio-",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Our hotel is ___ the beach – only two minutes away.",
+      "options": [
+       "close to",
+       "up to",
+       "out of",
+       "watch out for"
+      ],
+      "answer": "close to",
+      "why": "close (to) = nahe (bei)",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "The news really ___ me. I did not expect it!",
+      "options": [
+       "surprised",
+       "explored",
+       "milked",
+       "kitted"
+      ],
+      "answer": "surprised",
+      "why": "(to) surprise = überraschen",
+      "hint": ""
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Vocabulary 1 · Word power",
+  "stars": 2,
+  "desc": "Schreiben, Gegenteile, Außenseiter, Sätze bauen",
+  "tasks": [
+   {
+    "type": "multi",
+    "tag": "Schreiben",
+    "title": "Spell it",
+    "q": "Schreibe das englische Wort.",
+    "hint": "Achte auf die Rechtschreibung. Hilfe: Vokabelliste 1.",
+    "why": "cave · volcano · geyser · height · corner · countryside · life jacket · explore",
+    "items": [
+     {
+      "kind": "type",
+      "label": "Höhle →",
+      "answers": [
+       "cave"
+      ],
+      "why": "cave",
+      "hint": "c…e"
+     },
+     {
+      "kind": "type",
+      "label": "Vulkan →",
+      "answers": [
+       "volcano"
+      ],
+      "why": "volcano",
+      "hint": "v…o"
+     },
+     {
+      "kind": "type",
+      "label": "Geysir →",
+      "answers": [
+       "geyser"
+      ],
+      "why": "geyser",
+      "hint": "g…r"
+     },
+     {
+      "kind": "type",
+      "label": "Höhe →",
+      "answers": [
+       "height"
+      ],
+      "why": "height",
+      "hint": "h…t, Vorsicht bei „eigh“"
+     },
+     {
+      "kind": "type",
+      "label": "Ecke →",
+      "answers": [
+       "corner"
+      ],
+      "why": "corner",
+      "hint": "c…r"
+     },
+     {
+      "kind": "type",
+      "label": "Land(schaft) →",
+      "answers": [
+       "countryside"
+      ],
+      "why": "countryside",
+      "hint": "c…e"
+     },
+     {
+      "kind": "type",
+      "label": "Schwimmweste →",
+      "answers": [
+       "life jacket"
+      ],
+      "why": "life jacket",
+      "hint": "Zwei Wörter."
+     },
+     {
+      "kind": "type",
+      "label": "erkunden →",
+      "answers": [
+       "explore",
+       "to explore"
+      ],
+      "why": "(to) explore",
+      "hint": "e…e"
+     }
+    ]
+   },
+   {
+    "type": "multi",
+    "tag": "Gegenteile",
+    "title": "Opposites",
+    "q": "Wähle das Gegenteil. (Einige Wörter kommen erst in Vokabelliste 2.)",
+    "hint": "Denke an die Bedeutung auf Deutsch.",
+    "why": "close to ↔ far from · strength ↔ weakness · dirty ↔ clean · simple ↔ difficult · get on well with ↔ fall out with",
+    "items": [
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "close (to)",
+      "options": [
+       "far from",
+       "next to",
+       "up to",
+       "round"
+      ],
+      "answer": "far from",
+      "why": "nahe bei ↔ weit weg von",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "strength",
+      "options": [
+       "weakness",
+       "feeling",
+       "moment",
+       "choice"
+      ],
+      "answer": "weakness",
+      "why": "Stärke ↔ Schwäche",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "dirty",
+      "options": [
+       "clean",
+       "posh",
+       "simple",
+       "bright"
+      ],
+      "answer": "clean",
+      "why": "schmutzig ↔ sauber",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "simple",
+      "options": [
+       "difficult",
+       "everyday",
+       "horrible",
+       "likely"
+      ],
+      "answer": "difficult",
+      "why": "einfach ↔ schwierig",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "(to) get on well with sb.",
+      "options": [
+       "(to) fall out with sb.",
+       "(to) turn to sb.",
+       "(to) thank sb.",
+       "(to) yell at sb."
+      ],
+      "answer": "(to) fall out with sb.",
+      "why": "sich gut verstehen ↔ sich zerstreiten",
+      "hint": ""
+     }
+    ]
+   },
+   {
+    "type": "multi",
+    "tag": "Außenseiter",
+    "title": "Odd one out",
+    "q": "Welches Wort gehört nicht zu den anderen?",
+    "hint": "Was haben drei Wörter gemeinsam?",
+    "why": "1 guide (Person, die anderen gehören zur Natur) · 2 volcano (Natur, die anderen Ausrüstung) · 3 cave (Nomen, die anderen Verben)",
+    "items": [
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "volcano · geyser · cave · guide",
+      "options": [
+       "volcano",
+       "geyser",
+       "cave",
+       "guide"
+      ],
+      "answer": "guide",
+      "why": "guide ist eine Person, die anderen gehören zur Natur.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "wetsuit · life jacket · zip wire · volcano",
+      "options": [
+       "wetsuit",
+       "life jacket",
+       "zip wire",
+       "volcano"
+      ],
+      "answer": "volcano",
+      "why": "Die anderen drei sind Ausrüstung.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "(to) explore · (to) surprise · (to) milk · cave",
+      "options": [
+       "(to) explore",
+       "(to) surprise",
+       "(to) milk",
+       "cave"
+      ],
+      "answer": "cave",
+      "why": "cave ist ein Nomen, die anderen sind Verben.",
+      "hint": ""
+     }
+    ]
+   },
+   {
+    "type": "multi",
+    "tag": "Sätze bauen",
+    "title": "Build the sentence",
+    "q": "Tippe die Wörter in die richtige Reihenfolge.",
+    "hint": "Der Satz beginnt mit einem Großbuchstaben.",
+    "why": "Subjekt – Verb – Objekt.",
+    "items": [
+     {
+      "kind": "build",
+      "label": "Baue den Satz.",
+      "sentence": "They kitted us out with wetsuits and life jackets.",
+      "why": "They kitted us out with wetsuits and life jackets."
+     },
+     {
+      "kind": "build",
+      "label": "Baue den Satz.",
+      "sentence": "We explored a big cave near the river.",
+      "why": "We explored a big cave near the river."
+     },
+     {
+      "kind": "build",
+      "label": "Baue den Satz.",
+      "sentence": "Watch out for the geyser because the water is hot.",
+      "why": "Watch out for the geyser because the water is hot."
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "New Zealand · Landeskunde",
+  "stars": 2,
+  "desc": "Fakten, true or false, Māori-Wörter",
+  "tasks": [
+   {
+    "type": "multi",
+    "tag": "Landeskunde",
+    "title": "Facts about New Zealand",
+    "q": "Wähle die richtige Antwort.",
+    "hint": "Denk an die Folien und die Texte im Buch.",
+    "why": "Wellington · Auckland · Aotearoa · kiwi · Australia · Hi / hello · traditional Māori dance · 5 million",
+    "items": [
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "What is the capital of New Zealand?",
+      "options": [
+       "Auckland",
+       "Wellington",
+       "Sydney",
+       "Queenstown"
+      ],
+      "answer": "Wellington",
+      "why": "Die Hauptstadt ist Wellington, nicht Auckland.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "What is the biggest city?",
+      "options": [
+       "Auckland",
+       "Wellington",
+       "Christchurch",
+       "Hamilton"
+      ],
+      "answer": "Auckland",
+      "why": "Auckland ist die größte Stadt.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "What is the Māori name for New Zealand?",
+      "options": [
+       "Aotearoa",
+       "Kia ora",
+       "Waitangi",
+       "Rotorua"
+      ],
+      "answer": "Aotearoa",
+      "why": "Aotearoa = Land der langen weißen Wolke.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Which bird cannot fly and is a national symbol?",
+      "options": [
+       "kiwi",
+       "parrot",
+       "penguin",
+       "eagle"
+      ],
+      "answer": "kiwi",
+      "why": "Der Kiwi ist das Nationalsymbol.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Which country is New Zealand's closest neighbour?",
+      "options": [
+       "Australia",
+       "Japan",
+       "India",
+       "Canada"
+      ],
+      "answer": "Australia",
+      "why": "Australien, über 2000 km entfernt.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "What does “Kia ora” mean?",
+      "options": [
+       "Hi / hello",
+       "Goodbye",
+       "Thank you very much",
+       "Good night"
+      ],
+      "answer": "Hi / hello",
+      "why": "Kia ora = Hallo.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "What is a haka?",
+      "options": [
+       "a traditional Māori dance",
+       "a kind of food",
+       "a sport",
+       "a bird"
+      ],
+      "answer": "a traditional Māori dance",
+      "why": "Der Haka ist ein traditioneller Māori-Tanz.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "About how many people live in New Zealand?",
+      "options": [
+       "500,000",
+       "5 million",
+       "50 million",
+       "500 million"
+      ],
+      "answer": "5 million",
+      "why": "Etwa 5 Millionen Menschen.",
+      "hint": ""
+     }
+    ]
+   },
+   {
+    "type": "multi",
+    "tag": "True or false",
+    "title": "True or false?",
+    "q": "Stimmt die Aussage?",
+    "hint": "Du findest Hinweise in den Fun facts und im Buch (S. 26–27).",
+    "why": "1 true · 2 false · 3 true · 4 true · 5 false · 6 true",
+    "items": [
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "The Māori came to New Zealand before the Europeans.",
+      "options": [
+       "true",
+       "false"
+      ],
+      "answer": "true",
+      "why": "Die Māori waren zuerst da.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "New Zealand is in the northern hemisphere.",
+      "options": [
+       "true",
+       "false"
+      ],
+      "answer": "false",
+      "why": "Neuseeland liegt auf der Südhalbkugel.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Most New Zealanders live on the North Island.",
+      "options": [
+       "true",
+       "false"
+      ],
+      "answer": "true",
+      "why": "Die meisten leben auf der Nordinsel.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "The New Zealand flag has the British flag in one corner.",
+      "options": [
+       "true",
+       "false"
+      ],
+      "answer": "true",
+      "why": "Die britische Flagge ist in einer Ecke.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "There are more people than sheep in New Zealand.",
+      "options": [
+       "true",
+       "false"
+      ],
+      "answer": "false",
+      "why": "Es gibt mehr Schafe als Menschen.",
+      "hint": ""
+     },
+     {
+      "kind": "choice",
+      "keep": true,
+      "label": "Rugby is a very popular sport in New Zealand.",
+      "options": [
+       "true",
+       "false"
+      ],
+      "answer": "true",
+      "why": "Rugby ist sehr beliebt.",
+      "hint": ""
+     }
+    ]
+   }
+  ]
+ }
 ] };
 </script>
 <script src="../assets/quiz2.js"></script>
@@ -173,7 +835,20 @@ window.QUIZ = { id: "9m-u2-lead-in", choiceTip: "", levels: [
     };
     box.appendChild(d);
   });
-  document.getElementById("showModel").onclick = () => { document.getElementById("model").hidden = false; };
+  const WORDS = ["geyser", "volcano", "countryside", "wetsuit", "life jacket", "explore", "incredible", "height", "cave", "organic"];
+  const sbox = document.getElementById("spell");
+  WORDS.forEach((w, i) => {
+    const d = document.createElement("div"); d.className = "ff";
+    d.innerHTML = '<b>Word ' + (i + 1) + '</b><audio controls preload="none" src="audio/word-' + String(i + 1).padStart(2, "0") + '.mp3"></audio>' +
+      '<input type="text" autocomplete="off" spellcheck="false" placeholder="Write the word …"> <button class="btn secondary" type="button">Prüfen</button><div class="ans"></div>';
+    const inp = d.querySelector("input"), out = d.querySelector(".ans");
+    d.querySelector("button").onclick = () => {
+      const ok = norm(inp.value) === norm(w);
+      out.className = "ans " + (ok ? "ok" : "no");
+      out.textContent = ok ? "✓ Richtig: " + w : "Noch nicht. Höre noch einmal zu und achte auf jeden Buchstaben.";
+    };
+    sbox.appendChild(d);
+  });
 })();
 </script>
 </body>
