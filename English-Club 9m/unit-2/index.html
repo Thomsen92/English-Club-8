@@ -3,8 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unit 2 · English at work · English Club 9m</title>
+<meta name="robots" content="noindex">
+<title>Unit 2 · Kia ora from New Zealand · English Club 9m</title>
 <link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/quiz2.css">
+<style>
+  .ff { border-top: 1px solid #e3e3e3; padding: 12px 0; }
+  .ff:first-of-type { border-top: 0; }
+  .ff audio { width: 100%; margin: 6px 0; }
+  .ff input[type=text] { font: inherit; padding: 8px 10px; border: 1px solid #bbb; border-radius: 8px; width: 100%; max-width: 360px; box-sizing: border-box; }
+  .ff .ans { margin-top: 6px; font-weight: 600; }
+  .ff .ans.ok { color: #1b7a34; }
+  .ff .ans.no { color: #b3261e; }
+  .chk label { display: block; padding: 6px 0; }
+  .model { background: #eef5fb; border-radius: 10px; padding: 10px 12px; margin-top: 8px; }
+  textarea.own { width: 100%; min-height: 90px; box-sizing: border-box; font: inherit; padding: 8px 10px; border: 1px solid #bbb; border-radius: 8px; }
+</style>
 </head>
 <body>
 <header class="top">
@@ -12,15 +26,153 @@
     <a class="crumb" href="../">← Alle Units</a>
     <div class="brand">
       <div class="logo date">U2</div>
-      <div><p class="when">Unit 2</p><h1>English at work</h1><p>Vokabeln · Grammatik · Aufgaben folgen</p></div>
+      <div><p class="when">Unit 2 · Fr, 13.11.</p><h1>Kia ora from New Zealand</h1><p>Selbstkontrolle S. 26–29 · Fun facts</p></div>
     </div>
   </div>
 </header>
 <main class="wrap">
-  <div class="card">
-    <p><b>Aufgaben folgen.</b> Diese Unit ist noch in Arbeit.</p>
-  </div>
+  <section id="menu">
+    <div class="label">Selbstkontrolle – wähle einen Teil</div>
+    <p class="hint" style="margin:6px 0 14px">Mach zuerst die Aufgabe im Buch. Danach prüfst du hier selbst. Wenn etwas falsch ist, schau noch einmal in den Text und verbessere in deinem Heft.</p>
+    <div class="levels" id="levels"></div>
+
+    <h2>✍️ Lina's photos (S. 28) – Selbst-Check</h2>
+    <div class="card chk">
+      <p class="hint" style="margin:0 0 8px"><b>1a:</b> Zu jedem Foto A–G steht ein kurzer Kommentar. Das Beispiel steht im Buch (A: Love the view!).</p>
+      <p class="hint" style="margin:0 0 8px"><b>1b:</b> Beschreibe ein Foto mit Personen (Partner). Hake ab, was du schon gemacht hast:</p>
+      <label><input type="checkbox"> I said what I can see <b>in the foreground</b> and <b>in the background</b>.</label>
+      <label><input type="checkbox"> I used the <b>present progressive</b> (They are climbing …).</label>
+      <label><input type="checkbox"> I used <b>There is / There are</b> and <b>It looks like …</b></label>
+      <label><input type="checkbox"> I compared the photo with <b>my own holidays</b> (I usually … on holiday. / I would love to try …).</label>
+      <label><input type="checkbox"> We swapped roles.</label>
+      <button class="btn secondary" id="showModel" type="button" style="margin-top:8px">Beispiel zeigen (Foto F)</button>
+      <div class="model" id="model" hidden>
+        <b>Example:</b> In the foreground there is a waterfall. In the background you can see trees and rocks. Some people are climbing down the waterfall with ropes. It looks like fun, but it also looks a bit scary. On holiday I usually go swimming, so this is something new for me. I would love to try it!
+      </div>
+    </div>
+
+    <h2>🎧 NZ fun facts</h2>
+    <div class="card">
+      <p class="hint" style="margin:0 0 6px">Schon fertig? Höre die Fun facts über Neuseeland (Kopfhörer!). Schreibe die gesuchte Zahl oder das gesuchte Wort auf und tippe auf <b>Prüfen</b>.</p>
+      <div id="facts"></div>
+    </div>
+
+    <h2>💡 Your own fun fact</h2>
+    <div class="card chk">
+      <p class="hint" style="margin:0 0 8px">Suche im Internet einen Fun fact über Neuseeland und schreibe ihn auf Englisch (1–2 Sätze). Wichtig: Was du hier schreibst, bleibt nur auf deinem Tablet.</p>
+      <textarea class="own" placeholder="Did you know that …?"></textarea>
+      <label><input type="checkbox"> It is true. I checked it on a second website.</label>
+      <label><input type="checkbox"> I used the <b>simple present</b> or the <b>simple past</b> correctly.</label>
+      <label><input type="checkbox"> I used a number or a name (for example 1893 or Aotearoa).</label>
+      <label><input type="checkbox"> I told my partner or my teacher.</label>
+    </div>
+  </section>
+
+  <section id="quiz" hidden>
+    <div class="progress"><span id="bar"></span></div>
+    <div class="card" id="card"></div>
+    <div class="actions"><button class="btn secondary" id="stop">← Zur Auswahl</button></div>
+  </section>
+
   <p class="foot">English Club 9m · Kein Login · keine Werbung · es werden keine Daten verschickt.</p>
 </main>
+<script>
+window.QUIZ = { id: "9m-u2-lead-in", choiceTip: "", levels: [
+
+  { name: "Lead-in & Film (S. 26–27)", stars: 1, desc: "Texte A–D, Hörtext 1.16, Run Rabbit", tasks: [
+    { type: "multi", tag: "S. 26 · 1a", title: "Match texts A–D with the headings",
+      q: "Welcher Text passt zu welcher Überschrift?",
+      hint: "Lies die Kurztexte noch einmal. Welche Wörter helfen dir (e.g. 300 years, 5 million, King, mountains)?",
+      why: "1 first inhabitants → B · 2 population → D · 3 political information → C · 4 the natural world → A",
+      items: [
+        { kind: "choice", keep: true, label: "1  first inhabitants", options: ["A", "B", "C", "D"], answer: "B", why: "Text B: The Māori people came to New Zealand about 300 years before the Europeans.", hint: "Wer war zuerst da?" },
+        { kind: "choice", keep: true, label: "2  population", options: ["A", "B", "C", "D"], answer: "D", why: "Text D: Only 5 million people live in New Zealand.", hint: "Wie viele Menschen?" },
+        { kind: "choice", keep: true, label: "3  political information", options: ["A", "B", "C", "D"], answer: "C", why: "Text C: independent country, head of state, flag.", hint: "Land, Staatsoberhaupt, Flagge." },
+        { kind: "choice", keep: true, label: "4  the natural world", options: ["A", "B", "C", "D"], answer: "A", why: "Text A: coast, mountains, geysers.", hint: "Landschaft." },
+      ] },
+
+    { type: "multi", tag: "S. 26 · 1c", title: "Listen again and complete the sentences",
+      q: "Was hast du im Hörtext gehört? Trage Zahl oder Wort ein.",
+      hint: "Schreibe nur ein Wort oder eine Zahl (Zahlen als Ziffern oder Wort).",
+      why: "Prüfe noch einmal mit dem Hörtext 1.16 und den Kurztexten A–D.",
+      items: [
+        { kind: "type", label: "1  Pohutu Geyser shoots … to a height of up to ___ metres.", answers: ["30", "thirty"], why: "30 metres", hint: "Zwei Ziffern." },
+        { kind: "type", label: "2  Māori people are about ___ % of the population of New Zealand.", answers: ["16", "sixteen"], why: "16 %", hint: "Zwei Ziffern." },
+        { kind: "type", label: "3  A flight from Auckland to Sydney takes ___ hours.", answers: ["4", "four"], why: "four hours", hint: "Eine kleine Zahl." },
+        { kind: "type", label: "4  The capital of New Zealand is ___.", answers: ["wellington"], why: "Wellington (nicht Auckland!)", hint: "Beginnt mit W." },
+        { kind: "type", label: "5  Most immigrants today come from China and ___.", answers: ["india"], why: "India", hint: "Beginnt mit I." },
+        { kind: "type", label: "6  ___ is a popular meal.", answers: ["fish and chips", "fish & chips"], why: "Fish and chips", hint: "Drei Wörter." },
+        { kind: "type", label: "7  New Zealand is about ___ times as big as Bavaria.", answers: ["4", "four"], why: "four times", hint: "Eine kleine Zahl." },
+      ] },
+
+    { type: "multi", tag: "S. 27 · 2a", title: "Run Rabbit – What do you see in the film?",
+      q: "Was kommt im Film vor? Wähle yes oder no.",
+      hint: "Denk an die Szenen aus dem Film.",
+      why: "yes: farm, fireworks, hills, river, road sign, sheep · no: hospital",
+      items: [
+        { kind: "choice", keep: true, label: "1  a farm", options: ["yes", "no"], answer: "yes", why: "Eine Farm kommt vor." },
+        { kind: "choice", keep: true, label: "2  fireworks", options: ["yes", "no"], answer: "yes", why: "Feuerwerk kommt vor." },
+        { kind: "choice", keep: true, label: "3  hills", options: ["yes", "no"], answer: "yes", why: "Hügel kommen vor." },
+        { kind: "choice", keep: true, label: "4  a hospital", options: ["yes", "no"], answer: "no", why: "Ein Krankenhaus kommt nicht vor." },
+        { kind: "choice", keep: true, label: "5  a river", options: ["yes", "no"], answer: "yes", why: "Ein Fluss kommt vor." },
+        { kind: "choice", keep: true, label: "6  a road sign", options: ["yes", "no"], answer: "yes", why: "Ein Straßenschild kommt vor." },
+        { kind: "choice", keep: true, label: "7  a sheep", options: ["yes", "no"], answer: "yes", why: "Ein Schaf kommt vor." },
+      ] },
+  ] },
+
+  { name: "Lina's texts (S. 29)", stars: 2, desc: "Texte 1–5 den Fotos zuordnen, Fragen", tasks: [
+    { type: "multi", tag: "S. 29 · 2a", title: "Match texts 1–5 with a photo (A–G, page 28)",
+      q: "Zu welchem Foto auf S. 28 passt der Text?",
+      hint: "Suche Schlüsselwörter: volcanoes, rugby, wetsuits, Maori guide, high-rise buildings, goat …",
+      why: "Text 1 → D · Text 2 → B · Text 3 → E · Text 4 → G · Text 5 → F",
+      items: [
+        { kind: "choice", keep: true, label: "Text 1 (organic farm, milk a goat)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "D", why: "Das Foto D zeigt eine Ziege.", hint: "Welches Tier?" },
+        { kind: "choice", keep: true, label: "Text 2 (Auckland tour with Tai, Māori guide)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "B", why: "Foto B zeigt zwei Menschen mit Māori-Tattoos.", hint: "Tai ist ein Māori-Guide." },
+        { kind: "choice", keep: true, label: "Text 3 (flight, Sky Tower, volcanoes)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "E", why: "Foto E zeigt den Sky Tower.", hint: "Ein hoher Turm." },
+        { kind: "choice", keep: true, label: "Text 4 (rugby)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "G", why: "Foto G zeigt Rugby.", hint: "Sport." },
+        { kind: "choice", keep: true, label: "Text 5 (river tour, wetsuits, caves)", options: ["A", "B", "C", "D", "E", "F", "G"], answer: "F", why: "Foto F zeigt Menschen am Wasserfall.", hint: "Klettern am Wasser." },
+      ] },
+
+    { type: "multi", tag: "S. 29 · 2b", title: "Read the texts again. Then answer the questions.",
+      q: "Welche Antwort passt? (Schreibe die Antworten zuerst in vollständigen Sätzen ins Heft.)",
+      hint: "Die Antworten stehen in den Texten 1–4 auf S. 29.",
+      why: "Prüfe mit den Texten.",
+      items: [
+        { kind: "choice", keep: true, label: "1  What can you say about Lina's journey to New Zealand?", options: ["It was short.", "It took almost 24 hours.", "She flew directly from Munich."], answer: "It took almost 24 hours.", why: "6 + 17 Stunden Flug, über Dubai.", hint: "Text 3." },
+        { kind: "choice", keep: true, label: "2  What do you know about Lina's stay on the farm?", options: ["It is an organic farm on South Island.", "It is a big city hotel.", "She works with computers."], answer: "It is an organic farm on South Island.", why: "Text 1: organic farm, South Island, learning new skills.", hint: "Text 1." },
+        { kind: "choice", keep: true, label: "3  What has Lina learned about rugby?", options: ["Nobody plays it.", "It is very popular, and NZ is one of the top countries.", "It is only for tourists."], answer: "It is very popular, and NZ is one of the top countries.", why: "Text 4.", hint: "Text 4." },
+        { kind: "choice", keep: true, label: "4  What can you see in the photo on the right (page 29)?", options: ["An active volcano.", "A volcano that is not active anymore.", "A big city."], answer: "A volcano that is not active anymore.", why: "Hügel/Vulkan, nicht mehr aktiv.", hint: "Neben Text 3." },
+      ] },
+  ] },
+] };
+</script>
+<script src="../assets/quiz2.js"></script>
+<script>
+(function () {
+  const FACTS = [
+    { f: "fact-01.mp3", q: "How many sheep are there in New Zealand? (more than … million)", a: ["20", "twenty"], s: "More than twenty million." },
+    { f: "fact-02.mp3", q: "Which animal is the national symbol?", a: ["kiwi", "the kiwi", "a kiwi"], s: "The kiwi." },
+    { f: "fact-03.mp3", q: "What is the Māori name for New Zealand?", a: ["aotearoa"], s: "Aotearoa." },
+    { f: "fact-04.mp3", q: "In which year could women vote for the first time? (4 numbers)", a: ["1893"], s: "1893." },
+    { f: "fact-05.mp3", q: "Near which town did the first bungee site open?", a: ["queenstown"], s: "Queenstown." },
+    { f: "fact-06.mp3", q: "When it is summer in Germany, what is it in New Zealand?", a: ["winter"], s: "Winter." },
+  ];
+  const norm = (s) => String(s).toLowerCase().replace(/[.!?,;:'’]/g, "").replace(/\s+/g, " ").trim();
+  const box = document.getElementById("facts");
+  FACTS.forEach((x, i) => {
+    const d = document.createElement("div"); d.className = "ff";
+    d.innerHTML = '<b>Fun fact ' + (i + 1) + '</b><audio controls preload="none" src="audio/' + x.f + '"></audio><div>' + x.q +
+      '</div><input type="text" autocomplete="off" spellcheck="false" placeholder="Your answer …"> <button class="btn secondary" type="button">Prüfen</button><div class="ans"></div>';
+    const inp = d.querySelector("input"), out = d.querySelector(".ans");
+    d.querySelector("button").onclick = () => {
+      const ok = x.a.some((a) => norm(a) === norm(inp.value));
+      out.className = "ans " + (ok ? "ok" : "no");
+      out.textContent = ok ? "✓ Richtig! " + x.s : "Noch nicht. Höre noch einmal zu.";
+    };
+    box.appendChild(d);
+  });
+  document.getElementById("showModel").onclick = () => { document.getElementById("model").hidden = false; };
+})();
+</script>
 </body>
 </html>
