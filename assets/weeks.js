@@ -6,4 +6,5 @@ window.WEEKS = [
   { id: "2026-10-19", monday: "19.10.", start: "2026-10-17", unit: "Unit 1 · New York", title: "As big as New York?", topic: "Comparisons · British & American English · Vokabelblatt 5" },
   { id: "2026-10-26", monday: "26.10.", start: "2026-10-24", unit: "Unit 1 · New York", title: "Do you remember?", topic: "Wiederholung: Simple Past · Relativsätze · Vergleiche · Vokabelblatt 6" },
   { id: "2026-11-09", monday: "09.11.", start: "2026-11-07", unit: "Unit 1 · New York", title: "Have you ever been to New York?", topic: "Present perfect oder simple past · Vokabelblatt 7" },
+  { id: "2026-11-16", monday: "16.11.", start: "2026-11-14", unit: "Unit 2 · Two states, two families", title: "Alaska or Florida?", topic: "Vokabelblatt 8 · Wordbank 3 · Alaska und Florida" },
 ];

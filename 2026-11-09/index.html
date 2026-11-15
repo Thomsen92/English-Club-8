@@ -295,14 +295,14 @@ window.CLOZE = { mount: "#cloze", items: [
 ]};
 
 // Komplettes Rollenspiel (Gerätestimme): hören → antworten → hören → antworten …
-window.ROLEPLAY = { mount: "#roleplay", role: "Noah", icon: "🧑", turns: [
-  { say: "Hi! I'm Noah. Have you ever been to New York?", hint: "Antworte mit einer Kurzantwort im present perfect.", model: "Yes, I have.", options: ["Yes, I did.", "Yes, I am."] },
-  { say: "Cool! When did you go there?", hint: "Sag, wann du dort warst (simple past).", model: "I went there last year.", options: ["I have gone there last year.", "I go there last year."] },
-  { say: "What did you see there?", hint: "Erzähl, was du gesehen hast.", model: "We saw the Statue of Liberty and the Empire State Building.", options: ["We have seen the Statue of Liberty yesterday.", "We seen the Statue of Liberty."] },
-  { say: "Did you like it?", hint: "Sag, wie es war.", model: "Yes, it was awesome! We had a great time.", options: ["Yes, it is awesome! We have a great time.", "Yes, it was awesome! We has a great time."] },
-  { say: "I have never been to New York. I want to go!", hint: "Mach Noah Mut.", model: "You should go! I'm sure you will love it.", options: ["You should went! I'm sure you will love it.", "You should to go! I'm sure you will love it."] },
-  { say: "Have you ever been to Florida?", hint: "Du warst noch nie dort.", model: "No, I haven't. But I want to go snorkelling.", options: ["No, I didn't. But I want to go snorkelling.", "No, I haven't. But I want to went snorkelling."] },
-  { say: "Great idea! Thanks for talking to me.", hint: "Bedank dich und verabschiede dich.", model: "You're welcome. Bye, Noah!", options: ["You're welcomed. Bye, Noah!", "Your welcome. Bye, Noah!"] },
+window.ROLEPLAY = { mount: "#roleplay", role: "Noah", icon: "🧑", audioDir: "../assets/audio/roleplay-noah/", audioOther: "noah", audioYou: "du", turns: [
+  { say: "Hi! I'm Noah. Have you ever been to New York?", hint: "Antworte mit einer Kurzantwort im present perfect.", model: "Yes, I have.", options: ["Nice to meet you, too. I’m in class 8a.", "I have a dog and two cats."] },
+  { say: "Cool! When did you go there?", hint: "Sag, wann du dort warst (simple past).", model: "I went there last year.", options: ["Because I like big cities.", "With my cousin and my aunt."] },
+  { say: "What did you see there?", hint: "Erzähl, was du gesehen hast.", model: "We saw the Statue of Liberty and the Empire State Building.", options: ["We stayed for five days.", "It was very hot and sunny."] },
+  { say: "Did you like it?", hint: "Sag, wie es war.", model: "Yes, it was awesome! We had a great time.", options: ["I went with my parents.", "It is next to the Hudson River."] },
+  { say: "I have never been to New York. I want to go!", hint: "Mach Noah Mut.", model: "You should go! I'm sure you will love it.", options: ["No problem. Where is my bag?", "Yes, I have. Last year."] },
+  { say: "Have you ever been to Florida?", hint: "Du warst noch nie dort.", model: "No, I haven't. But I want to go snorkelling.", options: ["Yes, it was great. We saw a whale.", "Yes, I did, last year."] },
+  { say: "Great idea! Thanks for talking to me.", hint: "Bedank dich und verabschiede dich.", model: "You're welcome. Bye, Noah!", options: ["Good morning! How are you?", "Yes, please. A pizza and a cola."] },
 ]};
 </script>
 <script src="../assets/quiz2.js"></script>
